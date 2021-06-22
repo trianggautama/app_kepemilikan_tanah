@@ -99,7 +99,7 @@
                 <input type="date" class="form-control form-control-sm">
               </div>
             </div>
-          </div>
+          </div> 
           <label for="firstName">Jenis kelamin</label>
           <div class="row">
             <div class="col-md">
