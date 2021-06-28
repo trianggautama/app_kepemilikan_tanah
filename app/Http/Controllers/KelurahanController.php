@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class KelurahanController extends Controller
@@ -13,8 +16,10 @@ class KelurahanController extends Controller
      */
     public function index()
     {
-        return view('admin.kelurahan.index');
-    } 
+        $kecamatan = Kecamatan::all();
+        $data = Kelurahan::all();
+        return view('admin.kelurahan.index', compact('data', 'kecamatan'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +39,9 @@ class KelurahanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Kelurahan::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -54,9 +61,11 @@ class KelurahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Kelurahan $kelurahan)
     {
-        return view('admin.kelurahan.edit');
+        $kecamatan = Kecamatan::all();
+
+        return view('admin.kelurahan.edit', compact('kelurahan', 'kecamatan'));
     }
 
     /**
@@ -66,9 +75,11 @@ class KelurahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kelurahan $kelurahan)
     {
-        //
+        $kelurahan->update($request->all());
+
+        return redirect()->route('admin.kelurahan.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -77,8 +88,17 @@ class KelurahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kelurahan $kelurahan)
     {
-        //
+        try {
+            $kelurahan->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }
