@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -83,8 +84,17 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jabatan $jabatan)
     {
-        //
+        try {
+            $jabatan->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

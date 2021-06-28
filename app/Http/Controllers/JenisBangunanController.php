@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisBangunan;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class JenisBangunanController extends Controller
@@ -13,7 +15,8 @@ class JenisBangunanController extends Controller
      */
     public function index()
     {
-        return view('admin.jenis_bangunan.index');
+        $data = JenisBangunan::all();
+        return view('admin.jenis_bangunan.index', compact('data'));
     }
 
     /**
@@ -34,7 +37,9 @@ class JenisBangunanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = JenisBangunan::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -54,10 +59,9 @@ class JenisBangunanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(JenisBangunan $jenisBangunan)
     {
-        return view('admin.jenis_bangunan.edit');
-
+        return view('admin.jenis_bangunan.edit', compact('jenisBangunan'));
     }
 
     /**
@@ -67,9 +71,11 @@ class JenisBangunanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, JenisBangunan $jenisBangunan)
     {
-        //
+        $jenisBangunan->update($request->all());
+
+        return redirect()->route('admin.jenis_bangunan.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -78,8 +84,17 @@ class JenisBangunanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(JenisBangunan $jenisBangunan)
     {
-        //
+        try {
+            $jenisBangunan->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }
