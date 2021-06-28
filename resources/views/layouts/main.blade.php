@@ -12,21 +12,20 @@
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
 
-    <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="{{asset('admin/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
   
     <!-- PLUGINS CSS STYLE -->
-    <link href="{{asset('adminassets/plugins/simplebar/simplebar.css')}}" rel="stylesheet" />
-    <link href="{{asset('adminassets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
+    <link href="{{asset('admin/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
   
     <!-- No Extra plugin used -->
     
-    <link href="{{asset('adminassets/plugins/daterangepicker/daterangepicker.css')}}" rel='stylesheet'>
+    <link href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}" rel='stylesheet'>
     
     
     
     
-    <link href="{{asset('adminassets/plugins/fullcalendar/core-4.3.1/main.min.css')}}" rel='stylesheet'>
-    <link href="{{asset('adminassets/plugins/fullcalendar/daygrid-4.3.0/main.min.css')}}"" rel='stylesheet'>
+    <link href="{{asset('admin/plugins/fullcalendar/core-4.3.1/main.min.css')}}" rel='stylesheet'>
+    <link href="{{asset('admin/plugins/fullcalendar/daygrid-4.3.0/main.min.css')}}"" rel='stylesheet'>
     
     
     
@@ -35,7 +34,7 @@
     <link id="sleek-css" rel="stylesheet" href="{{asset('admin/css/sleek.css')}}" />
   
     <!-- FAVICON -->
-    <link href="{{asset('admin/assets/img/favicon.png')}}" rel="shortcut icon" />
+    <link href="{{asset('admin/img/favicon.png')}}" rel="shortcut icon" />
   
     <!--
       HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -71,7 +70,7 @@
             <div class="app-brand">
               <a href="/index.html" title="Sleek Dashboard">
                 <img src="{{asset('pemko.png')}}" alt="" width="30px">
-                <span class="brand-name text-truncate">Aplikasi Pengelolaan Kepemilikan Tanah</span>
+                <span class="brand-name text-truncate">Aplikasi Tanah</span>
               </a>
             </div>
 
@@ -81,15 +80,15 @@
               <ul class="nav sidebar-inner" id="sidebar-menu">
                 <li class="has-sub ">
                     <a class="sidenav-item-link" href="{{Route('admin.index')}}">
-                      <i class="mdi mdi-home"></i>
+                      <i class="fa fa-home"></i>
                       <span class="nav-text">Beranda</span>
                     </a>
                   </li>
                 <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                     aria-expanded="false" aria-controls="dashboard">
-                    <i class="mdi mdi-folder-outline"></i>
-                    <span class="nav-text">Master Data</span> <b class="caret"></b>
+                    <i class="fa fa-folder"></i>
+                    <span class="nav-text">Master Data</span> <span class="fa fa-sort-down"></span>
                   </a>
 
                   <ul class="collapse " id="dashboard" data-parent="#sidebar-menu">
@@ -121,8 +120,8 @@
                 <li class="has-sub ">
                   <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
                     aria-expanded="false" aria-controls="dashboard">
-                    <i class="mdi mdi-account-multiple"></i>
-                    <span class="nav-text">User Aplikasi</span> <b class="caret"></b>
+                    <i class="fa fa-users"></i>
+                    <span class="nav-text">User Aplikasi</span> <span class="fa fa-sort-down">
                   </a>
 
                   <ul class="collapse " id="users" data-parent="#sidebar-menu">
@@ -148,7 +147,7 @@
           <header class="main-header " id="header">
             <nav class="navbar navbar-static-top navbar-expand-lg">
               <button id="sidebar-toggler" class="sidebar-toggle">
-                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-arrow-left"></i>
               </button>
               <div class="search-form d-none d-lg-inline-block">
               </div>
@@ -157,34 +156,20 @@
                 <ul class="nav navbar-nav">
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="{{asset('admin//img/user/user.png')}}" class="user-image" alt="User Image" />
+                      <img src="{{asset('admin/img/user/user.png')}}" class="user-image" alt="User Image" />
                       <span class="d-none d-lg-inline-block">Abdus Salam</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li class="dropdown-header">
-                        <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                        <img src="{{asset('admin/img/user/user.png')}}" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
                           Abdus Salam <small class="pt-1">iamabdus@gmail.com</small>
                         </div>
                       </li>
                       <li>
                         <a href="user-profile.html">
-                          <i class="mdi mdi-account"></i> My Profile
+                          <i class="fa fa-sign-out"></i> Logout
                         </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <i class="mdi mdi-email"></i> Message
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                      </li>
-                      <li class="right-sidebar-in">
-                        <a href="javascript:0"> <i class="mdi mdi-settings"></i> Setting </a>
-                      </li>
-                      <li class="dropdown-footer">
-                        <a href="index.html"> <i class="mdi mdi-logout"></i> Log Out </a>
                       </li>
                     </ul>
                   </li>
@@ -216,16 +201,12 @@
     <!-- Javascript -->
     <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('admin/plugins/simplebar/simplebar.min.js')}}"></script>
     <script src="{{asset('admin/plugins/daterangepicker/moment.min.js')}}"></script>
     <script src="{{asset('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
     <script src="{{asset('admin/js/date-range.js')}}"></script>
     <script src="{{asset('admin/plugins/fullcalendar/core-4.3.1/main.min.js')}}"></script>
     <script src="{{asset('admin/plugins/fullcalendar/daygrid-4.3.0/main.min.js')}}"></script>
-    <script src="{{asset('admin/js/app.calendar.js')}}"></script>
     <script src="{{asset('admin/js/sleek.js')}}"></script>
-    <link href="{{asset('admin/options/optionswitch.css')}}" rel="stylesheet">
-    <script src="{{asset('admin/options/optionswitcher.js')}}"></script>
     @yield('script')
 </body>
 </html>
