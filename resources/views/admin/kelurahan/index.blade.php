@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header text-right">
                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-add-event">
-                        <i class="mdi mdi-plus mr-1"></i> Tambah Data
+                        <i class="fa fa-plus mr-1"></i> Tambah Data
                     </button>
                 </div>
                 <div class="card-body">
@@ -51,8 +51,8 @@
                                     <form action="{{Route('admin.kelurahan.destroy','1')}}">
                                     @csrf
                                     @method('DELETE')
-                                        <a href="{{Route('admin.kelurahan.edit','1')}}" class="btn btn-sm btn-info"> <i class="mdi mdi-pencil"></i> Edit</a>
-                                        <button type="submit" class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i>Hapus</button>
+                                        <a href="{{Route('admin.kelurahan.edit','1')}}" class="btn btn-sm btn-info"> <i class="fa fa-pencil"></i> Edit</a>
+                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</button>
                                     </form>
                                 </td>
                             </tr>
