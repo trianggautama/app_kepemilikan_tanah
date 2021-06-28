@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -13,7 +14,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        return view('admin.jabatan.index');
+        $data = Jabatan::all();
+        return view('admin.jabatan.index', compact('data'));
     }
 
     /**
@@ -34,7 +36,9 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Jabatan::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -54,9 +58,9 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jabatan $jabatan)
     {
-        return view('admin.jabatan.edit');
+        return view('admin.jabatan.edit', compact('jabatan'));
     }
 
     /**
@@ -66,9 +70,11 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jabatan $jabatan)
     {
-        //
+        $jabatan->update($request->all());
+
+        return redirect()->route('admin.jabatan.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
