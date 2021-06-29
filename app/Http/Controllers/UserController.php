@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        $data = User::all();
+        return view('admin.user.index', compact('data'));
     }
 
     /**
@@ -34,7 +38,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req = $request->all();
+        $req['password'] = Hash::make($request->password);
+        $data = User::create($req);
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -54,9 +62,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('admin.user.edit');
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -66,9 +74,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+
+        $user->update($req);
+
+        return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -77,8 +92,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        try {
+            $user->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

@@ -1,26 +1,31 @@
 <?php
-use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::prefix('/auth')->name('auth.')->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login'); 
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::prefix('/admin')->name('admin.')->group(function () {
-    Route::get('/beranda', [MainController::class, 'admin_index'])->name('index'); 
+Route::group(['middleware' => ['admin']], function () {
 
-    //masteer Data
-    Route::resource('jabatan', '\App\Http\Controllers\JabatanController');
-    Route::resource('jenis_bangunan', '\App\Http\Controllers\JenisBangunanController');
-    Route::resource('kecamatan', '\App\Http\Controllers\KecamatanController');
-    Route::resource('kelurahan', '\App\Http\Controllers\KelurahanController');
+    Route::prefix('/admin')->name('admin.')->group(function () {
+        Route::get('/beranda', [MainController::class, 'admin_index'])->name('index');
 
-    Route::resource('user', '\App\Http\Controllers\UserController');
+        //masteer Data
+        Route::resource('jabatan', '\App\Http\Controllers\JabatanController');
+        Route::resource('jenis_bangunan', '\App\Http\Controllers\JenisBangunanController');
+        Route::resource('kecamatan', '\App\Http\Controllers\KecamatanController');
+        Route::resource('kelurahan', '\App\Http\Controllers\KelurahanController');
 
+        Route::resource('user', '\App\Http\Controllers\UserController');
+
+    });
 });
-

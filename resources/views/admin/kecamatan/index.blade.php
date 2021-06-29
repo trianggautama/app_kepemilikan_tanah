@@ -49,7 +49,7 @@
                                     <td>{{$d->kode_kecamatan}}</td>
                                     <td>{{$d->nama_kecamatan}}</td>
                                     <td class="text-center">
-                                        <form action="{{Route('admin.kecamatan.destroy',$d->id)}}">
+                                        <form action="{{Route('admin.kecamatan.destroy',$d->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a href="{{Route('admin.kecamatan.edit',$d->id)}}"
