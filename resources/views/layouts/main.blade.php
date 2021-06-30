@@ -134,8 +134,29 @@
                 </a>
               </li>
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.user.index')}}">
+                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
                   <span class="nav-text">User Pemohon</span>
+                </a>
+              </li>
+            </div>
+          </ul>
+        </li>
+        <li class="has-sub ">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pemohonan"
+            aria-expanded="false" aria-controls="dashboard">
+            <i class="fa fa-file-text"></i>
+            <span class="nav-text">Permohonan</span> <span class="fa fa-sort-down">
+          </a>
+          <ul class="collapse " id="pemohonan" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.permohonan.index')}}">
+                  <span class="nav-text">Data Permohonan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
+                  <span class="nav-text">Arsip Permohonan</span>
                 </a>
               </li>
             </div>

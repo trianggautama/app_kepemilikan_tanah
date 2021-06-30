@@ -56,9 +56,7 @@
             </li>
           </ul>
           <div class="btn-sing float-right">
-            <a class="page-scroll" href="{{Route('auth.register')}}">
-              Register
-            </a>          
+            <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
           </div>
         </div>
       </div>
@@ -66,9 +64,7 @@
       <!-- Mobile Menu Start -->
       <ul class="mobile-menu navbar-nav">
         <li>
-          <a class="page-scroll" href="{{Route('auth.register')}}">
-            Register
-          </a>
+            <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">
@@ -84,7 +80,7 @@
   </header>
   <!-- Header Area wrapper End -->
   <!-- Subscribe Section Start -->
-  <section id="Subscribes" class="subscribes section-padding" style="padding-top:200px;padding-bottom:200px;">
+  <section id="Subscribes" class="subscribes section-padding" style="padding-top:150px;padding-bottom:150px;">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-5">
@@ -93,12 +89,24 @@
           <form action="{{route('auth.authenticate')}}" method="POST">
             @csrf
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="text" class="form-control" name="username" placeholder="Nama" required>
+            </div>
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="text" class="form-control" name="username" placeholder="Tempat Lahir" required>
+            </div>
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="date" class="form-control" name="username" placeholder="Username" required>
+            </div>
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="text" class="form-control" name="username" placeholder="No Hp" required>
+            </div>
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
               <input type="text" class="form-control" name="username" placeholder="Username" required>
             </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
               <input type="password" class="form-control" name="password" placeholder="Password" required>
               <a href="{{route('welcome')}}" class="btn btn-secondary"><i class="fa fa-arrow-right"></i>Kembali</a>
-              <button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i>Login</button>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-arrow-right"></i>Register</button>
             </div>
           </form>
         </div>

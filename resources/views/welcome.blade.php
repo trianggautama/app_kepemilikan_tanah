@@ -44,33 +44,28 @@
             <span class="icon-menu"></span>
             <span class="icon-menu"></span>
           </button>
-          <a href="index.html" class="navbar-brand"><img src="{{asset('depan/img/logo.png')}}" alt=""></a>
+          <a href="/" class="navbar-brand"><img src="{{asset('ATR.png')}}" alt="" style="max-width:40px;"> <small>BPN Kota Banjarbaru</small></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
-          <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
+          <ul class="navbar-nav ml-auto w-100 justify-content-right clearfix">
             <li class="nav-item active">
               <a class="nav-link" href="#hero-area">
-                Home
+                Halaman Depan
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#services">
-                Services
+                Jenis Bangunan
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#feature">
-                feature
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">
-                Contact
+                Alur Pelayanan
               </a>
             </li>
           </ul>
           <div class="btn-sing float-right">
-            <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
+            <a class="btn btn-border" href="{{Route('auth.login')}}">Login / Register</a>
           </div>
         </div>
       </div>
@@ -79,22 +74,22 @@
       <ul class="mobile-menu navbar-nav">
         <li>
           <a class="page-scroll" href="#hero-area">
-            Home
+            Halaman Depan
           </a>
         </li>
         <li>
           <a class="page-scroll" href="#services">
-            Services
+            Jenis Bangunan
           </a>
         </li>
         <li>
           <a class="page-scroll" href="#feature">
-            feature
+            Alur Pelayanan
           </a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">
-            Contact
+            <a class="btn btn-border" href="{{Route('auth.login')}}">Login / Register</a>
           </a>
         </li>
       </ul>
@@ -117,7 +112,7 @@
               </div>
             </div>
             <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
-              <img class="img-fluid" src="{{asset('depan/img/hero-1.png')}}" alt="">
+              <img class="img-fluid" src="{{asset('hero.png')}}" alt="" width="80%">
             </div>
           </div>
         </div>
@@ -129,10 +124,10 @@
   <!-- Header Area wrapper End -->
 
   <!-- Services Section Start -->
-  <section id="services" class="section-padding">
+  <section id="services" class="section-padding mt-2">
     <div class="container">
       <div class="section-header text-center">
-        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Our Services</h2>
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Jenis Bangunan</h2>
       </div>
       <div class="row">
         <!-- Services item -->
@@ -142,7 +137,7 @@
               <i class="lni-cog"></i>
             </div>
             <div class="services-content">
-              <h3><a href="#">Web Development</a></h3>
+              <h3><a href="#">Web   </a></h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde perspiciatis dicta labore nulla beatae
                 quaerat quia incidunt laborum aspernatur...</p>
             </div>
@@ -226,7 +221,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="text-wrapper">
             <div>
-              <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">Learn More About Us</h2>
+              <h2 class="title-hl wow fadeInLeft" data-wow-delay="0.3s">Alur Perizinan</h2>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <div class="features-box wow fadeInLeft" data-wow-delay="0.3s">
@@ -301,38 +296,6 @@
     </div>
   </div>
   <!-- Feature Section End -->
-
-  <!-- Clients Section Start -->
-  <div id="clients" class="section-padding">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">As Seen On</h2>
-      </div>
-      <div class="row text-align-">
-        <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="client-item-wrapper">
-            <img class="img-fluid" src="{{asset('depan/img/clients/img1.png')}}" alt="">
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
-          <div class="client-item-wrapper">
-            <img class="img-fluid" src="{{asset('depan/img/clients/img2.png')}}" alt="">
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-          <div class="client-item-wrapper">
-            <img class="img-fluid" src="{{asset('depan/img/clients/img3.png')}}" alt="">
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-xs-12 wow fadeInUp" data-wow-delay="1.2s">
-          <div class="client-item-wrapper">
-            <img class="img-fluid" src="{{asset('depan/img/clients/img4.png')}}" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Clients Section End -->
 
   <!-- Footer Section Start -->
   <footer id="footer" class="footer-area section-padding">

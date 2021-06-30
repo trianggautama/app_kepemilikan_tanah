@@ -26,32 +26,32 @@
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">71,503</h2>
-                <p>Online Signups</p>
+                <h2 class="mb-1">7 Orang</h2>
+                <p>User Pegawai</p>
             </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini  mb-4">
             <div class="card-body">
-                <h2 class="mb-1">9,503</h2>
-                <p>New Visitors Today</p>
+                <h2 class="mb-1">30 Orang</h2>
+                <p>User Pemohon</p>
             </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">71,503</h2>
-                <p>Monthly Total Order</p>
+                <h2 class="mb-1">10 Jenis</h2>
+                <p>Jenis Bangunan</p>
             </div>
             </div>
         </div>
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">9,503</h2>
-                <p>Total Revenue This Year</p>
+                <h2 class="mb-1">79 Data</h2>
+                <p>Permohonan Izin</p>
             </div>
             </div>
         </div>
@@ -59,8 +59,9 @@
     <div class="row" >
         <div class="col-md">
             <div class="card">
-                <div class="card-body">
-                    <h2>Selamat Dtaang Admin</h2>
+                <div class="card-body text-center">
+                    <h4>Selamat Datang ({{Auth::user()->nama}})</h4>
+                    di Aplikasi Layanan Pendaftaran dan pengarsipan sertifikat berbasis web pada BPN Kota Banjarbaru
                 </div>
             </div>
         </div>
