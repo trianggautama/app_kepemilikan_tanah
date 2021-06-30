@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-md">
                                 Data Pemohon
-                            </div>
+                            </div> 
                             <div class="col-md text-right">
                                 <a href="{{Route('admin.permohonan.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
                             </div>

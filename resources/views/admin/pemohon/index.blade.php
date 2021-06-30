@@ -107,7 +107,7 @@
                                 <label for="firstName">Password</label>
                                 <input type="password" name="password" class="form-control form-control-sm">
                             </div>
-                        </div>
+                        </div> 
                         <div class="modal-footer border-top-0 px-4 pt-0">
                             <button type="submit" class="btn btn-sm btn-primary  m-0">Simpan Data</button>
                         </div>

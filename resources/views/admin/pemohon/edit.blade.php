@@ -29,7 +29,7 @@
                         @csrf
                         @method('put')
                         <div class="card-body">
-                            <div class="form-group">
+                            <div class="form-group"> 
                                 <label for="firstName">Nama</label>
                                 <input type="text" name="nama" class="form-control form-control-sm"
                                     placeholder="Nama Pemohon">
