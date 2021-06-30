@@ -58,7 +58,7 @@
           <div class="btn-sing float-right">
             <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
           </div>
-        </div>
+        </div> 
       </div>
 
       <!-- Mobile Menu Start -->
