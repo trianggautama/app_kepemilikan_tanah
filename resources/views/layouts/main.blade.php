@@ -159,6 +159,11 @@
                   <span class="nav-text">Arsip Permohonan</span>
                 </a>
               </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.peminjaman.index')}}">
+                  <span class="nav-text">Peminjaman Arsip</span>
+                </a>
+              </li>
             </div>
           </ul>
         </li>

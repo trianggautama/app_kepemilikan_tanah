@@ -134,8 +134,13 @@
                 <label for="firstName">Role</label>
                 <select name="role" id="" class="form-control form-control-sm">
                   <option value="">- pilih role -</option>
-                  <option value="1">Admin</option>
-                  <option value="0">Pemohon</option>
+                  <option value="1">Admin Pendaftaran</option>
+                  <option value="2">Tim Panitia / Peneliti Tanah</option>
+                  <option value="3">Ketua Panitia / Peneliti Tanah</option>
+                  <option value="4">Kepala Seksi</option>
+                  <option value="5">Kepala Kantor</option>
+                  <option value="6">Admin Arsip</option>
+                  <!-- <option value="0">Pemohon</option> -->
                 </select>
               </div>
               <div class="form-group">

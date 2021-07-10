@@ -28,5 +28,6 @@ Route::group(['middleware' => ['admin']], function () {
         Route::resource('user', '\App\Http\Controllers\UserController');
         Route::resource('pemohon', '\App\Http\Controllers\PemohonController');
         Route::resource('permohonan', '\App\Http\Controllers\PermohonanController');
+        Route::resource('peminjaman', '\App\Http\Controllers\PeminjamanController');
     }); 
 });
