@@ -31,3 +31,4 @@ Route::group(['middleware' => ['admin']], function () {
         Route::resource('peminjaman', '\App\Http\Controllers\PeminjamanController');
     }); 
 });
+ 
