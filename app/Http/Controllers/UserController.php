@@ -43,10 +43,10 @@ class UserController extends Controller
         $data = User::create($req);
 
         if ($data->role == 0) {
-            return back()->withSuccess('Pendaftaran berhasil');
+            return redirect()->route('auth.login')->withSuccess('Pendaftaran Berhasil');
         } else {
             return back()->withSuccess('Data berhasil disimpan');
-        }
+        } 
 
     }
 

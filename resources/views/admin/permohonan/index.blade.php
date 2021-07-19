@@ -29,7 +29,8 @@
         
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <div class="basic-data-table">
+                        <table class="table table-bordered" id="basic-data-table">
                             <thead>
                                 <tr>
                                     <td>No</td>
@@ -67,6 +68,7 @@
                                 </tr>
                             </tbody> 
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

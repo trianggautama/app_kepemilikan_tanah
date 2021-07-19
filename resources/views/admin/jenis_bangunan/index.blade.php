@@ -32,7 +32,8 @@
                         </button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <div class="basic-data-table">
+                        <table class="table table-bordered"  id="basic-data-table">
                             <thead>
                                 <tr>
                                     <td>No</td>
@@ -49,7 +50,7 @@
                                     <td>{{$d->kode_jenis}}</td>
                                     <td>{{$d->nama_jenis}}</td>
                                     <td class="text-center">
-                                        <form action="{{Route('admin.jenis_bangunan.destroy',$d->id)}}">
+                                        <form action="{{Route('admin.jenis_bangunan.destroy',$d->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a href="{{Route('admin.jenis_bangunan.edit',$d->id)}}"
@@ -62,6 +63,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

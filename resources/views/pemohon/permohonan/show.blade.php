@@ -31,7 +31,7 @@
                                 Data Permohonan
                             </div> 
                             <div class="col-md text-right">
-                                <a href="{{Route('admin.permohonan.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                                <a href="{{Route('pemohon.permohonan_pemohon.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>

@@ -5,47 +5,15 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
-
   <title>Aplikasi Pengelolaan Kepemilikan Tanah</title>
-
-  <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
-    rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
   <link href="{{asset('admin/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
-
-  <!-- PLUGINS CSS STYLE -->
   <link href="{{asset('admin/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
-
-  <!-- No Extra plugin used -->
-
-  <link href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}" rel='stylesheet'>
-
-
-
-
-  <link href="{{asset('admin/plugins/fullcalendar/core-4.3.1/main.min.css')}}" rel='stylesheet'>
-  <link href="{{asset('admin/plugins/fullcalendar/daygrid-4.3.0/main.min.css')}}"" rel='stylesheet'>
-    
-    
-    
-
-    <!-- SLEEK CSS -->
-    <link id=" sleek-css" rel="stylesheet" href="{{asset('admin/css/sleek.css')}}" />
-
-  <!-- FAVICON -->
+  <link href="{{asset('admin/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel="stylesheet">
+  <link id=" sleek-css" rel="stylesheet" href="{{asset('admin/css/sleek.css')}}" />
   <link href="{{asset('admin/img/favicon.png')}}" rel="shortcut icon" />
-
-  <!--
-      HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-    -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <link rel="stylesheet" href="{{asset('iziToast/iziToast.css')}}" /> 
+    <link rel="stylesheet" href="{{asset('iziToast/iziToast.min.css')}}" />
   <script src="{{asset('admin/plugins/nprogress/nprogress.js')}}"></script>
 </head>
 
@@ -54,24 +22,13 @@
     NProgress.configure({ showSpinner: false });
       NProgress.start();
   </script>
-
-  <!-- ====================================
-    ——— WRAPPER
-    ===================================== -->
   <div class="wrapper">
-
-
-
-
-    <!-- ====================================
-          ——— LEFT SIDEBAR WITH OUT FOOTER
-        ===================================== -->
     <aside class="left-sidebar bg-sidebar">
       <div id="sidebar" class="sidebar sidebar-with-footer">
         <!-- Aplication Brand -->
         <div class="app-brand">
           <a href="/index.html" title="Sleek Dashboard">
-            <img src="{{asset('pemko.png')}}" alt="" width="30px">
+            <img src="{{asset('atr.png')}}" alt="" width="30px">
             <span class="brand-name text-truncate">Aplikasi Tanah</span>
           </a>
         </div>
@@ -80,6 +37,12 @@
         <div class="" data-simplebar style="height: 100%;">
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
+          @if(Auth::user()->role == 1)
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="#">
+                <span class="nav-text">Menu Admin</span>
+              </a>
+            </li>
             <li class="has-sub ">
               <a class="sidenav-item-link" href="{{Route('admin.index')}}">
                 <i class="fa fa-home"></i>
@@ -167,6 +130,32 @@
             </div>
           </ul>
         </li>
+        @endif
+        @if(Auth::user()->role == 0)
+        <li class="has-sub ">
+          <a class="sidenav-item-link" href="#">
+            <span class="nav-text">Menu Pemohon</span>
+          </a>
+        </li>
+        <li class="has-sub ">
+            <a class="sidenav-item-link" href="{{Route('pemohon.profil')}}">
+              <i class="fa fa-user"></i>
+              <span class="nav-text">Profil</span>
+            </a>
+          </li>
+        <li class="has-sub ">
+            <a class="sidenav-item-link" href="{{Route('pemohon.permohonan_pemohon.index')}}">
+              <i class="fa fa-file-text"></i>
+              <span class="nav-text">Permohonan</span>
+            </a>
+          </li>
+          <li class="has-sub ">
+            <a class="sidenav-item-link" href="">
+              <i class="fa fa-file-text"></i>
+              <span class="nav-text">Riwayat Permohonan</span>
+            </a>
+          </li>
+          @endif
         </ul>
       </div>
   </div>
@@ -185,13 +174,13 @@
             <li class="dropdown user-menu">
               <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <img src="{{asset('admin/img/user/user.png')}}" class="user-image" alt="User Image" />
-                <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                <span class="d-none d-lg-inline-block">{{Auth::user()->nama}}</span>
               </button>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li class="dropdown-header">
                   <img src="{{asset('admin/img/user/user.png')}}" class="img-circle" alt="User Image" />
                   <div class="d-inline-block">
-                    Abdus Salam <small class="pt-1">iamabdus@gmail.com</small>
+                    {{Auth::user()->nama}} <small class="pt-1">{{Auth::user()->nip}}</small>
                   </div>
                 </li>
                 <li>
@@ -238,7 +227,17 @@
   <script src="{{asset('admin/js/date-range.js')}}"></script>
   <script src="{{asset('admin/plugins/fullcalendar/core-4.3.1/main.min.js')}}"></script>
   <script src="{{asset('admin/plugins/fullcalendar/daygrid-4.3.0/main.min.js')}}"></script>
+  <script src="{{asset('admin/plugins/data-tables/jquery.datatables.min.js')}}"></script>
+  <script src="{{asset('admin/plugins/data-tables/datatables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('admin/js/sleek.js')}}"></script>
+  <script src="{{asset('iziToast/iziToast.js')}}"></script>
+  <script>
+    jQuery(document).ready(function() {
+      jQuery('#basic-data-table').DataTable();
+    });
+  </script>
+  @include('layouts.alert')   
+  @include('layouts.alert_error')                     
   @yield('script')
 </body>
 

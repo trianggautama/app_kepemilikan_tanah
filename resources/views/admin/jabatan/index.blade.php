@@ -32,7 +32,8 @@
                         </button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <div class="basic-data-table">
+                        <table class="table table-bordered" id="basic-data-table">
                             <thead>
                                 <tr>
                                     <td>No</td>
@@ -49,9 +50,9 @@
                                     <td>{{$d->kode_jabatan}}</td>
                                     <td>{{$d->nama_jabatan}}</td>
                                     <td class="text-center">
-                                        <form action="{{Route('admin.jabatan.destroy',$d->id)}}">
+                                        <form action="{{Route('admin.jabatan.destroy',$d->id)}}" method="POST">
                                             @csrf
-                                            @method('DELETE')
+                                            @method('delete')
                                             <a href="{{Route('admin.jabatan.edit',$d->id)}}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="mdi mdi-pencil"></i> Edit</a>
@@ -63,6 +64,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        </div> 
                     </div>
                 </div>
             </div>

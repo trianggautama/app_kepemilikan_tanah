@@ -61,8 +61,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Mobile Menu Start -->
       <ul class="mobile-menu navbar-nav">
         <li>
           <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
@@ -73,22 +71,22 @@
           </a>
         </li>
       </ul>
-      <!-- Mobile Menu End -->
-
     </nav>
-    <!-- Navbar End -->
-
-  </header>
-  <!-- Header Area wrapper End -->
-  <!-- Subscribe Section Start -->
+  </header> 
   <section id="Subscribes" class="subscribes section-padding" style="padding-top:150px;padding-bottom:150px;">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-5">
           <h4 class="wow fadeInUp" data-wow-delay="0.3s">Pendaftaran Pemohon</h4>
+          @foreach ($errors->all() as $error)
+            <p class="text-danger">{{$error}}</p>
+         @endforeach
           <br>
           <form action="{{route('auth.storeRegister')}}" method="POST">
             @csrf
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="text" class="form-control" name="nip" placeholder="NIK" required>
+            </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
               <input type="text" class="form-control" name="nama" placeholder="Nama" required>
             </div>

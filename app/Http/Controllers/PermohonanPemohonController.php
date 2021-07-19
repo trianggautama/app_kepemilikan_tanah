@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jabatan;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
-class JabatanController extends Controller
+class PermohonanPemohonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        $data = Jabatan::all();
-        return view('admin.jabatan.index', compact('data'));
+        return view('pemohon.permohonan.index');
     }
 
     /**
@@ -26,7 +23,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pemohon.permohonan.create');
     }
 
     /**
@@ -37,9 +34,7 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Jabatan::create($request->all());
-
-        return back()->withSuccess('Data berhasil disimpan');
+        //
     }
 
     /**
@@ -50,7 +45,7 @@ class JabatanController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pemohon.permohonan.show');
     }
 
     /**
@@ -59,9 +54,9 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jabatan $jabatan)
+    public function edit($id)
     {
-        return view('admin.jabatan.edit', compact('jabatan'));
+        return view('pemohon.permohonan.edit');
     }
 
     /**
@@ -71,11 +66,9 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jabatan $jabatan)
+    public function update(Request $request, $id)
     {
-        $jabatan->update($request->all());
-
-        return redirect()->route('admin.jabatan.index')->withSuccess('Data berhasil diubah');
+        //
     }
 
     /**
@@ -84,18 +77,8 @@ class JabatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jabatan $jabatan)
+    public function destroy($id)
     {
-        try {
-            $jabatan->delete();
-            return back()->withSuccess('Data berhasil dihapus');
-        } catch (QueryException $e) {
-
-            if ($e->getCode() == "23000") {
-                return back()->withError('Data gagal dihapus');
-            }
-        }
-
+        //
     }
 }
- 

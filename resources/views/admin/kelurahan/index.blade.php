@@ -51,7 +51,7 @@
                                     <td>{{$d->nama_kelurahan}}</td>
                                     <td>{{$d->kecamatan->nama_kecamatan}}</td>
                                     <td class="text-center">
-                                        <form action="{{Route('admin.kelurahan.destroy',$d->id)}}">
+                                        <form action="{{Route('admin.kelurahan.destroy',$d->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <a href="{{Route('admin.kelurahan.edit',$d->id)}}"

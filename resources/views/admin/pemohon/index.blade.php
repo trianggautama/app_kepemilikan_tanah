@@ -32,12 +32,13 @@
                         </button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <div class="basic-data-table">
+                        <table class="table table-bordered" id="basic-data-table">
                             <thead>
                                 <tr>
                                     <td>No</td>
                                     <td>Nama</td>
-                                    <td>Tempat, Tanggal Lahir</td>
+                                    <td>Tempat, Tanggal Lahir </td>
                                     {{-- <td>No Hp</td> --}}
                                     <td>Status</td>
                                     <td class="text-center">Aksi</td>

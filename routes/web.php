@@ -21,7 +21,6 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::prefix('/admin')->name('admin.')->group(function () {
         Route::get('/beranda', [MainController::class, 'admin_index'])->name('index');
-
         //masteer Data
         Route::resource('jabatan', '\App\Http\Controllers\JabatanController');
         Route::resource('jenis_bangunan', '\App\Http\Controllers\JenisBangunanController');
@@ -34,3 +33,11 @@ Route::group(['middleware' => ['admin']], function () {
     });
 
 });
+
+Route::prefix('/pemohon')->name('pemohon.')->group(function () {
+    Route::get('/beranda', [MainController::class, 'pemohon_index'])->name('index');
+    Route::get('/profil', [MainController::class, 'pemohon_profil'])->name('profil');
+    Route::put('/profil/update/{id}', [MainController::class, 'pemohon_profil_update'])->name('profil.update');
+    Route::resource('permohonan_pemohon', '\App\Http\Controllers\PermohonanPemohonController');
+});
+
