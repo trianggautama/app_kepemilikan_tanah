@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::all();
+        $data = User::where('role', '!=', '0')->get();
         return view('admin.user.index', compact('data'));
     }
 
@@ -42,7 +42,12 @@ class UserController extends Controller
         $req['password'] = Hash::make($request->password);
         $data = User::create($req);
 
-        return back()->withSuccess('Data berhasil disimpan');
+        if ($data->role == 0) {
+            return back()->withSuccess('Pendaftaran berhasil');
+        } else {
+            return back()->withSuccess('Data berhasil disimpan');
+        }
+
     }
 
     /**
@@ -64,7 +69,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.user.edit', compact('user'));
+        if ($user->role == 0) {
+            return view('admin.pemohon.edit', compact('user'));
+        } else {
+            return view('admin.user.edit', compact('user'));
+
+        }
+
     }
 
     /**
@@ -83,7 +94,12 @@ class UserController extends Controller
 
         $user->update($req);
 
-        return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
+        if ($user->role == 0) {
+            return redirect()->route('admin.pemohon.index')->withSuccess('Data berhasil diubah');
+        } else {
+            return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
+        }
+
     }
 
     /**

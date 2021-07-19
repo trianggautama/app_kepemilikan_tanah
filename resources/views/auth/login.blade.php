@@ -45,7 +45,8 @@
             <span class="icon-menu"></span>
             <span class="icon-menu"></span>
           </button>
-          <a href="/" class="navbar-brand"><img src="{{asset('ATR.png')}}" alt="" style="max-width:40px;"> <small>BPN Kota Banjarbaru</small></a>
+          <a href="/" class="navbar-brand"><img src="{{asset('ATR.png')}}" alt="" style="max-width:40px;"> <small>BPN
+              Kota Banjarbaru</small></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
@@ -58,7 +59,7 @@
           <div class="btn-sing float-right">
             <a class="page-scroll" href="{{Route('auth.register')}}">
               Register
-            </a>          
+            </a>
           </div>
         </div>
       </div>

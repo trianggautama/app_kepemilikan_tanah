@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PemohonController extends Controller
@@ -13,7 +14,8 @@ class PemohonController extends Controller
      */
     public function index()
     {
-        return view('admin.pemohon.index');
+        $data = User::whereRole(0)->get();
+        return view('admin.pemohon.index', compact('data'));
     }
 
     /**

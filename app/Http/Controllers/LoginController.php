@@ -23,7 +23,30 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('admin.index');
+            switch (Auth::user()->role) {
+                case 1:
+                    return redirect()->route('admin.index');
+                    break;
+                case 0:
+                    return redirect()->route('pemohon.index');
+                    break;
+                // case 3:
+                //     return redirect('/kasi-pju/beranda');
+                //     break;
+                // case 4:
+                //     return redirect('/kabid/beranda');
+                //     break;
+                // case 5:
+                //     return redirect('/sekretaris/beranda');
+                //     break;
+                // case 6:
+                //     return redirect('/kepala-dinas/beranda');
+                //     break;
+                case 7:
+                    return redirect('/pemohon/beranda');
+                    break;
+            }
+
         }
 
         return back()->withErrors([

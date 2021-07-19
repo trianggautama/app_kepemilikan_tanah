@@ -45,7 +45,8 @@
             <span class="icon-menu"></span>
             <span class="icon-menu"></span>
           </button>
-          <a href="/" class="navbar-brand"><img src="{{asset('ATR.png')}}" alt="" style="max-width:40px;"> <small>BPN Kota Banjarbaru</small></a>
+          <a href="/" class="navbar-brand"><img src="{{asset('ATR.png')}}" alt="" style="max-width:40px;"> <small>BPN
+              Kota Banjarbaru</small></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
@@ -58,13 +59,13 @@
           <div class="btn-sing float-right">
             <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
           </div>
-        </div> 
+        </div>
       </div>
 
       <!-- Mobile Menu Start -->
       <ul class="mobile-menu navbar-nav">
         <li>
-            <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
+          <a class="btn btn-border" href="{{Route('auth.login')}}">Login</a>
         </li>
         <li>
           <a class="page-scroll" href="#contact">
@@ -84,21 +85,29 @@
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-5">
-          <h4 class="wow fadeInUp" data-wow-delay="0.3s">Silahkan Login</h4>
+          <h4 class="wow fadeInUp" data-wow-delay="0.3s">Pendaftaran Pemohon</h4>
           <br>
-          <form action="{{route('auth.authenticate')}}" method="POST">
+          <form action="{{route('auth.storeRegister')}}" method="POST">
             @csrf
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
-              <input type="text" class="form-control" name="username" placeholder="Nama" required>
+              <input type="text" class="form-control" name="nama" placeholder="Nama" required>
             </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
-              <input type="text" class="form-control" name="username" placeholder="Tempat Lahir" required>
+              <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" required>
             </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
-              <input type="date" class="form-control" name="username" placeholder="Username" required>
+              <input type="date" class="form-control" name="tanggal_lahir" placeholder="Username" required>
             </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
-              <input type="text" class="form-control" name="username" placeholder="No Hp" required>
+              <select name="jenis_kelamin" id="" class="form-control" style="height: 50px;" required>
+                <option value="">Pilih Jenis Kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+              {{-- <input type="text" class="form-control" name="jenis_kelamin" placeholder="Username" required> --}}
+            </div>
+            <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
+              <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
             </div>
             <div class="subscribe wow fadeInDown" data-wow-delay="0.3s">
               <input type="text" class="form-control" name="username" placeholder="Username" required>

@@ -2,6 +2,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,6 +12,7 @@ Route::get('/', function () {
 Route::prefix('/auth')->name('auth.')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [UserController::class, 'store'])->name('storeRegister');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
@@ -29,6 +31,6 @@ Route::group(['middleware' => ['admin']], function () {
         Route::resource('pemohon', '\App\Http\Controllers\PemohonController');
         Route::resource('permohonan', '\App\Http\Controllers\PermohonanController');
         Route::resource('peminjaman', '\App\Http\Controllers\PeminjamanController');
-    }); 
+    });
+
 });
- 
