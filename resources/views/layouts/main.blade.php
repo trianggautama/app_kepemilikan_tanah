@@ -156,6 +156,56 @@
             </a>
           </li>
           @endif
+          @if(Auth::user()->role == 2)
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="#">
+                <span class="nav-text">Menu Pemohon</span>
+              </a>
+            </li>
+            <li class="has-sub ">
+                <a class="sidenav-item-link" href="{{Route('peneliti.profil')}}">
+                  <i class="fa fa-user"></i>
+                  <span class="nav-text">Profil</span>
+                </a>
+              </li>
+            <li class="has-sub ">
+                <a class="sidenav-item-link" href="{{Route('peneliti.permohonan_peneliti.index')}}">
+                  <i class="fa fa-file-text"></i>
+                  <span class="nav-text">Permohonan</span>
+                </a>
+              </li>
+              <li class="has-sub ">
+                <a class="sidenav-item-link" href="">
+                  <i class="fa fa-file-text"></i>
+                  <span class="nav-text">Riwayat Permohonan</span>
+                </a>
+              </li>
+            @endif
+            @if(Auth::user()->role == 3)
+            <li class="has-sub ">
+              <a class="sidenav-item-link" href="#">
+                <span class="nav-text">Menu Pemohon</span>
+              </a>
+            </li>
+            <li class="has-sub ">
+                <a class="sidenav-item-link" href="{{Route('ketua_peneliti.profil')}}">
+                  <i class="fa fa-user"></i>
+                  <span class="nav-text">Profil</span>
+                </a>
+              </li>
+            <li class="has-sub ">
+                <a class="sidenav-item-link" href="{{Route('ketua_peneliti.permohonan_ketua_peneliti.index')}}">
+                  <i class="fa fa-file-text"></i>
+                  <span class="nav-text">Permohonan</span>
+                </a>
+              </li>
+              <li class="has-sub ">
+                <a class="sidenav-item-link" href="">
+                  <i class="fa fa-file-text"></i>
+                  <span class="nav-text">Riwayat Permohonan</span>
+                </a>
+              </li>
+            @endif
         </ul>
       </div>
   </div>

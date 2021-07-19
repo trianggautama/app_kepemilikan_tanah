@@ -38,4 +38,48 @@ class MainController extends Controller
             return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
         }
     }
+
+    public function ketua_peneliti_index()
+    {
+        return view('ketua_peneliti.index'); 
+    }
+
+    public function ketua_peneliti_profil()
+    {
+        return view('ketua_peneliti.profil'); 
+    }
+
+    public function ketua_peneliti_profil_update(Request $request, $id)
+    {
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+        $user = User::findOrFail($id);
+        $user->update($req);
+
+        return redirect()->route('ketua_peneliti.profil')->withSuccess('Data berhasil diubah');
+    }
+
+    public function peneliti_index()
+    {
+        return view('tim_peneliti.index'); 
+    }
+
+    public function peneliti_profil()
+    {
+        return view('tim_peneliti.profil'); 
+    }
+
+    public function peneliti_profil_update(Request $request, $id)
+    {
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+        $user = User::findOrFail($id);
+        $user->update($req);
+
+        return redirect()->route('peneliti.profil')->withSuccess('Data berhasil diubah');
+    }
 }

@@ -13,7 +13,7 @@
                             </a>
                             </li>
                             <li class="breadcrumb-item">
-                            Admin
+                            Tim Peneliti
                             </li>
                             <li class="breadcrumb-item" aria-current="page">Beranda</li>
                         </ol>

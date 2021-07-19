@@ -29,7 +29,7 @@
                     <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Biodata Pemohon</a>
                     <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Data Permohonan</a>
                     <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Data Survei</a>
-                    <a href="{{Route('pemohon.permohonan_pemohon.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i> Kembali</a>
+                    <a href="{{Route('peneliti.permohonan_peneliti.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i> Kembali</a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -58,16 +58,6 @@
                                     <td>No Hp</td>
                                     <td>:</td>
                                     <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>KTP</td>
-                                    <td>:</td>
-                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> KTP</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Surat Kuasa</td>
-                                    <td>:</td>
-                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Surat Kuasa</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -167,11 +157,41 @@
                                     Data Survei Lapangan
                                 </div> 
                                 <div class="col-md text-right">
+                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                    data-target="#modal-add-event">
+                                    <i class="fa fa-plus mr-1"></i> Tambah Data Survei
+                                </button>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p>belum di input</p>
+                            <table class="table table-striped">
+                                <tr>
+                                    <td width="20%">Tanggal Survei</td>
+                                    <td width="2%">:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Petugas Survei</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Surat Ukur</td>
+                                    <td>:</td>
+                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Surat Ukur</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Gambar Denah</td>
+                                    <td>:</td>
+                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Gambar Denah</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>:</td>
+                                    <td><div class="badge badge-warning">menunggu verifikasi ketua tim peneliti</div></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -179,7 +199,48 @@
             </div>
         </div>
 
-    
+         <!-- Add Event Button  -->
+         <div class="modal fade" id="modal-add-event" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <form action="{{Route('admin.kecamatan.store')}}" method="POST">
+                        @csrf
+                        <div class="modal-header px-4">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data Survei</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <div class="form-group">
+                                <label for="firstName">Nama Petugas </label>
+                                <input type="text" name="kode_kecamatan" class="form-control form-control-sm"
+                                    placeholder="Kode Kecamatan" value="{{Auth::user()->nama}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Tanggal Survei</label>
+                                <input type="date" name="nama_kecamatan" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan" value="{{Carbon\carbon::now()->format('Y-m-d')}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Surat Ukur</label>
+                                <input type="file" name="nama_kecamatan" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Gambar Denah</label>
+                                <input type="file" name="nama_kecamatan" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan" value="}">
+                            </div>
+                        </div>
+                        <div class="modal-footer border-top-0 px-4 pt-0">
+                            <button type="submit" class="btn btn-sm btn-primary  m-0">Simpan Data</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         @endsection
         @section('script')
         <script>

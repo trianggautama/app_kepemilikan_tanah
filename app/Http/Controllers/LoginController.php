@@ -30,12 +30,12 @@ class LoginController extends Controller
                 case 0:
                     return redirect()->route('pemohon.index');
                     break;
-                // case 3:
-                //     return redirect('/kasi-pju/beranda');
-                //     break;
-                // case 4:
-                //     return redirect('/kabid/beranda');
-                //     break;
+                case 2:
+                    return redirect()->route('peneliti.index');
+                    break;
+                case 3:
+                    return redirect()->route('ketua_peneliti.index');
+                    break;
                 // case 5:
                 //     return redirect('/sekretaris/beranda');
                 //     break;
