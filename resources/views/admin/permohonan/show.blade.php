@@ -24,124 +24,169 @@
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md">
-                                Data Permohonan
-                            </div> 
-                            <div class="col-md text-right">
-                                <a href="{{Route('admin.permohonan.index')}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-left"></i> Kembali</a>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Biodata Pemohon</a>
+                    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Data Permohonan</a>
+                    <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Data Survei</a>
+                    <a href="{{Route('admin.permohonan.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i> Kembali</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md">
+                                    Data Permohonan
+                                </div> 
                             </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-striped">
-                            <tr>
-                                <td width="20%">Nama</td>
-                                <td width="2%">:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Tempat, Tanggal lahir</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>No Hp</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                        </table>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td width="20%">Nama</td>
+                                    <td width="2%">:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Tempat, Tanggal lahir</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>No Hp</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>KTP</td>
+                                    <td>:</td>
+                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> KTP</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Surat Kuasa</td>
+                                    <td>:</td>
+                                    <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Surat Kuasa</a></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <br>
-                <div class="card">
-                    <div class="card-header">
-                        Data Permohonan Izin
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md">
+                                    Data Permohonan
+                                </div>
+                                <div class="col-md text-right">
+                                    <a href="" class="btn btn-primary" ><i class="fa fa-check"></i> Verifikasi Permohonan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td width="20%">Jenis Bangunan</td>
+                                    <td width="2%">:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Kelurahan</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>No fisik</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>No Yuridis</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>NIB</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Letak Tanah</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Dikuasai Awal</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Dikuasai Pemohon</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Dengan Dasar</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Dasar</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>No Register</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Luas</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-striped">
-                            <tr>
-                                <td width="20%">Jenis Bangunan</td>
-                                <td width="2%">:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Kelurahan</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>No fisik</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>No Yuridis</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>NIB</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Letak Tanah</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Dikuasai Awal</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Tahun</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Dikuasai Pemohon</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Dengan Dasar</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Dasar</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>No Register</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Luas</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td>:</td>
-                                <td>-</td>
-                            </tr>
-                        </table>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md">
+                                    Data Survei Lapangan
+                                </div> 
+                                <div class="col-md text-right">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>belum di input</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            </div>
         </div>
+
+    
         @endsection
         @section('script')
         <script>

@@ -57,10 +57,10 @@
                                         <div class="badge badge-warning">Verifikasi Petugas Lapangan</div>
                                     </td>
                                     <td class="text-center">
-                                            <a href="{{Route('ketua_peneliti.permohonan_ketua_peneliti.show',1)}}"
+                                            <a href="{{Route('peneliti.permohonan_peneliti.show',1)}}"
                                                 class="btn btn-sm btn-info">
                                                 <i class="fa fa-info-circle"></i> Detail</a>
-                                    </td>
+                                    </td> 
                                 </tr>
                             </tbody> 
                         </table>
