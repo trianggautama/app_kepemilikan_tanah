@@ -43,7 +43,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data as $d)
+                @foreach ($data as $d) 
 
                 <tr>
                   <td>{{$loop->iteration}}</td>
@@ -51,8 +51,14 @@
                   <td>
                     @if ($d->role == 0)
                     Pemohon
-                    @else
+                    @elseif($d->role == 1)
                     Admin
+                    @elseif($d->role == 2)
+                    Tim peneliti
+                    @elseif($d->role == 3)
+                    Ketua peneliti
+                    @else
+                    -
                     @endif
                   </td>
                   <td>{{$d->username}}</td>
