@@ -165,26 +165,22 @@
                                         <td>
                                             @switch($permohonan_pemohon->status)
                                             @case(0)
-                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                                <div class="badge badge-warning">Verifikasi ( Admin )</div>
                                             @break
                                             @case(1)
-                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
-                                                Kadastral</div>
+                                                <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan  Kadastral (Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(2)
-                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
-                                                Pemetaan</div>
+                                                <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan Pemetaan (Ketua Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(3)
-                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
-                                                Pemberdayaan Masyarakat</div>
-
+                                                <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan Pemberdayaan Masyarakat (Kepala Seksi)</div>
                                             @break
                                             @case(4)
-                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                                <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan (Kepala Kantor Pertanahan)</div>
                                             @break
                                             @default
-                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+                                                <div class="badge badge-primary">Selesai Pengarsipan</div>
                                             @endswitch
                                         </td>
                                     </tr>
