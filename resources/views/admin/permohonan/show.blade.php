@@ -85,7 +85,20 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md">Data Permohonan Izin</div>
-                                    <div class="col-md text-right"><a href="" class="btn btn-primary"><i class="fa fa-check"></i>Verifikasi permohonan</a></div>
+                                    <div class="col-md text-right">
+                                        @if ($permohonan->status == 0)
+
+                                        <form action="{{route('admin.permohonan.update',$permohonan->id)}}"
+                                            method="POST">
+                                            @csrf
+                                            @method('put')
+                                            <input type="hidden" name="status" value="1" id="" required>
+                                            <button type="submit" class="btn btn-primary"><i
+                                                    class="fa fa-check"></i>Verifikasi
+                                                permohonan</button>
+                                        </form>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

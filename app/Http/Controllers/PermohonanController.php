@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PermohonanController extends Controller
 {
@@ -68,9 +69,21 @@ class PermohonanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permohonan $permohonan)
     {
-        //
+        $role = Auth::user()->role;
+        switch ($role) {
+            case 1:
+                $permohonan->update($request->all());
+
+                return back()->withSuccess('Data berhasil diverifikasi');
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
     }
 
     /**
