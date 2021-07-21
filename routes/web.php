@@ -34,11 +34,13 @@ Route::group(['middleware' => ['admin']], function () {
 
 });
 
-Route::prefix('/pemohon')->name('pemohon.')->group(function () {
-    Route::get('/beranda', [MainController::class, 'pemohon_index'])->name('index');
-    Route::get('/profil', [MainController::class, 'pemohon_profil'])->name('profil');
-    Route::put('/profil/update/{id}', [MainController::class, 'pemohon_profil_update'])->name('profil.update');
-    Route::resource('permohonan_pemohon', '\App\Http\Controllers\PermohonanPemohonController');
+Route::group(['middleware' => ['pemohon']], function () {
+    Route::prefix('/pemohon')->name('pemohon.')->group(function () {
+        Route::get('/beranda', [MainController::class, 'pemohon_index'])->name('index');
+        Route::get('/profil', [MainController::class, 'pemohon_profil'])->name('profil');
+        Route::put('/profil/update/{id}', [MainController::class, 'pemohon_profil_update'])->name('profil.update');
+        Route::resource('permohonan_pemohon', '\App\Http\Controllers\PermohonanPemohonController');
+    });
 });
 
 Route::prefix('/peneliti')->name('peneliti.')->group(function () {
@@ -54,4 +56,3 @@ Route::prefix('/ketua_peneliti')->name('ketua_peneliti.')->group(function () {
     Route::put('/profil/update/{id}', [MainController::class, 'ketua_peneliti_profil_update'])->name('profil.update');
     Route::resource('permohonan_ketua_peneliti', '\App\Http\Controllers\PermohonanKetuaPenelitiController');
 });
-

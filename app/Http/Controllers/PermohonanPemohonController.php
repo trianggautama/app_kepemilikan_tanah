@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisBangunan;
+use App\Models\Kelurahan;
+use App\Models\Permohonan;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PermohonanPemohonController extends Controller
 {
@@ -13,7 +18,8 @@ class PermohonanPemohonController extends Controller
      */
     public function index()
     {
-        return view('pemohon.permohonan.index');
+        $data = Permohonan::whereUserId(Auth::id())->get();
+        return view('pemohon.permohonan.index', compact('data'));
     }
 
     /**
@@ -23,7 +29,10 @@ class PermohonanPemohonController extends Controller
      */
     public function create()
     {
-        return view('pemohon.permohonan.create');
+        $jenisBangunan = JenisBangunan::all();
+        $kelurahan = Kelurahan::all();
+
+        return view('pemohon.permohonan.create', compact('jenisBangunan', 'kelurahan'));
     }
 
     /**
@@ -34,7 +43,33 @@ class PermohonanPemohonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req = $request->all();
+        $req['user_id'] = Auth::id();
+        $data = Permohonan::create($req);
+
+        if ($request->file('surat_kuasa') != null) {
+
+            $file = $request->file('surat_kuasa');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->surat_kuasa = $file_name;
+        }
+
+        if ($request->file('ktp') != null) {
+
+            $file = $request->file('ktp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->ktp = $file_name;
+        }
+
+        $data->update();
+
+        return redirect()->route('pemohon.permohonan_pemohon.index')->withSuccess('Permohonan berhasil disimpan');
     }
 
     /**
@@ -43,9 +78,9 @@ class PermohonanPemohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Permohonan $permohonan_pemohon)
     {
-        return view('pemohon.permohonan.show');
+        return view('pemohon.permohonan.show', compact('permohonan_pemohon'));
     }
 
     /**
@@ -54,9 +89,12 @@ class PermohonanPemohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Permohonan $permohonan_pemohon)
     {
-        return view('pemohon.permohonan.edit');
+        $jenisBangunan = JenisBangunan::all();
+        $kelurahan = Kelurahan::all();
+
+        return view('pemohon.permohonan.edit', compact('permohonan_pemohon', 'kelurahan', 'jenisBangunan'));
     }
 
     /**
@@ -66,9 +104,33 @@ class PermohonanPemohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Permohonan $permohonan_pemohon)
     {
-        //
+        $permohonan_pemohon->update($request->all());
+        if ($request->file('surat_kuasa') != null) {
+
+            $file = $request->file('surat_kuasa');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->surat_kuasa = $file_name;
+        }
+
+        if ($request->file('ktp') != null) {
+
+            $file = $request->file('ktp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->ktp = $file_name;
+        }
+
+        $permohonan_pemohon->update();
+
+        return redirect()->route('pemohon.permohonan_pemohon.index')->withSuccess('Data berhasil diubah');
+
     }
 
     /**
@@ -77,8 +139,17 @@ class PermohonanPemohonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permohonan $permohonan_pemohon)
     {
-        //
+        try {
+            $permohonan_pemohon->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

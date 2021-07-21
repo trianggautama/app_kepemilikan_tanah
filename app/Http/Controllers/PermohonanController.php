@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
 
 class PermohonanController extends Controller
@@ -13,7 +14,8 @@ class PermohonanController extends Controller
      */
     public function index()
     {
-        return view('admin.permohonan.index');
+        $data = Permohonan::all();
+        return view('admin.permohonan.index', compact('data'));
     }
 
     /**
@@ -43,9 +45,9 @@ class PermohonanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Permohonan $permohonan)
     {
-        return view('admin.permohonan.show');
+        return view('admin.permohonan.show', compact('permohonan'));
     }
 
     /**
