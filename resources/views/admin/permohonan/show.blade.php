@@ -83,7 +83,10 @@
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="card">
                             <div class="card-header">
-                                Data Permohonan Izin
+                                <div class="row">
+                                    <div class="col-md">Data Permohonan Izin</div>
+                                    <div class="col-md text-right"><a href="" class="btn btn-primary"><i class="fa fa-check"></i>Verifikasi permohonan</a></div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped">

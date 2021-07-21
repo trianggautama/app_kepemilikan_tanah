@@ -77,19 +77,9 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                            <form action="{{Route('admin.permohonan.destroy',1)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
                                                 <a href="{{Route('admin.permohonan.show',1)}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
-                                                <a href="{{Route('admin.permohonan.edit',1)}}"
-                                                    class="btn btn-sm btn-primary">
-                                                    <i class="fa fa-edit"></i> Edit</a>
-                                                <button type="submit" class="btn btn-sm btn-danger"><i
-                                                        class="fa fa-trash"></i>
-                                                    Hapus</button>
-                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
