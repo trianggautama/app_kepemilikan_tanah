@@ -14,7 +14,7 @@ class PermohonanController extends Controller
      */
     public function index()
     {
-        $data = Permohonan::all();
+        $data = Permohonan::where('status', '!=', '5')->get();
         return view('admin.permohonan.index', compact('data'));
     }
 
