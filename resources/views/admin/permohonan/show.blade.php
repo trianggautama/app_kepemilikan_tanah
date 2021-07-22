@@ -193,7 +193,6 @@
                                             @case(3)
                                             <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
                                                 Pemberdayaan Masyarakat</div>
-
                                             @break
                                             @case(4)
                                             <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>

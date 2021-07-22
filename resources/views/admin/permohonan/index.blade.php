@@ -77,7 +77,7 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                                <a href="{{Route('admin.permohonan.show',1)}}"
+                                                <a href="{{Route('admin.permohonan.show',{{$d->id}})}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
                                         </td>
