@@ -83,14 +83,14 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                            <form action="{{Route('pemohon.permohonan_pemohon.destroy',1)}}"
+                                            <form action="{{Route('pemohon.permohonan_pemohon.destroy',$d->id)}}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{Route('pemohon.permohonan_pemohon.show',1)}}"
+                                                <a href="{{Route('pemohon.permohonan_pemohon.show',$d->id)}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
-                                                <a href="{{Route('pemohon.permohonan_pemohon.edit',1)}}"
+                                                <a href="{{Route('pemohon.permohonan_pemohon.edit',$d->id)}}"
                                                     class="btn btn-sm btn-primary">
                                                     <i class="fa fa-edit"></i> Edit</a>
                                                 <button type="submit" class="btn btn-sm btn-danger"><i
