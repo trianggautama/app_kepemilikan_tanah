@@ -42,6 +42,34 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group">
+                                        <label for="firstName">Pangkat/Golongan</label>
+                                        <select name="pangkat_id" id="" class="form-control" required>
+                                            <option value="">Pilih Pangkat/Golongan</option>
+                                            @foreach ($pangkat as $d)
+                                            <option value="{{$d->id}}"
+                                                {{$user->pangkat_id == $d->id ? 'selected' :'' }}>
+                                                {{$d->nama_pangkat}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="firstName">Pilih Jabatan</label>
+                                        <select name="jabatan_id" id="" class="form-control" required>
+                                            <option value="">Pilih Jabatan</option>
+                                            @foreach ($jabatan as $d)
+                                            <option value="{{$d->id}}"
+                                                {{$user->jabatan_id == $d->id ? 'selected' :'' }}>
+                                                {{$d->nama_jabatan}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
                                         <label for="firstName">Tempat Lahir</label>
                                         <input type="text" name="tempat_lahir" value="{{$user->tempat_lahir}}"
                                             class="form-control form-control-sm">
@@ -75,6 +103,11 @@
                             <div class="form-group">
                                 <label for="firstName">Alamat</label>
                                 <textarea name="alamat" id="" class="form-control">{{$user->alamat}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">No Telepon</label>
+                                <input type="text" name="no_telepon" value="{{$user->no_telepon}}"
+                                    class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Role</label>

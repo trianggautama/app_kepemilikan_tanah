@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Jabatan;
+use App\Models\Pangkat;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -12,5 +15,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Get the pangkat that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function pangkat(): BelongsTo
+    {
+        return $this->belongsTo(Pangkat::class);
+    }
+
+    public function jabatan(): BelongsTo
+    {
+        return $this->belongsTo(Jabatan::class);
+    }
 
 }

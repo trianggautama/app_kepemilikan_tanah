@@ -23,6 +23,7 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/beranda', [MainController::class, 'admin_index'])->name('index');
         //masteer Data
         Route::resource('jabatan', '\App\Http\Controllers\JabatanController');
+        Route::resource('pangkat', '\App\Http\Controllers\PangkatController');
         Route::resource('jenis_bangunan', '\App\Http\Controllers\JenisBangunanController');
         Route::resource('kecamatan', '\App\Http\Controllers\KecamatanController');
         Route::resource('kelurahan', '\App\Http\Controllers\KelurahanController');

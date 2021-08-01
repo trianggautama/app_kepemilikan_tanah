@@ -31,50 +31,63 @@
             </button>
           </div>
           <div class="card-body">
-          <div class="basic-data-table">
-            <table class="table table-bordered" id="basic-data-table">
-              <thead>
-                <tr>
-                  <td>No</td>
-                  <td>Nama</td>
-                  <td>Role</td>
-                  <td>Username</td>
-                  <td class="text-center">Aksi</td>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($data as $d) 
+            <div class="basic-data-table">
+              <table class="table table-bordered" id="basic-data-table">
+                <thead>
+                  <tr>
+                    <td>No</td>
+                    <td>NIP</td>
+                    <td>Nama</td>
+                    <td>Pangkat/Golongan</td>
+                    <td>Jabatan</td>
+                    <td>Tempat, Tanggal Lahir</td>
+                    <td>Alamat</td>
+                    <td>Nomor Telepon</td>
+                    <td>Role</td>
+                    <td>Username</td>
+                    <td class="text-center">Aksi</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($data as $d)
 
-                <tr>
-                  <td>{{$loop->iteration}}</td>
-                  <td>{{$d->nama}}</td>
-                  <td>
-                    @if ($d->role == 0)
-                    Pemohon
-                    @elseif($d->role == 1)
-                    Admin
-                    @elseif($d->role == 2)
-                    Tim peneliti
-                    @elseif($d->role == 3)
-                    Ketua peneliti
-                    @else
-                    -
-                    @endif
-                  </td>
-                  <td>{{$d->username}}</td>
-                  <td class="text-center">
-                    <form action="{{Route('admin.user.destroy',$d->id)}}" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <a href="{{Route('admin.user.edit',$d->id)}}" class="btn btn-sm btn-info"> <i
-                          class="fa fa-pencil"></i> Edit</a>
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</button>
-                    </form>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                  <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$d->nip}}</td>
+                    <td>{{$d->nama}}</td>
+                    <td>{{$d->pangkat->nama_pangkat}}</td>
+                    <td>{{$d->jabatan->nama_jabatan}}</td>
+                    <td>{{$d->tempat_lahir.', '.carbon\carbon::parse($d->tanggal_lahir)->translatedFormat('d F Y')}}
+                    <td>{{$d->alamat}}</td>
+                    <td>{{$d->no_telepon}}</td>
+                    </td>
+                    <td>
+                      @if ($d->role == 0)
+                      Pemohon
+                      @elseif($d->role == 1)
+                      Admin
+                      @elseif($d->role == 2)
+                      Tim peneliti
+                      @elseif($d->role == 3)
+                      Ketua peneliti
+                      @else
+                      -
+                      @endif
+                    </td>
+                    <td>{{$d->username}}</td>
+                    <td class="text-center">
+                      <form action="{{Route('admin.user.destroy',$d->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <a href="{{Route('admin.user.edit',$d->id)}}" class="btn btn-sm btn-info"> <i
+                            class="fa fa-pencil"></i> Edit</a>
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Hapus</button>
+                      </form>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -108,14 +121,38 @@
               <div class="row">
                 <div class="col-md">
                   <div class="form-group">
+                    <label for="firstName">Pangkat/Golongan</label>
+                    <select name="pangkat_id" id="" class="form-control" required>
+                      <option value="">Pilih Pangkat/Golongan</option>
+                      @foreach ($pangkat as $d)
+                      <option value="{{$d->id}}">{{$d->nama_pangkat}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-group">
+                    <label for="firstName">Pilih Jabatan</label>
+                    <select name="jabatan_id" id="" class="form-control" required>
+                      <option value="">Pilih Jabatan</option>
+                      @foreach ($jabatan as $d)
+                      <option value="{{$d->id}}">{{$d->nama_jabatan}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md">
+                  <div class="form-group">
                     <label for="firstName">Tempat Lahir</label>
-                    <input type="text" name="tempat_lahir" class="form-control form-control-sm">
+                    <input type="text" name="tempat_lahir" class="form-control form-control-sm" required>
                   </div>
                 </div>
                 <div class="col-md">
                   <div class="form-group">
                     <label for="firstName">Tanggal Lahir</label>
-                    <input type="date" name="tanggal_lahir" class="form-control form-control-sm">
+                    <input type="date" name="tanggal_lahir" class="form-control form-control-sm" required>
                   </div>
                 </div>
               </div>
@@ -136,7 +173,11 @@
               </div>
               <div class="form-group">
                 <label for="firstName">Alamat</label>
-                <textarea name="alamat" id="" class="form-control"></textarea>
+                <textarea name="alamat" id="" class="form-control" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="firstName">No Telepon</label>
+                <input type="text" name="no_telepon" class="form-control form-control-sm" required>
               </div>
               <div class="form-group">
                 <label for="firstName">Role</label>
@@ -153,11 +194,11 @@
               </div>
               <div class="form-group">
                 <label for="firstName">Username</label>
-                <input type="text" name="username" class="form-control form-control-sm">
+                <input type="text" name="username" class="form-control form-control-sm" required>
               </div>
               <div class="form-group">
                 <label for="firstName">Password</label>
-                <input type="password" name="password" class="form-control form-control-sm">
+                <input type="password" name="password" class="form-control form-control-sm" required>
               </div>
             </div>
             <div class="modal-footer border-top-0 px-4 pt-0">

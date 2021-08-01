@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jabatan;
 use App\Models\Pangkat;
-use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class PangkatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::where('role', '!=', '0')->get();
-
-        $pangkat = Pangkat::all();
-        $jabatan = Jabatan::all();
-        return view('admin.user.index', compact('data', 'pangkat', 'jabatan'));
+        $data = Pangkat::all();
+        return view('admin.pangkat.index', compact('data'));
     }
 
     /**
@@ -43,16 +37,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $req = $request->all();
-        $req['password'] = Hash::make($request->password);
-        $data = User::create($req);
+        $data = Pangkat::create($request->all());
 
-        if ($data->role == 0) {
-            return redirect()->route('auth.login')->withSuccess('Pendaftaran Berhasil');
-        } else {
-            return back()->withSuccess('Data berhasil disimpan');
-        }
-
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -72,17 +59,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Pangkat $pangkat)
     {
-        if ($user->role == 0) {
-            return view('admin.pemohon.edit', compact('user'));
-        } else {
-            $pangkat = Pangkat::all();
-            $jabatan = Jabatan::all();
-            return view('admin.user.edit', compact('user', 'pangkat', 'jabatan'));
-
-        }
-
+        return view('admin.pangkat.edit', compact('pangkat'));
     }
 
     /**
@@ -92,21 +71,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Pangkat $pangkat)
     {
-        $req = $request->except('password');
-        if (isset($request->password)) {
-            $req['password'] = Hash::make($request->password);
-        }
+        $pangkat->update($request->all());
 
-        $user->update($req);
-
-        if ($user->role == 0) {
-            return redirect()->route('admin.pemohon.index')->withSuccess('Data berhasil diubah');
-        } else {
-            return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
-        }
-
+        return redirect()->route('admin.pangkat.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -115,10 +84,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Pangkat $pangkat)
     {
         try {
-            $user->delete();
+            $pangkat->delete();
             return back()->withSuccess('Data berhasil dihapus');
         } catch (QueryException $e) {
 
