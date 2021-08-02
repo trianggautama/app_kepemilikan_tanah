@@ -47,21 +47,46 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Ruko</td>
-                                    <td>232173612</td>
-                                    <td>273561211</td>
-                                    <td>Jl.A.yani km 31</td>
-                                    <td>
-                                        <div class="badge badge-warning">Verifikasi Petugas Lapangan</div>
-                                    </td>
-                                    <td class="text-center">
-                                            <a href="{{Route('peneliti.permohonan_peneliti.show',1)}}"
-                                                class="btn btn-sm btn-info">
-                                                <i class="fa fa-info-circle"></i> Detail</a>
-                                    </td> 
-                                </tr>
+                            @foreach ($data as $d)
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->jenis_bangunan->nama_jenis}}</td>
+                                        <td>{{$d->no_fisik}}</td>
+                                        <td>{{$d->no_yuridis}}</td>
+                                        <td>{{$d->letak_tanah}}</td>
+                                        <td>
+                                            @switch($d->status)
+                                            @case(0)
+                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                            @break
+                                            @case(1)
+                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
+                                                Kadastral</div>
+                                            @break
+                                            @case(2)
+                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
+                                                Pemetaan</div>
+                                            @break
+                                            @case(3)
+                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
+                                                Pemberdayaan Masyarakat</div>
+
+                                            @break
+                                            @case(4)
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                            @break
+                                            @default
+                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+
+                                            @endswitch
+                                        </td>
+                                        <td class="text-center">
+                                                <a href="{{Route('peneliti.permohonan_peneliti.show',$d->id)}}"
+                                                    class="btn btn-sm btn-info">
+                                                    <i class="fa fa-info-circle"></i> Detail</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
                             </tbody> 
                         </table>
                     </div>

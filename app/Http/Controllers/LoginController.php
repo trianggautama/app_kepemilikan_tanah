@@ -36,18 +36,17 @@ class LoginController extends Controller
                 case 3:
                     return redirect()->route('ketua_peneliti.index');
                     break;
-                // case 5:
-                //     return redirect('/sekretaris/beranda');
-                //     break;
-                // case 6:
-                //     return redirect('/kepala-dinas/beranda');
-                //     break;
-                case 7:
-                    return redirect('/pemohon/beranda');
+                case 4:
+                    return redirect()->route('kasi.index');
+                    break;
+                case 5:
+                    return redirect()->route('kadis.index');
+                    break;
+                case 6:
+                    return redirect()->route('arsip.index');
                     break;
             }
-
-        }
+        } 
 
         return back()->withErrors([
             'username' => 'Username atau password salah',

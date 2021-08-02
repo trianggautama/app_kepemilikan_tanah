@@ -93,7 +93,7 @@
             </div>
         </div>
     </div>
-
+    
      <!-- Add Event Button  -->
      <div class="modal fade" id="modal-add-event" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

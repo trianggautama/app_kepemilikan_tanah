@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Permohonan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class PermohonanPenelitiController extends Controller
+class PermohonanKasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +13,20 @@ class PermohonanPenelitiController extends Controller
      */
     public function index()
     {
-        $data = Permohonan  ::where('status', '>', '0')->get();
-        return view('tim_peneliti.permohonan.index',compact('data'));
+        return view('kasi.permohonan.index');
     }
-
-    /**
+ 
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        // 
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -48,10 +45,8 @@ class PermohonanPenelitiController extends Controller
      */
     public function show($id)
     {
-        $permohonan = Permohonan::findOrFail($id);
-        return view('tim_peneliti.permohonan.show', compact('permohonan'));
+        return view('kasi.permohonan.show');
     }
-
 
     /**
      * Show the form for editing the specified resource.

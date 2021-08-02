@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Permohonan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class PermohonanPenelitiController extends Controller
+class PangkatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,8 @@ class PermohonanPenelitiController extends Controller
      */
     public function index()
     {
-        $data = Permohonan  ::where('status', '>', '0')->get();
-        return view('tim_peneliti.permohonan.index',compact('data'));
+        $data = collect([]);
+        return view('admin.pangkat.index',compact('data'));
     }
 
     /**
@@ -48,10 +46,8 @@ class PermohonanPenelitiController extends Controller
      */
     public function show($id)
     {
-        $permohonan = Permohonan::findOrFail($id);
-        return view('tim_peneliti.permohonan.show', compact('permohonan'));
+        //
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -61,7 +57,8 @@ class PermohonanPenelitiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = null;
+        return view('admin.pangkat.index',compact('data'));
     }
 
     /**

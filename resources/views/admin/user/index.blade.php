@@ -57,6 +57,12 @@
                     Tim peneliti
                     @elseif($d->role == 3)
                     Ketua peneliti
+                    @elseif($d->role == 4)
+                    Kasi
+                    @elseif($d->role == 5)
+                    Kepala Badan
+                    @elseif($d->role == 6)
+                    Admin Arsip
                     @else
                     -
                     @endif
@@ -139,6 +145,19 @@
                 <textarea name="alamat" id="" class="form-control"></textarea>
               </div>
               <div class="form-group">
+                <label for="firstName">Pangkat Golongan</label>
+                <select name="" id="" class="form-control form-control-sm">
+                  <option value="">- pilih pangkat golongan -</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="firstName">Jabatan</label>
+                <select name="" id="" class="form-control form-control-sm">
+                  <option value="">- pilih jabatan -</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
                 <label for="firstName">Role</label>
                 <select name="role" id="" class="form-control form-control-sm">
                   <option value="">- pilih role -</option>
@@ -150,6 +169,10 @@
                   <option value="6">Admin Arsip</option>
                   <!-- <option value="0">Pemohon</option> -->
                 </select>
+              </div>
+              <div class="form-group">
+                <label for="firstName">no hp</label>
+                <input type="text" name="" class="form-control form-control-sm">
               </div>
               <div class="form-group">
                 <label for="firstName">Username</label>

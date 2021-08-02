@@ -82,4 +82,70 @@ class MainController extends Controller
 
         return redirect()->route('peneliti.profil')->withSuccess('Data berhasil diubah');
     }
+
+    public function kasi_index()
+    {
+        return view('kasi.index'); 
+    }
+
+    public function kasi_profil()
+    {
+        return view('kasi.profil'); 
+    }
+
+    public function kasi_profil_update(Request $request, $id)
+    {
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+        $user = User::findOrFail($id);
+        $user->update($req);
+
+        return redirect()->route('kasi.profil')->withSuccess('Data berhasil diubah');
+    }
+
+    public function kadis_index()
+    {
+        return view('kadis.index'); 
+    }
+
+    public function kadis_profil()
+    {
+        return view('kadis.profil'); 
+    }
+
+    public function kadis_profil_update(Request $request, $id)
+    {
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+        $user = User::findOrFail($id);
+        $user->update($req);
+
+        return redirect()->route('kadis.profil')->withSuccess('Data berhasil diubah');
+    }
+
+    public function arsip_index()
+    {
+        return view('arsip.index'); 
+    }
+
+    public function arsip_profil()
+    {
+        return view('arsip.profil'); 
+    }
+
+    public function arsip_profil_update(Request $request, $id)
+    {
+        $req = $request->except('password');
+        if (isset($request->password)) {
+            $req['password'] = Hash::make($request->password);
+        }
+        $user = User::findOrFail($id);
+        $user->update($req);
+
+        return redirect()->route('arsip.profil')->withSuccess('Data berhasil diubah');
+    }
 }
