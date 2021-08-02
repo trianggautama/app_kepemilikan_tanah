@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item">
                             <a href="index.html">
                                 <span class="mdi mdi-home"></span>
-                            </a> 
+                            </a>
                         </li>
                         <li class="breadcrumb-item">
                             Pangkat
@@ -25,23 +25,19 @@
         <div class="row">
             <div class="col-md">
                 <div class="card">
-                    <form action="{{Route('admin.pangkats.update',$jabatan->id)}}" method="POST">
+                    <form action="{{Route('admin.pangkat.update',$pangkat->id)}}" method="POST">
                         @csrf
                         @method('put')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="firstName">Pangkat</label>
-                                <input type="text" name="pangkat" class="form-control form-control-sm"
-                                    placeholder="Kode Jabatan">
+                                <label for="firstName">Kode Pangkat</label>
+                                <input type="text" name="kode_pangkat" value="{{$pangkat->kode_pangkat}}"
+                                    class="form-control form-control-sm" placeholder="Kode Pangkat">
                             </div>
                             <div class="form-group">
-                                <label for="firstName">Golongan</label>
-                                <select name="golongan" id="" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
+                                <label for="firstName">Nama Pangkat</label>
+                                <input type="text" name="nama_pangkat" value="{{$pangkat->nama_pangkat}}"
+                                    class="form-control form-control-sm" placeholder="Nama Pangkat">
                             </div>
                         </div>
                         <div class="card-footer text-right">

@@ -24,6 +24,7 @@ Route::group(['middleware' => ['admin']], function () {
         //masteer Data
         Route::resource('pangkat', '\App\Http\Controllers\PangkatController');
         Route::resource('jabatan', '\App\Http\Controllers\JabatanController');
+        Route::resource('pangkat', '\App\Http\Controllers\PangkatController');
         Route::resource('jenis_bangunan', '\App\Http\Controllers\JenisBangunanController');
         Route::resource('kecamatan', '\App\Http\Controllers\KecamatanController');
         Route::resource('kelurahan', '\App\Http\Controllers\KelurahanController');

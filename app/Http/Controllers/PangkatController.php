@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pangkat;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class PangkatController extends Controller
@@ -13,8 +15,8 @@ class PangkatController extends Controller
      */
     public function index()
     {
-        $data = collect([]);
-        return view('admin.pangkat.index',compact('data'));
+        $data = Pangkat::all();
+        return view('admin.pangkat.index', compact('data'));
     }
 
     /**
@@ -35,7 +37,9 @@ class PangkatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Pangkat::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -55,10 +59,9 @@ class PangkatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pangkat $pangkat)
     {
-        $data = null;
-        return view('admin.pangkat.index',compact('data'));
+        return view('admin.pangkat.edit', compact('pangkat'));
     }
 
     /**
@@ -68,9 +71,11 @@ class PangkatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pangkat $pangkat)
     {
-        //
+        $pangkat->update($request->all());
+
+        return redirect()->route('admin.pangkat.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -79,8 +84,17 @@ class PangkatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pangkat $pangkat)
     {
-        //
+        try {
+            $pangkat->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

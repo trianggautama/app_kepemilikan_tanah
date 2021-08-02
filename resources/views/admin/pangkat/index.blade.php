@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Pangkat Golongan</h1>
+                <h1>Pangkat</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Pangkat Golongan
+                            Pangkat
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Data</li>
                     </ol>
@@ -33,37 +33,38 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-data-table">
-                        <table class="table table-bordered" id="basic-data-table">
-                            <thead>
-                                <tr>
-                                    <td>No</td>
-                                    <td>Pangkat</td>
-                                    <td>Golongan</td>
-                                    <td class="text-center">Aksi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data as $d)
-                                <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->pangkat}}</td>
-                                    <td>{{$d->golongan}}</td>
-                                    <td class="text-center">
-                                        <form action="{{Route('admin.pangkat.destroy',$d->id)}}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <a href="{{Route('admin.pangkat.edit',$d->id)}}"
-                                                class="btn btn-sm btn-info">
-                                                <i class="mdi mdi-pencil"></i> Edit</a>
-                                            <button type="submit" class="btn btn-sm btn-danger"><i
-                                                    class="mdi mdi-delete"></i>Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        </div> 
+                            <table class="table table-bordered" id="basic-data-table">
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>Kode Pangkat</td>
+                                        <td>Nama Pangkat</td>
+                                        <td class="text-center">Aksi</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $d)
+
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->kode_pangkat}}</td>
+                                        <td>{{$d->nama_pangkat}}</td>
+                                        <td class="text-center">
+                                            <form action="{{Route('admin.pangkat.destroy',$d->id)}}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="{{Route('admin.pangkat.edit',$d->id)}}"
+                                                    class="btn btn-sm btn-info">
+                                                    <i class="mdi mdi-pencil"></i> Edit</a>
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="mdi mdi-delete"></i>Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,18 +88,14 @@
                         <div class="modal-body px-4">
 
                             <div class="form-group">
-                                <label for="firstName">Pangkat</label>
-                                <input type="text" name="pangkat" class="form-control form-control-sm"
-                                    placeholder="Kode Jabatan">
+                                <label for="firstName">Kode Pangkat</label>
+                                <input type="text" name="kode_pangkat" class="form-control form-control-sm"
+                                    placeholder="Kode Pangkat">
                             </div>
                             <div class="form-group">
-                                <label for="firstName">Golongan</label>
-                                <select name="golongan" id="" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
+                                <label for="firstName">Nama Pangkat</label>
+                                <input type="text" name="nama_pangkat" class="form-control form-control-sm"
+                                    placeholder="Nama Pangkat">
                             </div>
                         </div>
                         <div class="modal-footer border-top-0 px-4 pt-0">

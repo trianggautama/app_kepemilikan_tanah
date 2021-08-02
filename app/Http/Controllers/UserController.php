@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
+use App\Models\Pangkat;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -17,7 +19,10 @@ class UserController extends Controller
     public function index()
     {
         $data = User::where('role', '!=', '0')->get();
-        return view('admin.user.index', compact('data'));
+
+        $pangkat = Pangkat::all();
+        $jabatan = Jabatan::all();
+        return view('admin.user.index', compact('data', 'pangkat', 'jabatan'));
     }
 
     /**
@@ -46,7 +51,7 @@ class UserController extends Controller
             return redirect()->route('auth.login')->withSuccess('Pendaftaran Berhasil');
         } else {
             return back()->withSuccess('Data berhasil disimpan');
-        } 
+        }
 
     }
 
@@ -72,7 +77,9 @@ class UserController extends Controller
         if ($user->role == 0) {
             return view('admin.pemohon.edit', compact('user'));
         } else {
-            return view('admin.user.edit', compact('user'));
+            $pangkat = Pangkat::all();
+            $jabatan = Jabatan::all();
+            return view('admin.user.edit', compact('user', 'pangkat', 'jabatan'));
 
         }
 

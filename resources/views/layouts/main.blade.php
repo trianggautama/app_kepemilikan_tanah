@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aplikasi Pengelolaan Kepemilikan Tanah</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
+    rel="stylesheet" />
   <link href="{{asset('admin/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
   <link href="{{asset('admin/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
   <link href="{{asset('admin/plugins/data-tables/datatables.bootstrap4.min.css')}}" rel="stylesheet">
   <link id=" sleek-css" rel="stylesheet" href="{{asset('admin/css/sleek.css')}}" />
   <link href="{{asset('admin/img/favicon.png')}}" rel="shortcut icon" />
-  <link rel="stylesheet" href="{{asset('iziToast/iziToast.css')}}" /> 
-    <link rel="stylesheet" href="{{asset('iziToast/iziToast.min.css')}}" />
+  <link rel="stylesheet" href="{{asset('iziToast/iziToast.css')}}" />
+  <link rel="stylesheet" href="{{asset('iziToast/iziToast.min.css')}}" />
   <script src="{{asset('admin/plugins/nprogress/nprogress.js')}}"></script>
 </head>
 
@@ -37,7 +38,7 @@
         <div class="" data-simplebar style="height: 100%;">
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
-          @if(Auth::user()->role == 1)
+            @if(Auth::user()->role == 1)
             <li class="has-sub ">
               <a class="sidenav-item-link" href="#">
                 <span class="nav-text">Menu Admin</span>
@@ -61,9 +62,9 @@
             </li>
             <li class="">
               <a class="sidenav-item-link" href="{{route('admin.pangkat.index')}}">
-                <span class="nav-text">Pangkat Golongan</span>
+                <span class="nav-text">Pangkat/Golongan</span>
               </a>
-            </li> 
+            </li>
             <li class="">
               <a class="sidenav-item-link" href="{{route('admin.jabatan.index')}}">
                 <span class="nav-text">Jabatan</span>
@@ -144,11 +145,11 @@
           </a>
         </li>
         <li class="has-sub ">
-            <a class="sidenav-item-link" href="{{Route('pemohon.profil')}}">
-              <i class="fa fa-user"></i>
-              <span class="nav-text">Profil</span>
-            </a>
-          </li>
+          <a class="sidenav-item-link" href="{{Route('pemohon.profil')}}">
+            <i class="fa fa-user"></i>
+            <span class="nav-text">Profil</span>
+          </a>
+        </li>
         <li class="has-sub ">
             <a class="sidenav-item-link" href="{{Route('pemohon.permohonan_pemohon.index')}}">
               <i class="fa fa-file-text"></i>
@@ -373,8 +374,8 @@
       jQuery('#basic-data-table').DataTable();
     });
   </script>
-  @include('layouts.alert')   
-  @include('layouts.alert_error')                     
+  @include('layouts.alert')
+  @include('layouts.alert_error')
   @yield('script')
 </body>
 
