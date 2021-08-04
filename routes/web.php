@@ -67,14 +67,14 @@ Route::prefix('/kasi')->name('kasi.')->group(function () {
 });
 
 Route::prefix('/kadis')->name('kadis.')->group(function () {
-    Route::get('/beranda', [MainController::class, 'kadis_index'])->name('index'); 
+    Route::get('/beranda', [MainController::class, 'kadis_index'])->name('index');
     Route::get('/profil', [MainController::class, 'kadis_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'kadis_profil_update'])->name('profil.update');
     Route::resource('permohonan_kadis', '\App\Http\Controllers\PermohonanKadisController');
 });
 
 Route::prefix('/arsip')->name('arsip.')->group(function () {
-    Route::get('/beranda', [MainController::class, 'arsip_index'])->name('index'); 
+    Route::get('/beranda', [MainController::class, 'arsip_index'])->name('index');
     Route::get('/profil', [MainController::class, 'arsip_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'arsip_profil_update'])->name('profil.update');
     Route::resource('rak', '\App\Http\Controllers\RakController');

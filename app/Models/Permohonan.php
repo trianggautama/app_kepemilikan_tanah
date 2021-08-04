@@ -4,9 +4,11 @@ namespace App\Models;
 
 use App\Models\JenisBangunan;
 use App\Models\Kelurahan;
+use App\Models\Survei;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Permohonan extends Model
 {
@@ -30,5 +32,15 @@ class Permohonan extends Model
     public function kelurahan(): BelongsTo
     {
         return $this->belongsTo(Kelurahan::class);
+    }
+
+    /**
+     * Get all of the survei for the Permohonan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function survei(): HasOne
+    {
+        return $this->hasOne(Survei::class);
     }
 }

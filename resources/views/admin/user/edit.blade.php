@@ -113,8 +113,15 @@
                                 <label for="firstName">Role</label>
                                 <select name="role" id="" class="form-control form-control-sm">
                                     <option value="">- pilih role -</option>
-                                    <option value="1" {{$user->role == '1' ? 'selected' : ''}}>Admin</option>
-                                    <option value="0" {{$user->role == '0' ? 'selected' : ''}}>Pemohon</option>
+                                    <option value="1" {{$user->role == '1' ? 'selected' : ''}}>Admin Pendaftaran
+                                    </option>
+                                    <option value="2" {{$user->role == '2' ? 'selected' : ''}}>Tim Panitia / Peneliti
+                                        Tanah</option>
+                                    <option value="3" {{$user->role == '3' ? 'selected' : ''}}>Ketua Panitia / Peneliti
+                                        Tanah</option>
+                                    <option value="4" {{$user->role == '4' ? 'selected' : ''}}>Kepala Seksi</option>
+                                    <option value="5" {{$user->role == '5' ? 'selected' : ''}}>Kepala Kantor</option>
+                                    <option value="6" {{$user->role == '6' ? 'selected' : ''}}>Admin Arsip</option>
                                 </select>
                             </div>
                             <div class="form-group">

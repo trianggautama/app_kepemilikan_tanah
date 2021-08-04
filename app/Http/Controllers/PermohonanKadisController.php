@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
 
 class PermohonanKadisController extends Controller
@@ -13,7 +14,9 @@ class PermohonanKadisController extends Controller
      */
     public function index()
     {
-        return view('kadis.permohonan.index');
+        $data = Permohonan::whereStatus(4)->get();
+
+        return view('kadis.permohonan.index', compact('data'));
     }
 
     /**
@@ -45,7 +48,9 @@ class PermohonanKadisController extends Controller
      */
     public function show($id)
     {
-        return view('kadis.permohonan.show');
+        $permohonan = Permohonan::findOrFail($id);
+
+        return view('kadis.permohonan.show', compact('permohonan'));
     }
 
     /**
@@ -68,7 +73,11 @@ class PermohonanKadisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = Permohonan::findOrFail($id);
+        $permohonan->update($request->all());
+
+        return back()->withSuccess('Data berhasil diverifikasi');
+
     }
 
     /**

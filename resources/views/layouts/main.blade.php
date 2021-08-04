@@ -70,7 +70,7 @@
                 <span class="nav-text">Jabatan</span>
               </a>
             </li>
-            
+
             <li class="">
               <a class="sidenav-item-link" href="{{route('admin.jenis_bangunan.index')}}">
                 <span class="nav-text">Jenis Bangunan</span>
