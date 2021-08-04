@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::where('role', '!=', '0')->get();
+        $data = User::whereNotIn('role', ['0','1'])->get();
 
         $pangkat = Pangkat::all();
         $jabatan = Jabatan::all();

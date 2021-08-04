@@ -78,5 +78,6 @@ Route::prefix('/arsip')->name('arsip.')->group(function () {
     Route::get('/profil', [MainController::class, 'arsip_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'arsip_profil_update'])->name('profil.update');
     Route::resource('rak', '\App\Http\Controllers\RakController');
-    Route::resource('permohonan_arsip', '\App\Http\Controllers\PermohonanKadisController');
+    Route::resource('arsip_berkas', '\App\Http\Controllers\ArsipBerkasController');
+    Route::resource('permohonan_arsip', '\App\Http\Controllers\PermohonanArsipController');
 });

@@ -129,11 +129,11 @@
                   <span class="nav-text">Arsip Permohonan</span>
                 </a>
               </li>
-              <li class="">
+              <!-- <li class="">
                 <a class="sidenav-item-link" href="{{route('admin.peminjaman.index')}}">
                   <span class="nav-text">Peminjaman Arsip</span>
                 </a>
-              </li>
+              </li> -->
             </div>
           </ul>
         </li>
@@ -156,12 +156,6 @@
               <span class="nav-text">Permohonan</span>
             </a>
           </li>
-          <li class="has-sub ">
-            <a class="sidenav-item-link" href="">
-              <i class="fa fa-file-text"></i>
-              <span class="nav-text">Riwayat Permohonan</span>
-            </a>
-          </li>
           @endif
           @if(Auth::user()->role == 2)
             <li class="has-sub ">
@@ -179,12 +173,6 @@
                 <a class="sidenav-item-link" href="{{Route('peneliti.permohonan_peneliti.index')}}">
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Permohonan</span>
-                </a>
-              </li>
-              <li class="has-sub ">
-                <a class="sidenav-item-link" href="">
-                  <i class="fa fa-file-text"></i>
-                  <span class="nav-text">Riwayat Permohonan</span>
                 </a>
               </li>
             @endif
@@ -206,12 +194,6 @@
                   <span class="nav-text">Permohonan</span>
                 </a>
               </li>
-              <li class="has-sub ">
-                <a class="sidenav-item-link" href="">
-                  <i class="fa fa-file-text"></i>
-                  <span class="nav-text">Riwayat Permohonan</span>
-                </a>
-              </li>
             @endif
             @if(Auth::user()->role == 4)
             <li class="has-sub ">
@@ -229,12 +211,6 @@
                 <a class="sidenav-item-link" href="{{Route('kasi.permohonan_kasi.index')}}">
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Permohonan</span>
-                </a>
-              </li>
-              <li class="has-sub ">
-                <a class="sidenav-item-link" href="">
-                  <i class="fa fa-file-text"></i>
-                  <span class="nav-text">Riwayat Permohonan</span>
                 </a>
               </li>
             @endif
@@ -256,12 +232,6 @@
                   <span class="nav-text">Permohonan</span>
                 </a>
               </li>
-              <li class="has-sub ">
-                <a class="sidenav-item-link" href="">
-                  <i class="fa fa-file-text"></i>
-                  <span class="nav-text">Riwayat Permohonan</span>
-                </a>
-              </li>
             @endif
             @if(Auth::user()->role == 6)
             <li class="has-sub ">
@@ -281,18 +251,12 @@
                   <span class="nav-text">Rak</span>
                 </a>
               </li>
-            <!-- <li class="has-sub ">
-                <a class="sidenav-item-link" href="{{Route('kadis.permohonan_kadis.index')}}">
-                  <i class="fa fa-file-text"></i>
-                  <span class="nav-text">Permohonan</span>
-                </a>
-              </li>
               <li class="has-sub ">
-                <a class="sidenav-item-link" href="">
+                <a class="sidenav-item-link" href="{{Route('arsip.arsip_berkas.index')}}">
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Arsip Berkas</span>
                 </a>
-              </li> -->
+              </li>
             @endif
         </ul>
       </div>

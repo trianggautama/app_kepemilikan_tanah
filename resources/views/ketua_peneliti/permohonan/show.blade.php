@@ -213,7 +213,7 @@
                                             <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
                                             @break
                                             @default
-                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+                                            <div class="badge badge-primary">sPengarsipan</div>
                                             @endswitch
                                         </td>
                                     </tr>
