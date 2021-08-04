@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
 
 class PermohonanKasiController extends Controller
@@ -13,20 +14,22 @@ class PermohonanKasiController extends Controller
      */
     public function index()
     {
-        return view('kasi.permohonan.index');
+        $data = Permohonan::whereStatus(3)->get();
+
+        return view('kasi.permohonan.index', compact('data'));
     }
- 
-    /** 
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        // 
+        //
     }
 
-    /** 
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -45,7 +48,9 @@ class PermohonanKasiController extends Controller
      */
     public function show($id)
     {
-        return view('kasi.permohonan.show');
+        $permohonan = Permohonan::findOrFail($id);
+
+        return view('kasi.permohonan.show', compact('permohonan'));
     }
 
     /**
@@ -68,7 +73,11 @@ class PermohonanKasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = Permohonan::findOrFail($id);
+        $permohonan->update($request->all());
+
+        return back()->withSuccess('Data berhasil diverifikasi');
+
     }
 
     /**

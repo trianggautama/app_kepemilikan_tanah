@@ -207,12 +207,13 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        @if($permohonan->survei == null)
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md">
                                         Data Survei Lapangan
-                                    </div> 
+                                    </div>
                                     <div class="col-md text-right">
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
@@ -222,6 +223,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
+
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
@@ -236,32 +238,112 @@
                                     <tr>
                                         <td>Surat Ukur</td>
                                         <td>:</td>
-                                        <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Surat Ukur</a></td>
+                                        <td>
+                                            -
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Gambar Denah</td>
                                         <td>:</td>
-                                        <td><a href="" class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i> Gambar Denah</a></td>
+                                        <td>-
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>:</td>
-                                        <td><div class="badge badge-warning">menunggu verifikasi ketua tim peneliti</div></td>
+                                        <td>
+                                            <div class="badge badge-warning">menunggu verifikasi ketua tim peneliti
+                                            </div>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
+                        @else
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md">
+                                        Data Survei Lapangan
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td width="20%">Tanggal Survei</td>
+                                        <td width="2%">:</td>
+                                        <td>{{carbon\carbon::parse($permohonan->tanggal_survei)->translatedFormat('d F Y')}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Petugas Survei</td>
+                                        <td>:</td>
+                                        <td>{{$permohonan->survei->nama_petugas}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Surat Ukur</td>
+                                        <td>:</td>
+                                        <td>
+                                            <a href="{{asset('lampiran/'.$permohonan->survei->surat_ukur)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Surat Ukur</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gambar Denah</td>
+                                        <td>:</td>
+                                        <td><a href="{{asset('lampiran/'.$permohonan->survei->gambar_denah)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Gambar Denah</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td>
+                                            @switch($permohonan->status)
+                                            @case(0)
+                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                            @break
+                                            @case(1)
+                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
+                                                Kadastral</div>
+                                            @break
+                                            @case(2)
+                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
+                                                Pemetaan</div>
+                                            @break
+                                            @case(3)
+                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
+                                                Pemberdayaan Masyarakat</div>
+
+                                            @break
+                                            @case(4)
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                            @break
+                                            @default
+                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+
+                                            @endswitch
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
         </div>
 
-         <!-- Add Event Button  -->
-         <div class="modal fade" id="modal-add-event" tabindex="-1" role="dialog"
+        <!-- Add Event Button  -->
+        <div class="modal fade" id="modal-add-event" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{Route('admin.kecamatan.store')}}" method="POST">
+                    <form action="{{Route('peneliti.permohonan_peneliti.store')}}" enctype="multipart/form-data"
+                        method="POST">
                         @csrf
                         <div class="modal-header px-4">
                             <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data Survei</h5>
@@ -270,25 +352,27 @@
                             </button>
                         </div>
                         <div class="modal-body px-4">
+                            <input type="hidden" name="permohonan_id" value="{{$permohonan->id}}">
                             <div class="form-group">
                                 <label for="firstName">Nama Petugas </label>
-                                <input type="text" name="kode_kecamatan" class="form-control form-control-sm"
-                                    placeholder="Kode Kecamatan" value="{{Auth::user()->nama}}">
+                                <input type="text" name="nama_petugas" class="form-control form-control-sm"
+                                    placeholder="Nama Petugas" value="{{Auth::user()->nama}}" required readonly>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Tanggal Survei</label>
-                                <input type="date" name="nama_kecamatan" class="form-control form-control-sm"
-                                    placeholder="Nama Kecamatan" value="{{Carbon\carbon::now()->format('Y-m-d')}}">
+                                <input type="date" name="tanggal_survei" class="form-control form-control-sm"
+                                    placeholder="Tanggal Survei" value="{{Carbon\carbon::now()->format('Y-m-d')}}"
+                                    required readonly>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Surat Ukur</label>
-                                <input type="file" name="nama_kecamatan" class="form-control form-control-sm"
-                                    placeholder="Nama Kecamatan">
+                                <input type="file" name="surat_ukur" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Gambar Denah</label>
-                                <input type="file" name="nama_kecamatan" class="form-control form-control-sm"
-                                    placeholder="Nama Kecamatan" value="}">
+                                <input type="file" name="gambar_denah" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan" value="" required>
                             </div>
                         </div>
                         <div class="modal-footer border-top-0 px-4 pt-0">

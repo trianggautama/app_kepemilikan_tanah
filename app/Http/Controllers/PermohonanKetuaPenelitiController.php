@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
 
 class PermohonanKetuaPenelitiController extends Controller
@@ -13,12 +14,13 @@ class PermohonanKetuaPenelitiController extends Controller
      */
     public function index()
     {
-        return view('ketua_peneliti.permohonan.index');
+        $data = Permohonan::whereStatus(2)->get();
+        return view('ketua_peneliti.permohonan.index', compact('data'));
     }
 
     /**
      * Show the form for creating a new resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -45,7 +47,9 @@ class PermohonanKetuaPenelitiController extends Controller
      */
     public function show($id)
     {
-        return view('ketua_peneliti.permohonan.show');
+        $permohonan = Permohonan::findOrFail($id);
+
+        return view('ketua_peneliti.permohonan.show', compact('permohonan'));
     }
 
     /**
@@ -68,7 +72,10 @@ class PermohonanKetuaPenelitiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = Permohonan::findOrFail($id);
+        $permohonan->update($request->all());
+
+        return back()->withSuccess('Data berhasil diverifikasi');
     }
 
     /**
