@@ -270,18 +270,18 @@
               </a>
             </li>
             <li class="has-sub ">
-                <a class="sidenav-item-link" href="{{Route('kadis.profil')}}">
+                <a class="sidenav-item-link" href="{{Route('arsip.profil')}}">
                   <i class="fa fa-user"></i>
                   <span class="nav-text">Profil</span>
                 </a>
               </li>
               <li class="has-sub ">
-                <a class="sidenav-item-link" href="{{Route('kadis.permohonan_kadis.index')}}">
+                <a class="sidenav-item-link" href="{{Route('arsip.rak.index')}}">
                   <i class="fa fa-archive"></i>
                   <span class="nav-text">Rak</span>
                 </a>
               </li>
-            <li class="has-sub ">
+            <!-- <li class="has-sub ">
                 <a class="sidenav-item-link" href="{{Route('kadis.permohonan_kadis.index')}}">
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Permohonan</span>
@@ -292,7 +292,7 @@
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Arsip Berkas</span>
                 </a>
-              </li>
+              </li> -->
             @endif
         </ul>
       </div>
