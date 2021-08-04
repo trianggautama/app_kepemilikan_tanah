@@ -33,35 +33,37 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-data-table">
-                        <table class="table table-bordered" id="basic-data-table">
-                            <thead>
-                                <tr>
-                                    <td>No</td>
-                                    <td>Nama RAK</td>
-                                    <td>Jumlah Berkas</td>
-                                    <td class="text-center">Aksi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>A12</td>
-                                    <td>0 Berkas</td>
-                                    <td class="text-center">
-                                        <form action="{{Route('arsip.rak.destroy',1)}}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <a href="{{Route('arsip.rak.edit',1)}}"
-                                                class="btn btn-sm btn-info">
-                                                <i class="mdi mdi-pencil"></i> Edit</a>
-                                            <button type="submit" class="btn btn-sm btn-danger"><i
-                                                    class="mdi mdi-delete"></i>Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div> 
+                            <table class="table table-bordered" id="basic-data-table">
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>Nama RAK</td>
+                                        <td>Jumlah Berkas</td>
+                                        <td class="text-center">Aksi</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $d)
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->nama_rak}}</td>
+                                        <td>0 Berkas</td>
+                                        <td class="text-center">
+                                            <form action="{{Route('arsip.rak.destroy',$d->id)}}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="{{Route('arsip.rak.edit',$d->id)}}"
+                                                    class="btn btn-sm btn-info">
+                                                    <i class="mdi mdi-pencil"></i> Edit</a>
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="mdi mdi-delete"></i>Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +74,7 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{route('admin.jabatan.store')}}" method="POST">
+                    <form action="{{route('arsip.rak.store')}}" method="POST">
                         @csrf
                         <div class="modal-header px-4">
                             <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data</h5>
@@ -86,8 +88,8 @@
 
                             <div class="form-group">
                                 <label for="firstName">Nama Rak</label>
-                                <input type="text" name="kode_jabatan" class="form-control form-control-sm"
-                                    placeholder="Kode Jabatan">
+                                <input type="text" name="nama_rak" class="form-control form-control-sm"
+                                    placeholder="Nama Rak" required>
                             </div>
                         </div>
                         <div class="modal-footer border-top-0 px-4 pt-0">

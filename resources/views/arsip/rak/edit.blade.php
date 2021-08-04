@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item">
                             <a href="">
                                 <span class="mdi mdi-home"></span>
-                            </a> 
+                            </a>
                         </li>
                         <li class="breadcrumb-item">
                             RAK
@@ -25,14 +25,14 @@
         <div class="row">
             <div class="col-md">
                 <div class="card">
-                    <form action="{{Route('arsip.rak.update',1)}}" method="POST">
+                    <form action="{{Route('arsip.rak.update',$data->id)}}" method="POST">
                         @csrf
                         @method('put')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="firstName">Nama RAK</label>
-                                <input type="text" name="nama_jabatan" value=""
-                                    class="form-control form-control-sm" placeholder="Nama Jabatan">
+                                <input type="text" name="nama_rak" value="{{$data->nama_rak}}"
+                                    class="form-control form-control-sm" placeholder="Nama Rak" required>
                             </div>
                         </div>
                         <div class="card-footer text-right">

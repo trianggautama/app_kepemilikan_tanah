@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rak;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class RakController extends Controller
@@ -13,7 +15,8 @@ class RakController extends Controller
      */
     public function index()
     {
-        return view('arsip.rak.index');
+        $data = Rak::all();
+        return view('arsip.rak.index', compact('data'));
     }
 
     /**
@@ -34,7 +37,9 @@ class RakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Rak::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -56,7 +61,9 @@ class RakController extends Controller
      */
     public function edit($id)
     {
-        return view('arsip.rak.edit');
+        $data = Rak::FindOrFail($id);
+
+        return view('arsip.rak.edit', compact('data'));
     }
 
     /**
@@ -68,7 +75,11 @@ class RakController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Rak::FindOrFail($id);
+
+        $data->update($request->all());
+
+        return redirect()->route('arsip.rak.index');
     }
 
     /**
@@ -79,6 +90,17 @@ class RakController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Rak::FindOrFail($id);
+
+        try {
+            $data->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }
