@@ -100,13 +100,13 @@
                                 <div class="row">
                                     <div class="col-md">Data Permohonan Izin</div>
                                     <div class="col-md text-right">
-                                        @if ($permohonan->status == 3)
+                                        @if ($permohonan->status == 4)
 
-                                        <form action="{{route('kasi.permohonan_kasi.update',$permohonan->id)}}"
+                                        <form action="{{route('kadis.permohonan_kadis.update',$permohonan->id)}}"
                                             method="POST">
                                             @csrf
                                             @method('put')
-                                            <input type="hidden" name="status" value="4" id="" required>
+                                            <input type="hidden" name="status" value="5" id="" required>
                                             <button type="submit" class="btn btn-primary"><i
                                                     class="fa fa-check"></i>Verifikasi
                                                 permohonan</button>

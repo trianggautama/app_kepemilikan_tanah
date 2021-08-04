@@ -45,13 +45,13 @@
                                         Data Permohonan
                                     </div>
                                     <div class="col-md text-right">
-                                        @if ($permohonan->status == 2)
+                                        @if ($permohonan->status == 3)
 
                                         <form action="{{route('kasi.permohonan_kasi.update',$permohonan->id)}}"
                                             method="POST">
                                             @csrf
                                             @method('put')
-                                            <input type="hidden" name="status" value="3" id="" required>
+                                            <input type="hidden" name="status" value="4" id="" required>
                                             <button type="submit" class="btn btn-primary"><i
                                                     class="fa fa-check"></i>Verifikasi
                                                 permohonan</button>
