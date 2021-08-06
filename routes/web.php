@@ -91,6 +91,8 @@ Route::prefix('/report')->name('report.')->group(function () {
     Route::get('/biodata/{id}', [ReportController::class, 'biodata_pemohon'])->name('biodata_pemohon');  
     Route::get('/riwayat_berkas/{id}', [ReportController::class, 'riwayat_berkas'])->name('riwayat_berkas');  
     Route::get('/ba/{id}', [ReportController::class, 'ba'])->name('ba');  
-    Route::get('/sertifikat/{id}', [ReportController::class, 'sertifikat'])->name('sertifikat');  
+    Route::get('/sertifikat/{id}', [ReportController::class, 'sertifikat'])->name('sertifikat'); 
+    Route::get('/laporan_survei/{id}', [ReportController::class, 'laporan_survei'])->name('laporan_survei');   
+    Route::get('/peminjaman_berkas', [ReportController::class, 'peminjaman_berkas'])->name('peminjaman_berkas');   
 });
   

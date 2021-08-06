@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
+use App\Models\Survei;
 use App\Models\User;
 use PDF;
 use Illuminate\Http\Request;
@@ -55,6 +56,26 @@ class ReportController extends Controller
         
         return $pdf->stream('Sertifikat.pdf');
     }
+
+    public function laporan_survei($id)
+    {
+        $data   = Survei::findOrFail($id);
+        $ketua  = User::where('role',3)->first();
+        $pdf    = PDF::loadView('report.laporan_survei', ['data'=>$data,'ketua'=>$ketua]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Survey.pdf');
+    }
+
+    public function peminjaman_berkas()
+    {
+        $data   = collect([]);
+        $pdf    = PDF::loadView('report.peminjaman', ['data'=>$data]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Peminjaman.pdf');
+    }
+
 
 }
  
