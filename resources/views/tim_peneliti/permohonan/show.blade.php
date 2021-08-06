@@ -203,7 +203,8 @@
                                     </div>
                                     <div class="col-md text-right">
                                         @if($permohonan->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan
+                                            Hasil Survey</a>
                                         @endif
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
@@ -274,37 +275,37 @@
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->luas_bidang}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepekaan Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kepekaan_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tingkat Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->tingkat_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Drainase</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->drainase}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerikil / bebatuan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kerikil}}</td>
                                     </tr>
                                     <tr>
                                         <td>Ancaman Banjir</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->ancaman_banjir}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Surat ukur</td>
+                                        <td>Lereng Permukaan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->lereng_permukaan}}</td>
                                     </tr>
                                     <tr>
                                         <td>Surat Ukur</td>
@@ -391,32 +392,33 @@
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Luas Bidang (m <sup>2</sup> )</label>
-                                <input type="text" name="luas" class="form-control form-control-sm"
+                                <input type="text" name="luas_bidang" class="form-control form-control-sm"
                                     placeholder="Nama Kecamatan" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Lereng Permukaan</label>
-                                <input type="text" name="lereng_permukaan" class="form-control form-control-sm"  required>
+                                <input type="text" name="lereng_permukaan" class="form-control form-control-sm"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Kepekaan Erosi</label>
-                                <input type="text" name="kepekaan_erosi" class="form-control form-control-sm"  required>
+                                <input type="text" name="kepekaan_erosi" class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">tingkat Erosi</label>
-                                <input type="text" name="tingkat_erosi" class="form-control form-control-sm"  required>
+                                <input type="text" name="tingkat_erosi" class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Drainase</label>
-                                <input type="text" name="drainase" class="form-control form-control-sm"  required>
+                                <input type="text" name="drainase" class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Kerikil / Bebatuan</label>
-                                <input type="text" name="kerikil" class="form-control form-control-sm"  required>
+                                <input type="text" name="kerikil" class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Ancaman Banjir</label>
-                                <input type="text" name="kerikil" class="form-control form-control-sm"  required>
+                                <input type="text" name="ancaman_banjir" class="form-control form-control-sm" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Surat Ukur</label>
