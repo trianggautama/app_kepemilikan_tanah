@@ -54,19 +54,29 @@
                                     <td>{{$d->jenis_bangunan->nama_jenis}}</td>
                                     <td>{{$d->no_fisik}}</td>
                                     <td>{{$d->no_yuridis}}</td>
-                                    <td>{{$d->letak_tanah}}</td> 
+                                    <td>{{$d->letak_tanah}}</td>
                                     <td>
-                                    <div class="badge badge-warning">Data Arsip Belum di input</div>
-                                    <div class="badge badge-primary">Selesai Pengarsipan (RAK A1)</div>
+                                        @isset($d->arsip_berkas)
+                                        <div class="badge badge-primary">Selesai Pengarsipan
+                                            ({{$d->arsip_berkas->rak->nama_rak}})</div>
+                                        @else
+                                        <div class="badge badge-warning">Data Arsip Belum di input</div>
+                                        @endisset
                                     </td>
                                     <td class="text-center">
                                         <!-- <a href="{{Route('arsip.arsip_berkas.show',$d->id)}}"
                                             class="btn btn-sm btn-info">
                                             <i class="fa fa-info-circle"></i> Detail</a> -->
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
-                                            data-target="#modal-add-event">
+                                        @isset($d->arsip_berkas)
+                                        -
+                                        @else
+
+                                        <button id="tambah" data-id="{{$d->id}}" data-nama="{{$d->user->nama}}"
+                                            data-fisik="{{$d->no_fisik}}" type="button" class="btn btn-sm btn-primary"
+                                            data-toggle="modal" data-target="#modal-add-event">
                                             <i class="mdi mdi-plus mr-1"></i>Data Arsip
                                         </button>
+                                        @endisset
                                     </td>
                                 </tr>
                                 @endforeach
@@ -81,7 +91,7 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{route('admin.jabatan.store')}}" method="POST">
+                    <form action="{{route('arsip.arsip_berkas.store')}}" method="POST">
                         @csrf
                         <div class="modal-header px-4">
                             <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data Arsip</h5>
@@ -94,16 +104,21 @@
                         <div class="modal-body px-4">
                             <div class="form-group">
                                 <label for="firstName">Nama Pemohon</label>
-                                <p>- dummy</p>
+                                <p id="nama_pemohon">- dummy</p>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Nomor Fisik</label>
-                                <p>- dummy</p>
+                                <p id="nomor_fisik">- dummy</p>
                             </div>
+                            <input id="permohonan_id" type="hidden" name="permohonan_id">
                             <div class="form-group">
                                 <label for="firstName">Rak</label>
-                                <select name="" id="" class="form-control">
+                                <select name="rak_id" id="" class="form-control">
                                     <option value="">- pilih rak -</option>
+                                    @foreach ($rak as $d)
+                                    <option value="{{$d->id}}">{{$d->nama_rak}}</option>
+
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -114,4 +129,19 @@
                 </div>
             </div>
         </div>
+        @endsection
+        @section('script')
+        <script>
+            $('#tambah').on('click',function(e){
+                var id = $(this).data(id);
+                var nama = $(this).data(nama);
+                var fisik = $(this).data(fisik);
+
+                $('#nama_pemohon').text(nama.nama);
+                $('#nomor_fisik').text(fisik.fisik);
+                $('#permohonan_id').val(id.id);
+
+
+            });
+        </script>
         @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ArsipBerkas;
 use App\Models\JenisBangunan;
 use App\Models\Kelurahan;
 use App\Models\Survei;
@@ -42,5 +43,10 @@ class Permohonan extends Model
     public function survei(): HasOne
     {
         return $this->hasOne(Survei::class);
+    }
+
+    public function arsip_berkas(): HasOne
+    {
+        return $this->hasOne(ArsipBerkas::class);
     }
 }

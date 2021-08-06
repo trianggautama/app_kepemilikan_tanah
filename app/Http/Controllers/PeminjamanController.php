@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PeminjamanBerkas;
+use App\Models\Permohonan;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -13,7 +16,9 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('arsip.peminjaman.index');
+        $data = PeminjamanBerkas::all();
+        $permohonan = Permohonan::whereStatus(5)->whereHas('arsip_berkas')->get();
+        return view('arsip.peminjaman.index', compact('data', 'permohonan'));
     }
 
     /**
@@ -34,7 +39,9 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        PeminjamanBerkas::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
     }
 
     /**
@@ -56,7 +63,10 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        return view('arsip.peminjaman.edit');
+        $data = PeminjamanBerkas::findOrFail($id);
+        $permohonan = Permohonan::whereStatus(5)->whereHas('arsip_berkas')->get();
+
+        return view('arsip.peminjaman.edit', compact('data', 'permohonan'));
     }
 
     /**
@@ -68,7 +78,10 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = PeminjamanBerkas::findOrFail($id);
+        $data->update($request->all());
+
+        return redirect()->route('arsip.peminjaman_berkas.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
@@ -79,5 +92,17 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
+        $data = PeminjamanBerkas::findOrFail($id);
+
+        try {
+            $data->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

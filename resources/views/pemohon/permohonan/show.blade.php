@@ -23,14 +23,16 @@
             </div>
         </div>
         @if($permohonan_pemohon->status == 5)
-            <div class="row">
-                <div class="col-md">
-                    <div class="alert alert-success">
-                        <h5 class="mb-1">Informasi Pengambilan</h5>
-                        <p>Pengambilan sertifikat dapat langsung di ambil di kantor BPN Banjarbaru dengan membwa fotocoy lampiran KTP , dan Surat Kuasa (Jika ada), jam pelayanan kantor buka setiap hari Senin - Jum'at Jam 09.00 - 13.00 , khusus hari jum'at pelayanan buka 08.00 - 10.00</p>
-                    </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="alert alert-success">
+                    <h5 class="mb-1">Informasi Pengambilan</h5>
+                    <p>Pengambilan sertifikat dapat langsung di ambil di kantor BPN Banjarbaru dengan membwa fotocoy
+                        lampiran KTP , dan Surat Kuasa (Jika ada), jam pelayanan kantor buka setiap hari Senin - Jum'at
+                        Jam 09.00 - 13.00 , khusus hari jum'at pelayanan buka 08.00 - 10.00</p>
                 </div>
             </div>
+        </div>
         @endif
         <div class="row">
             <div class="col-md">
@@ -175,22 +177,26 @@
                                         <td>
                                             @switch($permohonan_pemohon->status)
                                             @case(0)
-                                                <div class="badge badge-warning">Verifikasi ( Admin )</div>
+                                            <div class="badge badge-warning">Verifikasi ( Admin )</div>
                                             @break
                                             @case(1)
-                                                <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan  Kadastral (Peneliti / Petugas Lapangan)</div>
+                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
+                                                Kadastral (Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(2)
-                                                <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan Pemetaan (Ketua Peneliti / Petugas Lapangan)</div>
+                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
+                                                Pemetaan (Ketua Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(3)
-                                                <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan Pemberdayaan Masyarakat (Kepala Seksi)</div>
+                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
+                                                Pemberdayaan Masyarakat (Kepala Seksi)</div>
                                             @break
                                             @case(4)
-                                                <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan (Kepala Kantor Pertanahan)</div>
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan (Kepala
+                                                Kantor Pertanahan)</div>
                                             @break
                                             @default
-                                                <div class="badge badge-primary">Pengarsipan</div>
+                                            <div class="badge badge-primary">Pengarsipan</div>
                                             @endswitch
                                         </td>
                                     </tr>
@@ -210,18 +216,18 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                @if($data->suvei)
+                                @if($permohonan_pemohon->survei)
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>
-                                        <td>{{carbon\carbon::parse($permohonan->tanggal_survei)->translatedFormat('d F Y')}}
+                                        <td>{{carbon\carbon::parse($permohonan_pemohon->tanggal_survei)->translatedFormat('d F Y')}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Petugas Survei</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->survei->nama_petugas}}</td>
+                                        <td>{{$permohonan_pemohon->survei->nama_petugas}}</td>
                                     </tr>
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
@@ -262,7 +268,7 @@
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>
-                                            <a href="{{asset('lampiran/'.$permohonan->survei->surat_ukur)}}"
+                                            <a href="{{asset('lampiran/'.$permohonan_pemohon->survei->surat_ukur)}}"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Surat Ukur</a>
                                         </td>
@@ -270,7 +276,7 @@
                                     <tr>
                                         <td>Gambar Denah</td>
                                         <td>:</td>
-                                        <td><a href="{{asset('lampiran/'.$permohonan->survei->gambar_denah)}}"
+                                        <td><a href="{{asset('lampiran/'.$permohonan_pemohon->survei->gambar_denah)}}"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Gambar Denah</a></td>
                                     </tr>
@@ -278,7 +284,7 @@
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            @switch($permohonan->status)
+                                            @switch($permohonan_pemohon->status)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi Admin</div>
                                             @break

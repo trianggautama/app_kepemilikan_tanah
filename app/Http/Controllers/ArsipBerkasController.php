@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArsipBerkas;
 use App\Models\Permohonan;
+use App\Models\Rak;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class ArsipBerkasController extends Controller
@@ -15,7 +18,9 @@ class ArsipBerkasController extends Controller
     public function index()
     {
         $permohonan = Permohonan::where('status', 5)->latest()->get();
-        return view('arsip.arsip_berkas.index',compact('permohonan'));
+
+        $rak = Rak::all();
+        return view('arsip.arsip_berkas.index', compact('permohonan', 'rak'));
     }
 
     /**
@@ -36,7 +41,10 @@ class ArsipBerkasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ArsipBerkas::create($request->all());
+
+        return back()->withSuccess('Data berhasil disimpan');
+
     }
 
     /**
@@ -58,7 +66,10 @@ class ArsipBerkasController extends Controller
      */
     public function edit($id)
     {
-        return view('arsip.arsip_berkas.edit');
+        $data = ArsipBerkas::findOrFail($id);
+        $rak = Rak::all();
+
+        return view('arsip.arsip_berkas.edit', compact('data', 'rak'));
     }
 
     /**
@@ -70,7 +81,11 @@ class ArsipBerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = PeminjamanBerkas::findOrFail($id);
+        $data->update($request->all());
+
+        return redirect()->route('arsip.arsip_berkas.index')->withSuccess('Data berhasil diubah');
+
     }
 
     /**
@@ -81,6 +96,17 @@ class ArsipBerkasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ArsipBerkas::findOrFail($id);
+
+        try {
+            $data->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }

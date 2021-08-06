@@ -33,43 +33,55 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-data-table">
-                        <table class="table table-bordered" id="basic-data-table">
-                            <thead>
-                                <tr>
-                                    <td>No</td>
-                                    <td>Berkas</td>
-                                    <td>Rak</td>
-                                    <td>Nama Peminjam</td>
-                                    <td>Keperluan</td>
-                                    <td>Tanggal Peminjaman</td>
-                                    <td>Tanggal Pengembalian</td>
-                                    <td class="text-center">Aksi</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td> belum di input / Tanggal Pngembalian</td>
-                                    <td>
-                                        <form action="{{Route('arsip.peminjaman_berkas.destroy',1)}}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <a href="{{Route('arsip.peminjaman_berkas.edit',1)}}"
-                                                class="btn btn-sm btn-info">
-                                                <i class="mdi mdi-pencil"></i> Edit</a>
-                                            <button type="submit" class="btn btn-sm btn-danger"><i
-                                                    class="mdi mdi-delete"></i>Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div> 
+                            <table class="table table-bordered" id="basic-data-table">
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>Berkas</td>
+                                        <td>Rak</td>
+                                        <td>Nama Peminjam</td>
+                                        <td>Keperluan</td>
+                                        <td>Tanggal Peminjaman</td>
+                                        <td>Tanggal Pengembalian</td>
+                                        <td class="text-center">Aksi</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $d)
+
+
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->permohonan->dikuasai_awal.' - '. $d->permohonan->jenis_bangunan->nama_jenis}}
+                                        </td>
+                                        <td>{{$d->permohonan->arsip_berkas->rak->nama_rak}}</td>
+                                        <td>{{$d->nama}}</td>
+                                        <td>{{$d->keperluan}}</td>
+                                        <td>{{carbon\carbon::parse($d->tanggal_pinjam)->translatedFormat('d F Y')}}</td>
+                                        @isset($d->tanggal_kembali)
+
+                                        <td>{{carbon\carbon::parse($d->tanggal_kembali)->translatedFormat('d F Y')}}
+                                            @else
+                                        <td>Belum diinput</td>
+                                        @endisset
+                                        </td>
+                                        <td>
+                                            <form action="{{Route('arsip.peminjaman_berkas.destroy',$d->id)}}"
+                                                method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a href="{{Route('arsip.peminjaman_berkas.edit',$d->id)}}"
+                                                    class="btn btn-sm btn-info">
+                                                    <i class="mdi mdi-pencil"></i> Edit</a>
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="mdi mdi-delete"></i>Hapus</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,7 +92,7 @@
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="{{route('admin.jabatan.store')}}" method="POST">
+                    <form action="{{route('arsip.peminjaman_berkas.store')}}" method="POST">
                         @csrf
                         <div class="modal-header px-4">
                             <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data</h5>
@@ -94,20 +106,36 @@
 
                             <div class="form-group">
                                 <label for="firstName">Berkas</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="">- pilih berkas (yang sudah di arsipkan)-</option>
+                                <select name="permohonan_id" id="" class="form-control" required>
+                                    <option value="">- pilih berkas -</option>
+                                    @foreach ($permohonan as $d)
+                                    <option value="{{$d->id}}">{{$d->dikuasai_awal}} -
+                                        {{$d->jenis_bangunan->nama_jenis}}
+                                    </option>
+
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Nama </label>
                                 <input type="text" name="nama" class="form-control form-control-sm"
-                                    placeholder="Nama Peminjam">
+                                    placeholder="Nama Peminjam" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Keperluan </label>
                                 <input type="text" name="keperluan" class="form-control form-control-sm"
-                                    placeholder="keperluan peminjaman">
+                                    placeholder="keperluan peminjaman" required>
                             </div>
+                            <div class="form-group">
+                                <label for="firstName">Tanggal Peminjaman </label>
+                                <input type="date" name="tanggal_pinjam" class="form-control form-control-sm"
+                                    placeholder="keperluan peminjaman" required>
+                            </div>
+                            {{-- <div class="form-group">
+                                <label for="firstName">Tanggal Pengembalian </label>
+                                <input type="date" name="tanggal_kembali" class="form-control form-control-sm"
+                                    placeholder="keperluan peminjaman" required>
+                            </div> --}}
                         </div>
                         <div class="modal-footer border-top-0 px-4 pt-0">
                             <button type="submit" class="btn btn-sm btn-primary  m-0">Simpan Data</button>
