@@ -26,6 +26,7 @@
       <div class="col-md">
         <div class="card">
           <div class="card-header text-right">
+            <a href="{{Route('report.pegawai')}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
             <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-add-event">
               <i class="fa fa-plus mr-1"></i> Tambah Data
             </button>
@@ -70,6 +71,12 @@
                       Tim peneliti
                       @elseif($d->role == 3)
                       Ketua peneliti
+                      @elseif($d->role == 4)
+                      Kepala Seksi
+                      @elseif($d->role == 5)
+                      Kepala Badan
+                      @elseif($d->role == 6)
+                      Admin Arsip
                       @else
                       -
                       @endif

@@ -47,7 +47,8 @@ class PemohonController extends Controller
      */
     public function show($id)
     {
-        return view('admin.pemohon.index');
+        $data = User::findOrFail($id);
+        return view('admin.pemohon.show',compact('data'));
     }
 
     /**

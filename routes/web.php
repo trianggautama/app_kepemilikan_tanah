@@ -3,6 +3,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\PermohonanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +34,7 @@ Route::group(['middleware' => ['admin']], function () {
         Route::resource('pemohon', '\App\Http\Controllers\PemohonController');
         Route::resource('permohonan', '\App\Http\Controllers\PermohonanController');
         Route::resource('peminjaman', '\App\Http\Controllers\PeminjamanController');
+        Route::get('/riwayat/permohonan', [PermohonanController::class, 'riwayat'])->name('permohonan.riwayat'); 
     });
 
 });
@@ -80,4 +83,14 @@ Route::prefix('/arsip')->name('arsip.')->group(function () {
     Route::resource('rak', '\App\Http\Controllers\RakController');
     Route::resource('arsip_berkas', '\App\Http\Controllers\ArsipBerkasController');
     Route::resource('permohonan_arsip', '\App\Http\Controllers\PermohonanArsipController');
+    Route::resource('peminjaman_berkas', '\App\Http\Controllers\PeminjamanController');
 });
+
+Route::prefix('/report')->name('report.')->group(function () {
+    Route::get('/pegawai', [ReportController::class, 'pegawai'])->name('pegawai');
+    Route::get('/biodata/{id}', [ReportController::class, 'biodata_pemohon'])->name('biodata_pemohon');  
+    Route::get('/riwayat_berkas/{id}', [ReportController::class, 'riwayat_berkas'])->name('riwayat_berkas');  
+    Route::get('/ba/{id}', [ReportController::class, 'ba'])->name('ba');  
+    Route::get('/sertifikat/{id}', [ReportController::class, 'sertifikat'])->name('sertifikat');  
+});
+  

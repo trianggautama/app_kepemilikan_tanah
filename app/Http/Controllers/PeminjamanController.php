@@ -13,7 +13,7 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        return view('arsip.peminjaman.index');
     }
 
     /**
@@ -56,7 +56,7 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('arsip.peminjaman.edit');
     }
 
     /**
@@ -79,6 +79,5 @@ class PeminjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
 }

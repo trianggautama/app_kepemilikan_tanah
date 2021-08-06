@@ -280,6 +280,11 @@
                                     <div class="col-md">
                                         Data Survei Lapangan
                                     </div>
+                                    <div class="col-md">
+                                        @if($permohonan->survei)
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

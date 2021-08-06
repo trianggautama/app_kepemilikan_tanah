@@ -125,8 +125,8 @@
                 </a>
               </li>
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
-                  <span class="nav-text">Arsip Permohonan</span>
+                <a class="sidenav-item-link" href="{{route('admin.permohonan.riwayat')}}">
+                  <span class="nav-text">Riwayat Permohonan</span>
                 </a>
               </li>
               <!-- <li class="">
@@ -134,6 +134,27 @@
                   <span class="nav-text">Peminjaman Arsip</span>
                 </a>
               </li> -->
+            </div>
+          </ul>
+        </li>
+        <li class="has-sub ">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#report"
+            aria-expanded="false" aria-controls="dashboard">
+            <i class="fa fa-print"></i>
+            <span class="nav-text">Report</span> <span class="fa fa-sort-down">
+          </a>
+          <ul class="collapse " id="report" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.permohonan.index')}}">
+                  <span class="nav-text">Report Pegawai</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
+                  <span class="nav-text">Arsip Permohonan</span>
+                </a>
+              </li>
             </div>
           </ul>
         </li>
@@ -251,12 +272,33 @@
                   <span class="nav-text">Rak</span>
                 </a>
               </li>
-              <li class="has-sub ">
+              <!-- <li class="has-sub ">
                 <a class="sidenav-item-link" href="{{Route('arsip.arsip_berkas.index')}}">
                   <i class="fa fa-file-text"></i>
                   <span class="nav-text">Arsip Berkas</span>
                 </a>
+              </li> -->
+              <li class="has-sub ">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#users"
+            aria-expanded="false" aria-controls="dashboard">
+            <i class="fa fa-file-text"></i>
+            <span class="nav-text">Arsip</span> <span class="fa fa-sort-down">
+          </a>
+          <ul class="collapse " id="users" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('arsip.arsip_berkas.index')}}">
+                  <span class="nav-text">Data Arsip</span>
+                </a>
               </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('arsip.peminjaman_berkas.index')}}">
+                  <span class="nav-text">Peminjaman Berkas</span>
+                </a>
+              </li>
+            </div>
+          </ul>
+        </li>
             @endif
         </ul>
       </div>

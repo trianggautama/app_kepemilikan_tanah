@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Permohonan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class PermohonanController extends Controller
+class ArsipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class PermohonanController extends Controller
      */
     public function index()
     {
-        $data = Permohonan::where('status', '!=', '5')->get();
-        return view('admin.permohonan.index', compact('data'));
+        //
     }
 
     /**
@@ -46,9 +43,9 @@ class PermohonanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Permohonan $permohonan)
+    public function show($id)
     {
-        return view('admin.permohonan.show', compact('permohonan'));
+        //
     }
 
     /**
@@ -59,7 +56,7 @@ class PermohonanController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.permohonan.edit');
+        //
     }
 
     /**
@@ -69,21 +66,9 @@ class PermohonanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permohonan $permohonan)
+    public function update(Request $request, $id)
     {
-        $role = Auth::user()->role;
-        switch ($role) {
-            case 1:
-                $permohonan->update($request->all());
-
-                return back()->withSuccess('Data berhasil diverifikasi');
-                break;
-
-            default:
-                # code...
-                break;
-        }
-
+        //
     }
 
     /**
@@ -95,11 +80,5 @@ class PermohonanController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function riwayat()
-    {
-        $data = Permohonan::where('status', 5)->latest()->get();
-        return view('admin.permohonan.riwayat', compact('data'));
     }
 }

@@ -22,6 +22,16 @@
             <div>
             </div>
         </div>
+        @if($permohonan_pemohon->status == 5)
+            <div class="row">
+                <div class="col-md">
+                    <div class="alert alert-success">
+                        <h5 class="mb-1">Informasi Pengambilan</h5>
+                        <p>Pengambilan sertifikat dapat langsung di ambil di kantor BPN Banjarbaru dengan membwa fotocoy lampiran KTP , dan Surat Kuasa (Jika ada), jam pelayanan kantor buka setiap hari Senin - Jum'at Jam 09.00 - 13.00 , khusus hari jum'at pelayanan buka 08.00 - 10.00</p>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md">
                 <nav>

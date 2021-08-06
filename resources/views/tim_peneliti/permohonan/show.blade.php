@@ -202,6 +202,9 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
+                                        @if($permohonan->survei)
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        @endif
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
                                             <i class="fa fa-plus mr-1"></i> Tambah Data Survei

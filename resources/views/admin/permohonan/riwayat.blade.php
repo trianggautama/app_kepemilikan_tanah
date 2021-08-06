@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Permohonan</h1>
+                <h1>Riwayat Permohonan</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Permohonan
+                            Riwayat Permohonan
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Data</li>
                     </ol>
@@ -26,13 +26,7 @@
             <div class="col-md">
                 <div class="card">
                     <div class="card-header text-right">
-                        <div class="row">
-                            <div class="col-md">Tabel Data</div>
-                            <div class="col-md">
-                                <a href="{{Route('pemohon.permohonan_pemohon.create')}}"
-                                    class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Tambah Data</a>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="card-body">
                         <div class="basic-data-table">
@@ -83,21 +77,9 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                            <form action="{{Route('pemohon.permohonan_pemohon.destroy',$d->id)}}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <a href="{{Route('pemohon.permohonan_pemohon.show',$d->id)}}"
+                                                <a href="{{Route('admin.permohonan.show',$d->id)}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
-                                                @if($d->status != 5)
-                                                <a href="{{Route('pemohon.permohonan_pemohon.edit',$d->id)}}"
-                                                    class="btn btn-sm btn-primary">
-                                                    <i class="fa fa-edit"></i> Edit</a>
-                                                <button type="submit" class="btn btn-sm btn-danger"><i
-                                                        class="fa fa-trash"></i> Hapus</button>
-                                                @endif
-                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -109,3 +91,8 @@
             </div>
         </div>
         @endsection
+        @section('script')
+        <script>
+
+        </script>
+        @endsections

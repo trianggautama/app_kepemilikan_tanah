@@ -32,8 +32,11 @@
                             aria-controls="nav-profile" aria-selected="false">Data Permohonan</a>
                         <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
                             aria-controls="nav-contact" aria-selected="false">Data Survei</a>
-                        <a href="{{Route('admin.permohonan.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i>
-                            Kembali</a>
+                        @if($permohonan->status == 5)
+                            <a href="{{Route('admin.permohonan.riwayat')}}" class="nav-link"><i class="fa fa-arrow-left"></i> Kembali</a>
+                        @else
+                            <a href="{{Route('admin.permohonan.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i> Kembali</a>
+                        @endif
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -42,7 +45,14 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md">
-                                        Data Permohonan
+                                        Data Pemohon
+                                    </div>
+                                    <div class="col-md text-right">
+                                       @if($permohonan->status == 5)
+                                            <a href="{{route('report.riwayat_berkas',$permohonan->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Riwayat Perjalan Dokumen</a>
+                                            <a href="{{route('report.ba',$permohonan->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Serah Terima</a>
+                                            <a href="{{Route('report.sertifikat',$permohonan->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Sertifikat Kepemilikan Tanah</a>
+                                       @endif
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +97,6 @@
                                     <div class="col-md">Data Permohonan Izin</div>
                                     <div class="col-md text-right">
                                         @if ($permohonan->status == 0)
-
                                         <form action="{{route('admin.permohonan.update',$permohonan->id)}}"
                                             method="POST">
                                             @csrf
@@ -214,6 +223,9 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
+                                        @if($permohonan->survei)
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

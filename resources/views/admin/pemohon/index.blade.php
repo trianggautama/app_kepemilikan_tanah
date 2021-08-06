@@ -43,7 +43,7 @@
                                     <td>Status</td>
                                     <td class="text-center">Aksi</td>
                                 </tr>
-                            </thead>
+                            </thead> 
                             <tbody>
                                 @foreach ($data as $d)
 
@@ -58,10 +58,12 @@
                                         <div class="badge badge-primary">Aktif</div>
                                     </td>
                                     <td class="text-center">
-                                        <form action="{{Route('admin.user.destroy',$d->id)}}" method="POST">
+                                        <form action="{{Route('admin.pemohon.destroy',$d->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{Route('admin.user.edit',$d->id)}}" class="btn btn-sm btn-info">
+                                            <a href="{{Route('admin.pemohon.show',$d->id)}}" class="btn btn-sm btn-success">
+                                                <i class="fa fa-info-circle"></i> Detail</a>
+                                            <a href="{{Route('admin.pemohon.edit',$d->id)}}" class="btn btn-sm btn-info">
                                                 <i class="fa fa-pencil"></i> Edit</a>
                                             <button type="submit" class="btn btn-sm btn-danger"><i
                                                     class="fa fa-trash"></i>Hapus</button>

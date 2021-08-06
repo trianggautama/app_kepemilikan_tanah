@@ -229,15 +229,17 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                        @if($data->survei)
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        @endif
+                                        <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
                                             <i class="fa fa-plus mr-1"></i> Tambah Data Survei
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
-
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
@@ -279,6 +281,11 @@
                                 <div class="row">
                                     <div class="col-md">
                                         Data Survei Lapangan
+                                    </div>
+                                    <div class="col-md">
+                                        @if($permohonan->survei)
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

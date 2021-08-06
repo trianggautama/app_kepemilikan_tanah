@@ -171,7 +171,7 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-
+                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
                                     </div>
                                 </div>
                             </div>
