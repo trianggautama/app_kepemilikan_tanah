@@ -79,9 +79,9 @@
      p{
          font-size: 12px;
      } 
-     /* @page { 
-         size: 29.6 cm 18 cm ; 
-         } */
+     @page { 
+         size: 18 cm 18 cm ; 
+         }
     </style>
 </head>
 <body>

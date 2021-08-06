@@ -224,7 +224,7 @@
                                     </div>
                                     <div class="col-md text-right">
                                         @if($permohonan->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                            <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}" class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
                                         @endif
                                     </div>
                                 </div>

@@ -26,6 +26,7 @@
             <div class="col-md">
                 <div class="card">
                     <div class="card-header text-right">
+                        <a href="{{Route('report.peminjaman_berkas')}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                             data-target="#modal-add-event">
                             <i class="mdi mdi-plus mr-1"></i> Tambah Data
