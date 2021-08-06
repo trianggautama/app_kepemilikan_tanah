@@ -210,7 +210,104 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                @if($data->suvei)
+                                <table class="table table-striped">
+                                    <tr>
+                                        <td width="20%">Tanggal Survei</td>
+                                        <td width="2%">:</td>
+                                        <td>{{carbon\carbon::parse($permohonan->tanggal_survei)->translatedFormat('d F Y')}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Petugas Survei</td>
+                                        <td>:</td>
+                                        <td>{{$permohonan->survei->nama_petugas}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Luas Bidang (m <sup>2</sup> )</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepekaan Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tingkat Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Drainase</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kerikil / bebatuan</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ancaman Banjir</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Surat ukur</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Surat Ukur</td>
+                                        <td>:</td>
+                                        <td>
+                                            <a href="{{asset('lampiran/'.$permohonan->survei->surat_ukur)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Surat Ukur</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gambar Denah</td>
+                                        <td>:</td>
+                                        <td><a href="{{asset('lampiran/'.$permohonan->survei->gambar_denah)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Gambar Denah</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td>
+                                            @switch($permohonan->status)
+                                            @case(0)
+                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                            @break
+                                            @case(1)
+                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
+                                                Kadastral</div>
+                                            @break
+                                            @case(2)
+                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
+                                                Pemetaan</div>
+                                            @break
+                                            @case(3)
+                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
+                                                Pemberdayaan Masyarakat</div>
+
+                                            @break
+                                            @case(4)
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                            @break
+                                            @default
+                                            <div class="badge badge-primary">Pengarsipan</div>
+
+                                            @endswitch
+                                        </td>
+                                    </tr>
+                                </table>
+                                @else
                                 <p>belum di input</p>
+                                @endif
                             </div>
                         </div>
                     </div>

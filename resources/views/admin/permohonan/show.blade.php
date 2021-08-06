@@ -244,6 +244,41 @@
                                         <td>{{$permohonan->survei->nama_petugas}}</td>
                                     </tr>
                                     <tr>
+                                        <td>Luas Bidang (m <sup>2</sup> )</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepekaan Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tingkat Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Drainase</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kerikil / bebatuan</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ancaman Banjir</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Surat ukur</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>

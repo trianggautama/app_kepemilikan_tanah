@@ -272,6 +272,41 @@
                                         <td>{{$permohonan->survei->nama_petugas}}</td>
                                     </tr>
                                     <tr>
+                                        <td>Luas Bidang (m <sup>2</sup> )</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kepekaan Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tingkat Erosi</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Drainase</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kerikil / bebatuan</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ancaman Banjir</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Surat ukur</td>
+                                        <td>:</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>
@@ -353,6 +388,35 @@
                                 <input type="date" name="tanggal_survei" class="form-control form-control-sm"
                                     placeholder="Tanggal Survei" value="{{Carbon\carbon::now()->format('Y-m-d')}}"
                                     required readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Luas Bidang (m <sup>2</sup> )</label>
+                                <input type="text" name="luas" class="form-control form-control-sm"
+                                    placeholder="Nama Kecamatan" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Lereng Permukaan</label>
+                                <input type="text" name="lereng_permukaan" class="form-control form-control-sm"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Kepekaan Erosi</label>
+                                <input type="text" name="kepekaan_erosi" class="form-control form-control-sm"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">tingkat Erosi</label>
+                                <input type="text" name="tingkat_erosi" class="form-control form-control-sm"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Drainase</label>
+                                <input type="text" name="drainase" class="form-control form-control-sm"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Kerikil / Bebatuan</label>
+                                <input type="text" name="kerikil" class="form-control form-control-sm"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Ancaman Banjir</label>
+                                <input type="text" name="kerikil" class="form-control form-control-sm"  required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Surat Ukur</label>
