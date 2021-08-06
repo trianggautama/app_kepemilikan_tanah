@@ -47,7 +47,7 @@ class ArsipBerkasController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('arsip.arsip_berkas.show');
     }
 
     /**
