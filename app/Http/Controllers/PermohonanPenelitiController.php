@@ -38,16 +38,16 @@ class PermohonanPenelitiController extends Controller
     public function store(Request $request)
     {
         $data = new Survei;
-        $data->permohonan_id = $request->permohonan_id;
-        $data->nama_petugas = $request->nama_petugas;
-        $data->tanggal_survei = $request->tanggal_survei;
-        $data->luas_bidang = $request->luas_bidang;
+        $data->permohonan_id    = $request->permohonan_id;
+        $data->nama_petugas     = $request->nama_petugas;
+        $data->tanggal_survei   = $request->tanggal_survei;
+        $data->luas_bidang      = $request->luas_bidang;
         $data->lereng_permukaan = $request->lereng_permukaan;
-        $data->kepekaan_erosi = $request->kepekaan_erosi;
-        $data->tingkat_erosi = $request->tingkat_erosi;
-        $data->drainase = $request->drainase;
-        $data->kerikil = $request->kerikil;
-        $data->ancaman_banjir = $request->ancaman_banjir;
+        $data->kepekaan_erosi   = $request->kepekaan_erosi;
+        $data->tingkat_erosi    = $request->tingkat_erosi;
+        $data->drainase         = $request->drainase;
+        $data->kerikil          = $request->kerikil;
+        $data->ancaman_banjir   = $request->ancaman_banjir;
 
         if (isset($request->surat_ukur)) {
             $file = $request->file('surat_ukur');
@@ -68,7 +68,7 @@ class PermohonanPenelitiController extends Controller
         }
 
         $data->save();
-
+        
         $permohonan = Permohonan::findOrFail($request->permohonan_id);
 
         $permohonan->status = 2;

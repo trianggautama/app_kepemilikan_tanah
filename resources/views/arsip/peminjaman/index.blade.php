@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Jabatan</h1>
+                <h1>Peminjaman Berkas</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Jabatan
+                            Peminjaman Berkas
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Data</li>
                     </ol>
@@ -29,7 +29,7 @@
                         <a href="{{Route('report.peminjaman_berkas')}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                             data-target="#modal-add-event">
-                            <i class="mdi mdi-plus mr-1"></i> Tambah Data
+                            <i class="fa fa-plus mr-1"></i> Tambah Data
                         </button>
                     </div>
                     <div class="card-body">

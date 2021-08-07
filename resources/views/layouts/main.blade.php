@@ -151,7 +151,7 @@
                 </a>
               </li>
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
+                <a class="sidenav-item-link" href="{{route('report.statistik')}}">
                   <span class="nav-text">Statistik Permohonan</span>
                 </a>
               </li>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisBangunan;
+use App\Models\Kelurahan;
+use App\Models\PeminjamanBerkas;
 use App\Models\Permohonan;
 use App\Models\Survei;
 use App\Models\User;
@@ -69,13 +72,24 @@ class ReportController extends Controller
 
     public function peminjaman_berkas()
     {
-        $data   = collect([]);
+        $data   = PeminjamanBerkas::latest()->get();
         $pdf    = PDF::loadView('report.peminjaman', ['data'=>$data]);
         $pdf->setPaper('a4', 'potrait'); 
         
         return $pdf->stream('Laporan Peminjaman.pdf');
     }
 
+    public function statistik()
+    {
+        $data   = Permohonan::latest()->get();
+        $kelurahan = Kelurahan::latest()->pluck('nama_kelurahan');
+        // dd($kelurahan);
+        return view('report.statistik',compact('data','kelurahan'));
+        // $pdf    = PDF::loadView('report.statistik', ['data'=>$data]);
+        // $pdf->setPaper('a4', 'potrait'); 
+        
+        // return $pdf->stream('Laporan Statistik.pdf');
+    }
 
 }
  

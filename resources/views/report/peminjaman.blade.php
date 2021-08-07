@@ -90,30 +90,36 @@
         <div class="isi">
             <h2 style="text-align:center;">DATA PEMINJAMAN BERKAS</h2>
             <br>
-                <table class="table table-bordered" id="basic-data-table">
-                    <thead>
-                        <tr>
-                            <td>No</td>
-                            <td>Berkas</td>
-                            <td>Rak</td>
-                            <td>Nama Peminjam</td>
-                            <td>Keperluan</td>
-                            <td>Tanggal Peminjaman</td>
-                            <td>Tanggal Pengembalian</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td> belum di input / Tanggal Pngembalian</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-bordered" id="basic-data-table">
+                                <thead>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>Berkas</td>
+                                        <td>Rak</td>
+                                        <td>Nama Peminjam</td>
+                                        <td>Keperluan</td>
+                                        <td>Tanggal Peminjaman</td>
+                                        <td>Tanggal Pengembalian</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $d)
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$d->permohonan->dikuasai_awal.' - '. $d->permohonan->jenis_bangunan->nama_jenis}} </td>
+                                        <td>{{$d->permohonan->arsip_berkas->rak->nama_rak}}</td>
+                                        <td>{{$d->nama}}</td>
+                                        <td>{{$d->keperluan}}</td>
+                                        <td>{{carbon\carbon::parse($d->tanggal_pinjam)->translatedFormat('d F Y')}}</td>
+                                        @isset($d->tanggal_kembali)
+                                        <td>{{carbon\carbon::parse($d->tanggal_kembali)->translatedFormat('d F Y')}}</td>
+                                            @else
+                                        <td>Belum diinput</td>
+                                        @endisset
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                 <br>
                 <br>
                 <div class="ttd">
