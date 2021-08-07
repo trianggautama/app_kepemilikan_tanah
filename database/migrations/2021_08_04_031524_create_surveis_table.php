@@ -21,6 +21,13 @@ class CreateSurveisTable extends Migration
             $table->date('tanggal_survei');
             $table->string('surat_ukur');
             $table->string('gambar_denah');
+            $table->string('luas_bidang');
+            $table->string('lereng_permukaan');
+            $table->string('kepekaan_erosi');
+            $table->string('tingkat_erosi');
+            $table->string('drainase');
+            $table->string('kerikil');
+            $table->string('ancaman_banjir');
             $table->timestamps();
         });
     }
