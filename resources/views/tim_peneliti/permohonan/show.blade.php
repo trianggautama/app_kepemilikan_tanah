@@ -44,6 +44,9 @@
                                     <div class="col-md">
                                         Data Permohonan
                                     </div>
+                                    <div class="col-md text-right">
+                                    <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Biodata Pemohon</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -202,9 +205,6 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                        @if($permohonan->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
-                                        @endif
                                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
                                             <i class="fa fa-plus mr-1"></i> Tambah Data Survei
@@ -255,6 +255,9 @@
                                 <div class="row">
                                     <div class="col-md">
                                         Data Survei Lapangan
+                                    </div>
+                                    <div class="col-md text-right">
+                                            <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}" class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
                                     </div>
                                 </div>
                             </div>

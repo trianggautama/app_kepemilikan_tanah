@@ -44,10 +44,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         Data Pemohon
                                     </div>
                                     <div class="col-md text-right">
+                                       <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Biodata Pemohon</a>
                                        @if($permohonan->status == 5)
                                             <a href="{{route('report.riwayat_berkas',$permohonan->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Riwayat Perjalan Dokumen</a>
                                             <a href="{{route('report.ba',$permohonan->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Serah Terima</a>

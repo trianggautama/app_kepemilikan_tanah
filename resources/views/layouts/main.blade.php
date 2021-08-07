@@ -146,13 +146,18 @@
           <ul class="collapse " id="report" data-parent="#sidebar-menu">
             <div class="sub-menu">
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.permohonan.index')}}">
+                <a class="sidenav-item-link" href="{{route('report.pegawai')}}" target="__blank">
                   <span class="nav-text">Report Pegawai</span>
                 </a>
               </li>
               <li class="">
                 <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
-                  <span class="nav-text">Arsip Permohonan</span>
+                  <span class="nav-text">Statistik Permohonan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.peminjaman_berkas')}}" target="__blank">
+                  <span class="nav-text">Peminjaman Berkas</span>
                 </a>
               </li>
             </div>

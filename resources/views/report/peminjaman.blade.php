@@ -88,7 +88,7 @@
     <div class="container">
     <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PEGAWAI</h2>
+            <h2 style="text-align:center;">DATA PEMINJAMAN BERKAS</h2>
             <br>
                 <table class="table table-bordered" id="basic-data-table">
                     <thead>
