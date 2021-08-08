@@ -64,7 +64,12 @@
                                         <div class="badge badge-warning">Data Arsip Belum di input</div>
                                         @endisset
                                     </td>
-                                    <td>{{Carbon\carbon::parse($d->arsip_berkas->created_at)->translatedFormat('d F Y')}}</td>
+                                    <td>@if($data->arsip_berkas)
+                                            {{Carbon\carbon::parse($d->arsip_berkas->created_at)->translatedFormat('d F Y')}}
+                                        @else
+                                        Belum di arsipkan
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <!-- <a href="{{Route('arsip.arsip_berkas.show',$d->id)}}"
                                             class="btn btn-sm btn-info">
