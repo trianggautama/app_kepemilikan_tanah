@@ -89,11 +89,21 @@ Route::prefix('/arsip')->name('arsip.')->group(function () {
 Route::prefix('/report')->name('report.')->group(function () {
     Route::get('/pegawai', [ReportController::class, 'pegawai'])->name('pegawai');
     Route::get('/biodata/{id}', [ReportController::class, 'biodata_pemohon'])->name('biodata_pemohon');  
+    Route::get('/biodata_filter', [ReportController::class, 'biodata_filter'])->name('biodata.filter');
+    Route::post('/biodata_filter', [ReportController::class, 'biodata_filter_post'])->name('biodata.filter.post');
     Route::get('/riwayat_berkas/{id}', [ReportController::class, 'riwayat_berkas'])->name('riwayat_berkas');  
+    Route::get('/riwayat_bserkas_filter', [ReportController::class, 'riwayat_berkas_filter'])->name('riwayat_berkas.filter');
+    Route::post('/riwayat_berkas_filter', [ReportController::class, 'riwayat_berkas_filter_post'])->name('riwayat_berkas.filter.post');
     Route::get('/ba/{id}', [ReportController::class, 'ba'])->name('ba');  
+    Route::get('/ba_filter', [ReportController::class, 'ba_filter'])->name('ba.filter');
+    Route::post('/ba_filter', [ReportController::class, 'ba_filter_post'])->name('ba.filter.post');
     Route::get('/sertifikat/{id}', [ReportController::class, 'sertifikat'])->name('sertifikat'); 
     Route::get('/laporan_survei/{id}', [ReportController::class, 'laporan_survei'])->name('laporan_survei');   
+    Route::get('/laporan_survei_filter', [ReportController::class, 'laporan_survei_filter'])->name('laporan_survei.filter');
+    Route::post('/laporan_survei_filter', [ReportController::class, 'laporan_survei_filter_post'])->name('laporan_survei.filter.post');
     Route::get('/peminjaman_berkas', [ReportController::class, 'peminjaman_berkas'])->name('peminjaman_berkas');  
     Route::get('/statistik', [ReportController::class, 'statistik'])->name('statistik'); 
+    Route::get('/sertifikat_filter', [ReportController::class, 'sertifikat_filter'])->name('sertifikat.filter');
+    Route::post('/sertifikat_filter', [ReportController::class, 'sertifikat_filter_post'])->name('sertifikat.filter.post');
 });
   

@@ -94,7 +94,7 @@
                                 <thead>
                                     <tr>
                                         <td>No</td>
-                                        <td>Berkas</td>
+                                        <td>Dikuasai</td>
                                         <td>Rak</td>
                                         <td>Nama Peminjam</td>
                                         <td>Keperluan</td>

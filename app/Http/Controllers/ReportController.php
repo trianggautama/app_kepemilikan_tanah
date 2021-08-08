@@ -91,5 +91,85 @@ class ReportController extends Controller
         // return $pdf->stream('Laporan Statistik.pdf');
     }
 
-}
+    public function biodata_filter()
+    {
+        $data = User::whereRole(0)->get();
+        return view('admin.pemohon.filter',compact('data'));
+    }
+
+
+    public function biodata_filter_post(Request $req)
+    {
+        $data   = User::findOrFail($req->pemohon_id);
+        $pdf    = PDF::loadView('report.biodata_pemohon', ['data'=>$data]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Biodata Pemohon.pdf');
+    }
+
+
+    public function riwayat_berkas_filter()
+    {
+        $data = Permohonan::latest()->get();
+        return view('admin.pemohon.riwayat_berkas_filter',compact('data'));
+    }
+
+    public function riwayat_berkas_filter_post(Request $req)
+    {
+        $data   = Permohonan::findOrFail($req->permohonan_id)->first();
+        $pdf    = PDF::loadView('report.riwayat_berkas', ['data'=>$data]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Riwayat Berkas.pdf');
+    }
+
+    public function laporan_survei_filter()
+    {
+        $data = Permohonan::latest()->get();
+        return view('admin.pemohon.laporan_survei_filter',compact('data'));
+    }
+
+    public function laporan_survei_filter_post(Request $req)
+    {
+        $data   = Survei::where('permohonan_id',$req->permohonan_id)->first();
+        $ketua  = User::where('role',3)->first();
+        $pdf    = PDF::loadView('report.laporan_survei', ['data'=>$data,'ketua'=>$ketua]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Riwayat Berkas.pdf');
+    }
+    
+    public function ba_filter()
+    {
+        $data = Permohonan::latest()->get();
+        return view('admin.pemohon.ba_filter',compact('data'));
+    }
+
+    public function ba_filter_post(Request $req)
+    {
+        $data   = Permohonan::findOrFail($req->permohonan_id);
+        $kadis  = User::where('role',5)->first();
+        $pdf    = PDF::loadView('report.berita_acara', ['data'=>$data,'kadis'=>$kadis]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Beita Acara.pdf');
+    }
+
+    public function sertifikat_filter()
+    {
+        $data = Permohonan::latest()->get();
+        return view('admin.pemohon.sertifikat_filter',compact('data'));
+    }
+
+    public function sertifikat_filter_post(Request $req)
+    {
+        $data   = Permohonan::findOrFail($req->permohonan_id);
+        $kadis  = User::where('role',5)->first();
+        $pdf    = PDF::loadView('report.sertifikat', ['data'=>$data,'kadis'=>$kadis]);
+        $pdf->setPaper('a4', 'potrait'); 
+        
+        return $pdf->stream('Laporan Beita Acara.pdf');
+    }
  
+}
+  

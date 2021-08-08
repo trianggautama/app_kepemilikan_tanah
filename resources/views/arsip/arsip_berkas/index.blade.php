@@ -43,6 +43,7 @@
                                     <td>No Yuridis</td>
                                     <td>Letak Tanah</td>
                                     <td>Status Arsip</td>
+                                    <td>Tanggal Pengarsipan</td>
                                     <td class="text-center">Aksi</td>
                                 </tr>
                             </thead>
@@ -55,7 +56,7 @@
                                     <td>{{$d->no_fisik}}</td>
                                     <td>{{$d->no_yuridis}}</td>
                                     <td>{{$d->letak_tanah}}</td>
-                                    <td>
+                                    <td> 
                                         @isset($d->arsip_berkas)
                                         <div class="badge badge-primary">Selesai Pengarsipan
                                             ({{$d->arsip_berkas->rak->nama_rak}})</div>
@@ -63,6 +64,7 @@
                                         <div class="badge badge-warning">Data Arsip Belum di input</div>
                                         @endisset
                                     </td>
+                                    <td>{{Carbon\carbon::parse($d->arsip_berkas->created_at)->translatedFormat('d F Y')}}</td>
                                     <td class="text-center">
                                         <!-- <a href="{{Route('arsip.arsip_berkas.show',$d->id)}}"
                                             class="btn btn-sm btn-info">
