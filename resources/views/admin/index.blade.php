@@ -26,7 +26,7 @@
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">7 Orang</h2>
+                <h2 class="mb-1">{{$pegawai}} Orang</h2>
                 <p>User Pegawai</p>
             </div>
             </div>
@@ -34,7 +34,7 @@
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini  mb-4">
             <div class="card-body">
-                <h2 class="mb-1">30 Orang</h2>
+                <h2 class="mb-1">{{$pemohon}} Orang</h2>
                 <p>User Pemohon</p>
             </div>
             </div>
@@ -42,7 +42,7 @@
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">10 Jenis</h2>
+                <h2 class="mb-1">{{$jenis}} Jenis</h2>
                 <p>Jenis Bangunan</p>
             </div>
             </div>
@@ -50,7 +50,7 @@
         <div class="col-xl-3 col-sm-6">
             <div class="card card-mini mb-4">
             <div class="card-body">
-                <h2 class="mb-1">79 Data</h2>
+                <h2 class="mb-1">{{$permohonan}} Data</h2>
                 <p>Permohonan Izin</p>
             </div>
             </div>
