@@ -64,7 +64,7 @@
                                         <div class="badge badge-warning">Data Arsip Belum di input</div>
                                         @endisset
                                     </td>
-                                    <td>@if($data->arsip_berkas)
+                                    <td>@if($d->arsip_berkas)
                                             {{Carbon\carbon::parse($d->arsip_berkas->created_at)->translatedFormat('d F Y')}}
                                         @else
                                         Belum di arsipkan
