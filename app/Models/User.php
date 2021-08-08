@@ -33,9 +33,9 @@ class User extends Authenticatable
         return $this->belongsTo(Jabatan::class);
     }
 
-    public function permohonan(): HasOne
+    public function permohonan(): HasMany
     {
-        return $this->hasOne(Permohonan::class);
+        return $this->hasMany(Permohonan::class);
     }
 
 }
