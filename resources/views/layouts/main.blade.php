@@ -148,7 +148,7 @@
               </li>
               <li class="">
                 <a class="sidenav-item-link" href="{{route('report.biodata.filter')}}">
-                  <span class="nav-text">Biodata Pemohon</span>
+                  <span class="nav-text">Detail Pemohon</span>
                 </a>
               </li>
               <li class="">

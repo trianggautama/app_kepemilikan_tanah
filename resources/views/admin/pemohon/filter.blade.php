@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Pemohon</h1>
+                <h1>Detail Pemohon</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Pemohon
+                            Detail Pemohon
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Data</li>
                     </ol>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <a href="{{Route('admin.index')}}" class="btn btn-sm btn-secondary">kembali</a>
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Cetak Biodata Pemohon</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Cetak Detail Pemohon</button>
                         </div>
                     </form> 
                 </div>

@@ -95,7 +95,7 @@
     <div class="container">
     <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">DATA PEMOHON</h2>
+            <h2 style="text-align:center;">DETAIL PEMOHON</h2>
             <br>
                 <table class="table table-striped">
                     <tr>
