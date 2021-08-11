@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PermohonanKadisController extends Controller
@@ -74,7 +75,11 @@ class PermohonanKadisController extends Controller
     public function update(Request $request, $id)
     {
         $permohonan = Permohonan::findOrFail($id);
-        $permohonan->update($request->all());
+        $input = $request->all();
+
+        $now = Carbon::now();
+        $input['verif_kadis'] = $now;
+        $permohonan->update($input);
 
         return back()->withSuccess('Data berhasil diverifikasi');
 

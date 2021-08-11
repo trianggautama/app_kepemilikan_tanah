@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -74,7 +75,10 @@ class PermohonanController extends Controller
         $role = Auth::user()->role;
         switch ($role) {
             case 1:
-                $permohonan->update($request->all());
+                $input = $request->all();
+                $now = Carbon::now();
+                $input['verif_admin'] = $now;
+                $permohonan->update($input);
 
                 return back()->withSuccess('Data berhasil diverifikasi');
                 break;

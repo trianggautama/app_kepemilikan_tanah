@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Permohonan;
 use App\Models\Survei;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PermohonanPenelitiController extends Controller
@@ -72,6 +73,8 @@ class PermohonanPenelitiController extends Controller
         $permohonan = Permohonan::findOrFail($request->permohonan_id);
 
         $permohonan->status = 2;
+        $now = Carbon::now();
+        $permohonan->verif_tim = $now;
 
         $permohonan->update();
 
