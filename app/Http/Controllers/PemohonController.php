@@ -60,7 +60,8 @@ class PemohonController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.pemohon.edit');
+        $user = User::findOrFail($id);
+        return view('admin.pemohon.edit', compact('user'));
     }
 
     /**
