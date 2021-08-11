@@ -15,7 +15,7 @@ class PermohonanKasiController extends Controller
      */
     public function index()
     {
-        $data = Permohonan::whereStatus(3)->get();
+        $data = Permohonan::whereIn('status',[3,4])->get();
 
         return view('kasi.permohonan.index', compact('data'));
     }

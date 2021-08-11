@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{asset('iziToast/iziToast.css')}}" />
   <link rel="stylesheet" href="{{asset('iziToast/iziToast.min.css')}}" />
   <script src="{{asset('admin/plugins/nprogress/nprogress.js')}}"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
@@ -39,11 +40,6 @@
           <!-- sidebar menu -->
           <ul class="nav sidebar-inner" id="sidebar-menu">
             @if(Auth::user()->role == 1)
-            <li class="has-sub ">
-              <a class="sidenav-item-link" href="#">
-                <span class="nav-text">Menu Admin</span>
-              </a>
-            </li>
             <li class="has-sub ">
               <a class="sidenav-item-link" href="{{Route('admin.index')}}">
                 <i class="fa fa-home"></i>
@@ -146,13 +142,43 @@
           <ul class="collapse " id="report" data-parent="#sidebar-menu">
             <div class="sub-menu">
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.permohonan.index')}}">
-                  <span class="nav-text">Report Pegawai</span>
+                <a class="sidenav-item-link" href="{{route('report.pegawai')}}" target="__blank">
+                  <span class="nav-text">Pegawai</span>
                 </a>
               </li>
               <li class="">
-                <a class="sidenav-item-link" href="{{route('admin.pemohon.index')}}">
-                  <span class="nav-text">Arsip Permohonan</span>
+                <a class="sidenav-item-link" href="{{route('report.biodata.filter')}}">
+                  <span class="nav-text">Detail Pemohon</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.statistik')}}">
+                  <span class="nav-text">Statistik Permohonan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.riwayat_berkas.filter')}}">
+                  <span class="nav-text">Riwayat Perjalanan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.laporan_survei.filter')}}">
+                  <span class="nav-text">Survey Lapangan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.ba.filter')}}">
+                  <span class="nav-text">BA Serah Terima</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.sertifikat.filter')}}" >
+                  <span class="nav-text">Sertifikat</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.peminjaman_berkas')}}" target="__blank">
+                  <span class="nav-text">Peminjaman Berkas</span>
                 </a>
               </li>
             </div>
@@ -375,9 +401,11 @@
   <script src="{{asset('admin/plugins/data-tables/datatables.bootstrap4.min.js')}}"></script>
   <script src="{{asset('admin/js/sleek.js')}}"></script>
   <script src="{{asset('iziToast/iziToast.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
     jQuery(document).ready(function() {
       jQuery('#basic-data-table').DataTable();
+      $('.select2').select2();
     });
   </script>
   @include('layouts.alert')

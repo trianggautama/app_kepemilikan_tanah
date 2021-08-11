@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisBangunan;
+use App\Models\Permohonan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,8 +12,12 @@ class MainController extends Controller
 {
     public function admin_index()
     {
-        return view('admin.index'); 
-    }
+        $pegawai = User::whereNotIn('role', ['0','1'])->count();
+        $pemohon = User::whereRole(0)->count();
+        $jenis   = JenisBangunan::count();
+        $permohonan = Permohonan::count();
+        return view('admin.index',compact('pegawai','pemohon','jenis','permohonan')); 
+    } 
 
     public function pemohon_index()
     {

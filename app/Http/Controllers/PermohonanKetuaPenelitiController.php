@@ -15,7 +15,7 @@ class PermohonanKetuaPenelitiController extends Controller
      */
     public function index()
     {
-        $data = Permohonan::whereStatus(2)->get();
+        $data = Permohonan::whereIn('status',[2,3,4])->get();
         return view('ketua_peneliti.permohonan.index', compact('data'));
     }
 

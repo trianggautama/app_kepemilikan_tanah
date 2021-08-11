@@ -109,7 +109,7 @@
                         <td><p>Perosesan <br> - Cek Ulang Berkas / Validasi</p></td>
                         <td><p>Admin CS</p></td>
                         <td><p>-</p></td>
-                        <td><p>-</p></td>
+                        <td><p>{{Carbon\carbon::now()->translatedFormat('d F Y')}}</p></td>
                         <td></td> 
                     </tr>
                     <tr>
@@ -125,7 +125,7 @@
                         <td><p>Verifikasi Kepala Survey, Seksi dan Pemetaan</p></td>
                         <td><p>Kepala Tim Peneliti Teknis</p></td>
                         <td><p>-</p></td>
-                        <td><p>-</p></td>
+                        <td><p>{{Carbon\carbon::now()->translatedFormat('d F Y')}}</p></td>
                         <td></td> 
                     </tr>
                     <tr>
@@ -133,7 +133,7 @@
                         <td><p>erifikasi Sub Seksi Pemetaan Hak Tanah dan Pemberdayaan Masyarakat</p></td>
                         <td><p>Kepala Seksi</p></td>
                         <td><p>-</p></td>
-                        <td><p>-</p></td>
+                        <td><p>{{Carbon\carbon::now()->translatedFormat('d F Y')}}</p></td>
                         <td></td> 
                     </tr>
                     <tr>
@@ -141,7 +141,7 @@
                         <td><p>Verifikasi Kepala Kantor Pertanahan / Penerbitan Sertifikat</p></td>
                         <td><p>Kepala Badan Pertanahan  Kota Banjarbaru</p></td>
                         <td><p>-</p></td>
-                        <td><p>-</p></td>
+                        <td><p>{{Carbon\carbon::now()->translatedFormat('d F Y')}}</p></td>
                         <td></td> 
                     </tr>
                 </table>

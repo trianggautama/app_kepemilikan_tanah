@@ -280,7 +280,7 @@
                                     <div class="col-md">
                                         Data Survei Lapangan
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md text-right">
                                         @if($permohonan->survei)
                                             <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
                                         @endif
@@ -288,7 +288,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table class="table table-striped">
+                            <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>
@@ -303,37 +303,37 @@
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->luas_bidang}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepekaan Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kepekaan_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tingkat Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->tingkat_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Drainase</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->drainase}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerikil / bebatuan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kerikil}}</td>
                                     </tr>
                                     <tr>
                                         <td>Ancaman Banjir</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->ancaman_banjir}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Surat ukur</td>
+                                        <td>Lereng Permukaan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->lereng_permukaan}}</td>
                                     </tr>
                                     <tr>
                                         <td>Surat Ukur</td>
@@ -376,7 +376,7 @@
                                             <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
                                             @break
                                             @default
-                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+                                            <div class="badge badge-primary">Pengarsipan</div>
 
                                             @endswitch
                                         </td>

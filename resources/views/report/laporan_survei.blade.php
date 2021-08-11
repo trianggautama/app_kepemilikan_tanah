@@ -198,11 +198,11 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td  class="border text-center">-</td>
-                                            <td  class="border text-center">-</td>
-                                            <td  class="border text-center">-</td>
-                                            <td  class="border text-center">-</td>
-                                            <td  class="border text-center">-</td>
+                                            <td  class="border text-center">{{$data->kepekaan_erosi}}</td>
+                                            <td  class="border text-center">{{$data->tingkat_erosi}}</td>
+                                            <td  class="border text-center">{{$data->drainase}}</td>
+                                            <td  class="border text-center">{{$data->kerikil}}</td>
+                                            <td  class="border text-center">{{$data->ancaman_banjir}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -41,10 +41,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md">
+                                    <div class="col-md-4">
                                         Data Permohonan
                                     </div>
                                     <div class="col-md text-right">
+                                    <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}" class="btn btn-sm btn-primary mb-1" target="_blank"><i class="fa fa-print"></i> Biodata Pemohon</a>
                                         @if ($permohonan->status == 2)
 
                                         <form
@@ -102,8 +103,7 @@
                                     <div class="col-md">Data Permohonan Izin</div>
                                     <div class="col-md text-right">
                                         @if ($permohonan->status == 0)
-
-                                        <form action="{{route('admin.permohonan.update',$permohonan->id)}}"
+                                       <form action="{{route('admin.permohonan.update',$permohonan->id)}}"
                                             method="POST">
                                             @csrf
                                             @method('put')
@@ -230,9 +230,6 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                        @if($permohonan->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
-                                        @endif
                                         <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
                                             <i class="fa fa-plus mr-1"></i> Tambah Data Survei
@@ -241,72 +238,97 @@
                                 </div>
                             </div>
                             <div class="card-body">
-
-                                <table class="table table-striped">
+                            <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>
-                                        <td>-</td>
+                                        <td>{{carbon\carbon::parse($permohonan->tanggal_survei)->translatedFormat('d F Y')}}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Petugas Survei</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->nama_petugas}}</td>
                                     </tr>
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->luas_bidang}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepekaan Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kepekaan_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tingkat Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->tingkat_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Drainase</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->drainase}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerikil / bebatuan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->kerikil}}</td>
                                     </tr>
                                     <tr>
                                         <td>Ancaman Banjir</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->ancaman_banjir}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Surat ukur</td>
+                                        <td>Lereng Permukaan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$permohonan->survei->lereng_permukaan}}</td>
                                     </tr>
                                     <tr>
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>
-                                            -
+                                            <a href="{{asset('lampiran/'.$permohonan->survei->surat_ukur)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Surat Ukur</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Gambar Denah</td>
                                         <td>:</td>
-                                        <td>-
-                                        </td>
+                                        <td><a href="{{asset('lampiran/'.$permohonan->survei->gambar_denah)}}"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                                Gambar Denah</a></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            <div class="badge badge-warning">menunggu verifikasi ketua tim peneliti
-                                            </div>
+                                            @switch($permohonan->status)
+                                            @case(0)
+                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                            @break
+                                            @case(1)
+                                            <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
+                                                Kadastral</div>
+                                            @break
+                                            @case(2)
+                                            <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
+                                                Pemetaan</div>
+                                            @break
+                                            @case(3)
+                                            <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
+                                                Pemberdayaan Masyarakat</div>
+
+                                            @break
+                                            @case(4)
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                            @break
+                                            @default
+                                            <div class="badge badge-primary">Pengarsipan</div>
+
+                                            @endswitch
                                         </td>
                                     </tr>
                                 </table>
@@ -318,6 +340,9 @@
                                 <div class="row">
                                     <div class="col-md">
                                         Data Survei Lapangan
+                                    </div>
+                                    <div class="col-md text-right">
+                                        <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}" class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
                                     </div>
                                 </div>
                             </div>
