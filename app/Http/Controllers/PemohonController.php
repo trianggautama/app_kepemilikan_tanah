@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class PemohonController extends Controller
@@ -48,7 +49,7 @@ class PemohonController extends Controller
     public function show($id)
     {
         $data = User::findOrFail($id);
-        return view('admin.pemohon.show',compact('data'));
+        return view('admin.pemohon.show', compact('data'));
     }
 
     /**
@@ -82,6 +83,17 @@ class PemohonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::FindOrFail($id);
+
+        try {
+            $data->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->withError('Data gagal dihapus');
+            }
+        }
+
     }
 }
