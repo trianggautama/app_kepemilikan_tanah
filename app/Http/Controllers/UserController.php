@@ -7,6 +7,7 @@ use App\Models\Pangkat;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -48,7 +49,11 @@ class UserController extends Controller
         $data = User::create($req);
 
         if ($data->role == 0) {
-            return redirect()->route('auth.login')->withSuccess('Pendaftaran Berhasil');
+            if(Auth::check()){
+                return back()->withSuccess('Data berhasil disimpan');
+            }else{
+                return redirect()->route('auth.login')->withSuccess('Pendaftaran Berhasil');
+            }
         } else {
             return back()->withSuccess('Data berhasil disimpan');
         }
