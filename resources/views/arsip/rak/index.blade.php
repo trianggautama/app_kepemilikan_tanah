@@ -47,7 +47,7 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$d->nama_rak}}</td>
-                                        <td>0 Berkas</td>
+                                        <td>{{$d->arsip_berkas->count()}} Berkas</td>
                                         <td class="text-center">
                                             <form action="{{Route('arsip.rak.destroy',$d->id)}}" method="POST">
                                                 @csrf
