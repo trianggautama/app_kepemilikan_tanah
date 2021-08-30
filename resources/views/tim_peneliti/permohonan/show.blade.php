@@ -79,6 +79,38 @@
                                                     class="fa fa-paperclip"></i>
                                                 Surat Kuasa</a></td>
                                     </tr>
+                                    <tr>
+                                        <td>Segel Tanah / Sporadik ASM (Lurah)</td>
+                                        <td>:</td>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                Segel Tanah / Sporadik ASM (Lurah)</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Keterangan Tanah (Camat)</td>
+                                        <td>:</td>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                Keterangan Tanah (Camat)</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SPPT PBB</td>
+                                        <td>:</td>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                SPPT PBB</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>NPWP</td>
+                                        <td>:</td>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                NPWP</a></td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
