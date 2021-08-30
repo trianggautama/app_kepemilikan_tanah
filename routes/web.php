@@ -102,8 +102,10 @@ Route::prefix('/report')->name('report.')->group(function () {
     Route::get('/laporan_survei_filter', [ReportController::class, 'laporan_survei_filter'])->name('laporan_survei.filter');
     Route::post('/laporan_survei_filter', [ReportController::class, 'laporan_survei_filter_post'])->name('laporan_survei.filter.post');
     Route::get('/peminjaman_berkas', [ReportController::class, 'peminjaman_berkas'])->name('peminjaman_berkas');  
+    Route::get('/peminjaman_berkas/filter', [ReportController::class, 'peminjaman_berkas_filter'])->name('peminjaman_berkas.filter');  
+    Route::post('/peminjaman_berkas/filter/cetak', [ReportController::class, 'peminjaman_berkas_filter_cetak'])->name('peminjaman_berkas.filter.cetak');  
     Route::get('/statistik', [ReportController::class, 'statistik'])->name('statistik'); 
     Route::get('/sertifikat_filter', [ReportController::class, 'sertifikat_filter'])->name('sertifikat.filter');
     Route::post('/sertifikat_filter', [ReportController::class, 'sertifikat_filter_post'])->name('sertifikat.filter.post');
 });
-  
+   

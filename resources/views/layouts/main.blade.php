@@ -181,6 +181,11 @@
                   <span class="nav-text">Peminjaman Berkas</span>
                 </a>
               </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('report.peminjaman_berkas.filter')}}">
+                  <span class="nav-text">Peminjaman Berkas Filter Waktu</span>
+                </a>
+              </li>
             </div>
           </ul>
         </li>

@@ -170,6 +170,22 @@ class ReportController extends Controller
         
         return $pdf->stream('Laporan Beita Acara.pdf');
     }
+
+    public function peminjaman_berkas_filter()
+    {
+        return view('arsip.peminjaman.filter');
+    }
+
+    public function peminjaman_berkas_filter_cetak(Request $req)
+    {
+        $data         = PeminjamanBerkas::whereBetween('tanggal_pinjam', [$req->tgl_awal, $req->tgl_akhir])->get();
+        $tgl_awal     = $req->tgl_awal;
+        $tgl_akhir    = $req->tgl_akhir ;
+        $pdf          = PDF::loadView('report.peminjaman_berkas_filter_waktu', ['data'=>$data,'tgl_awal'=>$tgl_awal,'tgl_akhir'=>$tgl_akhir,]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Peminjaman Berkas.pdf');
+    }
  
 }
   
