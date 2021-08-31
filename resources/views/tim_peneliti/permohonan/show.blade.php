@@ -45,7 +45,9 @@
                                         Data Permohonan
                                     </div>
                                     <div class="col-md text-right">
-                                    <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}" class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Biodata Pemohon</a>
+                                        <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}"
+                                            class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
+                                            Biodata Pemohon</a>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +84,7 @@
                                     <tr>
                                         <td>Segel Tanah / Sporadik ASM (Lurah)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->segel_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Segel Tanah / Sporadik ASM (Lurah)</a></td>
@@ -90,7 +92,7 @@
                                     <tr>
                                         <td>Keterangan Tanah (Camat)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->keterangan_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Keterangan Tanah (Camat)</a></td>
@@ -98,17 +100,15 @@
                                     <tr>
                                         <td>SPPT PBB</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->sppt)}}" target="_blank"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 SPPT PBB</a></td>
                                     </tr>
                                     <tr>
                                         <td>NPWP</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->npwp)}}" target="_blank"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 NPWP</a></td>
                                     </tr>
                                 </table>
@@ -293,7 +293,9 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                            <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}" class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}"
+                                            class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i>
+                                            Laporan Hasil Survey</a>
                                     </div>
                                 </div>
                             </div>
