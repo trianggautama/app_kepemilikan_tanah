@@ -151,41 +151,54 @@
                   <span class="nav-text">Detail Pemohon</span>
                 </a>
               </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.statistik')}}">
-                  <span class="nav-text">Statistik Permohonan</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.riwayat_berkas.filter')}}">
-                  <span class="nav-text">Riwayat Perjalanan</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.laporan_survei.filter')}}">
-                  <span class="nav-text">Survey Lapangan</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.ba.filter')}}">
-                  <span class="nav-text">BA Serah Terima</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.sertifikat.filter')}}">
-                  <span class="nav-text">Sertifikat</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.peminjaman_berkas')}}" target="__blank">
-                  <span class="nav-text">Peminjaman Berkas</span>
-                </a>
-              </li>
-              <li class="">
-                <a class="sidenav-item-link" href="{{route('report.peminjaman_berkas.filter')}}">
-                  <span class="nav-text">Peminjaman Berkas Filter Waktu</span>
-                </a>
-              </li>
+              <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#buttons"
+                    aria-expanded="false" aria-controls="buttons">
+                    <span class="nav-text">Permohonan</span> <b class="fa fa-caret-down"></b>
+                  </a>
+                  <ul class="collapse " id="buttons">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a href="{{route('report.statistik')}}" target="__blank">Statistik Permohonan</a>
+                      </li>
+
+                      <li class="">
+                        <a href="{{route('report.riwayat_berkas.filter')}}">Riwayat Perjalanan</a>
+                      </li>
+
+                      <li class="">
+                        <a href="{{route('report.riwayat_berkas.filter')}}">Riwayat Berkas</a>
+                      </li>
+
+                      <li class="">
+                        <a href="{{route('report.laporan_survei.filter')}}">Survey Lapangan</a>
+                      </li>
+
+                      <li class="">
+                        <a href="{{route('report.ba.filter')}}">Berita acara serah terima</a>
+                      </li>
+                      <li class="">
+                        <a href="{{route('report.sertifikat.filter')}}">Sertifikat</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+                <li class="has-sub ">
+                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#peminjaman-menu"
+                    aria-expanded="false" aria-controls="buttons">
+                    <span class="nav-text">Peminjaman Berkas</span> <b class="fa fa-caret-down"></b>
+                  </a>
+                  <ul class="collapse " id="peminjaman-menu">
+                    <div class="sub-menu">
+                      <li class="">
+                        <a href="{{route('report.peminjaman_berkas')}}" target="__blank">Peminjaamn Berkas</a>
+                      </li>
+                      <li class="">
+                        <a href="{{route('report.peminjaman_berkas.filter')}}">Peminjaman Berkas Filter Waktu</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
             </div>
           </ul>
         </li>
