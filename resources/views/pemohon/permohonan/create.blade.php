@@ -136,14 +136,14 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">Segel Tanah / Sporadik ASM (Lurah)</label>
-                                        <input type="file" name="surat_kuasa" class="form-control form-control-sm"
+                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">Keterangan Tanah (Camat)</label>
-                                        <input type="file" name="ktp" class="form-control form-control-sm"
+                                        <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
@@ -152,18 +152,18 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">SPPT PBB</label>
-                                        <input type="file" name="surat_kuasa" class="form-control form-control-sm"
+                                        <input type="file" name="sppt" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">NPWP</label>
-                                        <input type="file" name="ktp" class="form-control form-control-sm"
+                                        <input type="file" name="npwp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <a href="{{Route('pemohon.permohonan_pemohon.index')}}"

@@ -93,7 +93,7 @@
                                     <tr>
                                         <td>Segel Tanah / Sporadik ASM (Lurah)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->segel_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Segel Tanah / Sporadik ASM (Lurah)</a></td>
@@ -101,7 +101,7 @@
                                     <tr>
                                         <td>Keterangan Tanah (Camat)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->keterangan_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Keterangan Tanah (Camat)</a></td>
@@ -109,17 +109,15 @@
                                     <tr>
                                         <td>SPPT PBB</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->sppt)}}" target="_blank"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 SPPT PBB</a></td>
                                     </tr>
                                     <tr>
                                         <td>NPWP</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->npwp)}}" target="_blank"
+                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 NPWP</a></td>
                                     </tr>
                                 </table>
@@ -262,7 +260,8 @@
                                     </div>
                                     <div class="col-md text-right">
                                         @if($data->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan
+                                            Hasil Survey</a>
                                         @endif
                                         <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                             data-target="#modal-add-event">
@@ -316,13 +315,14 @@
                                     </div>
                                     <div class="col-md text-right">
                                         @if($permohonan->survei)
-                                            <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan Hasil Survey</a>
+                                        <a href="" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> Laporan
+                                            Hasil Survey</a>
                                         @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
-                            <table class="table table-striped">
+                                <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>

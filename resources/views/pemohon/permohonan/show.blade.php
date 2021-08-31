@@ -92,7 +92,7 @@
                                     <tr>
                                         <td>Segel Tanah / Sporadik ASM (Lurah)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->segel_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Segel Tanah / Sporadik ASM (Lurah)</a></td>
@@ -100,7 +100,7 @@
                                     <tr>
                                         <td>Keterangan Tanah (Camat)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->keterangan_tanah)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 Keterangan Tanah (Camat)</a></td>
@@ -108,7 +108,7 @@
                                     <tr>
                                         <td>SPPT PBB</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->sppt)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 SPPT PBB</a></td>
@@ -116,7 +116,7 @@
                                     <tr>
                                         <td>NPWP</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->surat_kuasa)}}"
+                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan_pemohon->npwp)}}"
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
                                                 NPWP</a></td>

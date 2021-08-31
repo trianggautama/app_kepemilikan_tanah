@@ -130,7 +130,7 @@
                                         <input type="file" name="surat_kuasa"
                                             value="{{$permohonan_pemohon->surat_kuasa}}"
                                             class="form-control form-control-sm" placeholder="Nama Jabatan">
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                                 <div class="col-md">
@@ -138,7 +138,7 @@
                                         <label for="firstName">KTP</label>
                                         <input type="file" name="ktp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan">
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                             </div>
@@ -146,17 +146,17 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">Segel Tanah / Sporadik ASM (Lurah)</label>
-                                        <input type="file" name="surat_kuasa" class="form-control form-control-sm"
+                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">Keterangan Tanah (Camat)</label>
-                                        <input type="file" name="ktp" class="form-control form-control-sm"
+                                        <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                             </div>
@@ -164,17 +164,17 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">SPPT PBB</label>
-                                        <input type="file" name="surat_kuasa" class="form-control form-control-sm"
+                                        <input type="file" name="sppt" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">NPWP</label>
-                                        <input type="file" name="ktp" class="form-control form-control-sm"
+                                        <input type="file" name="npwp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                            <small class="text-danger">isi jika ingin merubah file</small>
+                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                             </div>

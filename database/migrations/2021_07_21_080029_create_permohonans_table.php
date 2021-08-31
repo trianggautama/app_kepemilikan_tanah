@@ -33,6 +33,10 @@ class CreatePermohonansTable extends Migration
             $table->string('luas_tanah');
             $table->string('surat_kuasa')->nullable();
             $table->string('ktp')->nullable();
+            $table->string('segel_tanah')->nullable();
+            $table->string('keterangan_tanah')->nullable();
+            $table->string('sppt')->nullable();
+            $table->string('npwp')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->date('verif_admin')->nullable();
             $table->date('verif_tim')->nullable();

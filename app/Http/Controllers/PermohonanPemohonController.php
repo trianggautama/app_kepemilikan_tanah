@@ -67,6 +67,43 @@ class PermohonanPemohonController extends Controller
             $data->ktp = $file_name;
         }
 
+        if ($request->file('segel_tanah') != null) {
+
+            $file = $request->file('segel_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->segel_tanah = $file_name;
+        }
+        if ($request->file('keterangan_tanah') != null) {
+
+            $file = $request->file('keterangan_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->keterangan_tanah = $file_name;
+        }
+        if ($request->file('sppt') != null) {
+
+            $file = $request->file('sppt');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->sppt = $file_name;
+        }
+        if ($request->file('npwp') != null) {
+
+            $file = $request->file('npwp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $data->npwp = $file_name;
+        }
+
         $data->update();
 
         return redirect()->route('pemohon.permohonan_pemohon.index')->withSuccess('Permohonan berhasil disimpan');
@@ -127,6 +164,43 @@ class PermohonanPemohonController extends Controller
             $permohonan_pemohon->ktp = $file_name;
         }
 
+        if ($request->file('segel_tanah') != null) {
+
+            $file = $request->file('segel_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->segel_tanah = $file_name;
+        }
+        if ($request->file('keterangan_tanah') != null) {
+
+            $file = $request->file('keterangan_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->keterangan_tanah = $file_name;
+        }
+        if ($request->file('sppt') != null) {
+
+            $file = $request->file('sppt');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->sppt = $file_name;
+        }
+        if ($request->file('npwp') != null) {
+
+            $file = $request->file('npwp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan', $file_name);
+            $permohonan_pemohon->npwp = $file_name;
+        }
+
         $permohonan_pemohon->update();
 
         return redirect()->route('pemohon.permohonan_pemohon.index')->withSuccess('Data berhasil diubah');
@@ -147,9 +221,9 @@ class PermohonanPemohonController extends Controller
         } catch (QueryException $e) {
 
             if ($e->getCode() == "23000") {
-                return back()->with('warning','Data gagal dihapus karna ada yang berelasi');
+                return back()->with('warning', 'Data gagal dihapus karna ada yang berelasi');
             }
         }
 
     }
-} 
+}

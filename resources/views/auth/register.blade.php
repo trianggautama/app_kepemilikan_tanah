@@ -72,15 +72,15 @@
         </li>
       </ul>
     </nav>
-  </header> 
+  </header>
   <section id="Subscribes" class="subscribes section-padding" style="padding-top:150px;padding-bottom:150px;">
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col-md-10 col-lg-5">
           <h4 class="wow fadeInUp" data-wow-delay="0.3s">Pendaftaran Pemohon</h4>
           @foreach ($errors->all() as $error)
-            <p class="text-danger">{{$error}}</p>
-         @endforeach
+          <p class="text-danger">{{$error}}</p>
+          @endforeach
           <br>
           <form action="{{route('auth.storeRegister')}}" method="POST">
             @csrf
