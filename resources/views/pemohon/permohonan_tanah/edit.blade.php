@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="card">
-                    <form action="{{route('pemohon.permohonan_pemohon.update',$permohonan_pemohon->id)}}"
+                    <form action="#"
                         enctype="multipart/form-data" method="POST">
                         @csrf
                         @method('put')
@@ -34,25 +34,11 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">Jenis Bangunan</label>
-                                        <select name="jenis_bangunan_id" id="" class="form-control">
-                                            <option value="">- pilih jenis bagunan -</option>
-                                            @foreach ($jenisBangunan as $d)
-                                            <option value="{{$d->id}}"
-                                                {{$d->id == $permohonan_pemohon->jenis_bangunan_id ? 'selected' : ''}}>
-                                                {{$d->nama_jenis}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md">
-                                    <div class="form-group">
                                         <label for="firstName">Kelurahan</label>
                                         <select name="kelurahan_id" id="" class="form-control" required>
                                             <option value="">- pilih kelurahans -</option>
                                             @foreach ($kelurahan as $d)
-                                            <option value="{{$d->id}}"
-                                                {{$d->id == $permohonan_pemohon->kelurahan_id ? 'selected' : ''}}>
+                                            <option value="{{$d->id}}">
                                                 {{$d->nama_kelurahan}}</option>
                                             @endforeach
                                         </select>
@@ -63,41 +49,41 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">No Fisik</label>
-                                        <input type="text" name="no_fisik" value="{{$permohonan_pemohon->no_fisik}}"
+                                        <input type="text" name="no_fisik" value=""
                                             class="form-control form-control-sm" placeholder="No Fisik" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">No Yuridis</label>
-                                        <input type="text" name="no_yuridis" value="{{$permohonan_pemohon->no_yuridis}}"
+                                        <input type="text" name="no_yuridis" value=""
                                             class="form-control form-control-sm" placeholder="No Yuridis" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">NIB</label>
-                                <input type="text" name="nib" value="{{$permohonan_pemohon->nib}}"
+                                <input type="text" name="nib" value=""
                                     class="form-control form-control-sm" placeholder="NIB" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Letak Tanah</label>
-                                <input type="text" name="letak_tanah" value="{{$permohonan_pemohon->letak_tanah}}"
+                                <input type="text" name="letak_tanah" value=""
                                     class="form-control form-control-sm" placeholder="Letak Tanah" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Dikuasai Awal</label>
-                                <input type="text" name="dikuasai_awal" value="{{$permohonan_pemohon->dikuasai_awal}}"
+                                <input type="text" name="dikuasai_awal" value=""
                                     class="form-control form-control-sm" placeholder="Dikuasai Awal" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Tahun</label>
-                                <input type="text" name="tahun" value="{{$permohonan_pemohon->tahun}}"
+                                <input type="text" name="tahun" value=""
                                     class="form-control form-control-sm" placeholder="Tahun" required>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">Dengan Dasar</label>
-                                <input type="text" name="dengan_dasar" value="{{$permohonan_pemohon->dengan_dasar}}"
+                                <input type="text" name="dengan_dasar" value=""
                                     class="form-control form-control-sm" placeholder="Dengan Dasar" required>
                             </div>
                             <div class="row">
@@ -105,7 +91,7 @@
                                     <div class="form-group">
                                         <label for="firstName">No Register</label>
                                         <input type="text" name="no_register"
-                                            value="{{$permohonan_pemohon->no_register}}"
+                                            value=""
                                             class="form-control form-control-sm" placeholder="No Register" required>
                                     </div>
                                 </div>
@@ -113,50 +99,70 @@
                                     <div class="form-group">
                                         <label for="firstName">Tanggal Register</label>
                                         <input type="date" name="tanggal_register"
-                                            value="{{$permohonan_pemohon->tanggal_register}}"
+                                            value=""
                                             class="form-control form-control-sm" placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="firstName">luas Tanah</label>
-                                <input type="text" name="luas_tanah" value="{{$permohonan_pemohon->luas_tanah}}"
+                                <input type="text" name="luas_tanah" value=""
                                     class="form-control form-control-sm" placeholder="Luas Tanah" required>
                             </div>
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">Surat Kuasa</label>
-                                        <input type="file" name="surat_kuasa"
-                                            value="{{$permohonan_pemohon->surat_kuasa}}"
-                                            class="form-control form-control-sm" placeholder="Nama Jabatan">
-                                        <small class="text-danger">isi jika ingin merubah file</small>
+                                        <label for="firstName">KK</label>
+                                        <input type="file" name="kk" class="form-control form-control-sm"
+                                            placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">KTP</label>
+                                        <label for="firstName">KTP</label> 
                                         <input type="file" name="ktp" class="form-control form-control-sm"
-                                            placeholder="Nama Jabatan">
-                                        <small class="text-danger">isi jika ingin merubah file</small>
+                                            placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">Segel Tanah / Sporadik ASM (Lurah)</label>
-                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
+                                        <label for="firstName">SKT / SPORADIK Asli</label>
+                                        <input type="file" name="skt" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                        <small class="text-danger">isi jika ingin merubah file</small>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">Keterangan Tanah (Camat)</label>
+                                        <label for="firstName">Segel Tanah / Sporadik ASM (Lurah)</label>
+                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
+                                            placeholder="Nama Jabatan" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="firstName">NPWP</label>
+                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
+                                            placeholder="Nama Jabatan" required>
+                                    </div>
+                                </div>
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="firstName">Riwayat Perolehan Tanah</label>
                                         <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
-                                        <small class="text-danger">isi jika ingin merubah file</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group">
+                                        <label for="firstName">SPPT PBB</label>
+                                        <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
+                                            placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                             </div>
@@ -175,4 +181,4 @@
         <script>
 
         </script>
-        @endsection
+        @endsections

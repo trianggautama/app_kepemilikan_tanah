@@ -85,24 +85,6 @@ class PermohonanPemohonController extends Controller
             $file->move('lampiran/permohonan', $file_name);
             $data->keterangan_tanah = $file_name;
         }
-        if ($request->file('sppt') != null) {
-
-            $file = $request->file('sppt');
-
-            $file_name = $file->getClientOriginalName();
-
-            $file->move('lampiran/permohonan', $file_name);
-            $data->sppt = $file_name;
-        }
-        if ($request->file('npwp') != null) {
-
-            $file = $request->file('npwp');
-
-            $file_name = $file->getClientOriginalName();
-
-            $file->move('lampiran/permohonan', $file_name);
-            $data->npwp = $file_name;
-        }
 
         $data->update();
 

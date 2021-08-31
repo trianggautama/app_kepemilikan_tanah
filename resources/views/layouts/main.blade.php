@@ -117,12 +117,22 @@
             <div class="sub-menu">
               <li class="">
                 <a class="sidenav-item-link" href="{{route('admin.permohonan.index')}}">
-                  <span class="nav-text">Data Permohonan</span>
+                  <span class="nav-text">Permohonan Sertifikat Bangunan</span>
                 </a>
               </li>
               <li class="">
                 <a class="sidenav-item-link" href="{{route('admin.permohonan.riwayat')}}">
-                  <span class="nav-text">Riwayat Permohonan</span>
+                  <span class="nav-text">Riwayat Sertifikat Bangunan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.permohonan_tanah.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Tanah</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{route('admin.permohonan_tanah.riwayat')}}">
+                  <span class="nav-text">Riwayat Sertifikat Tanah</span>
                 </a>
               </li>
               <!-- <li class="">
@@ -218,7 +228,13 @@
         <li class="has-sub ">
           <a class="sidenav-item-link" href="{{Route('pemohon.permohonan_pemohon.index')}}">
             <i class="fa fa-file-text"></i>
-            <span class="nav-text">Permohonan</span>
+            <span class="nav-text">Sertifikat Bangunan</span>
+          </a>
+        </li>
+        <li class="has-sub ">
+          <a class="sidenav-item-link" href="{{Route('pemohon.permohonan_tanah_pemohon.index')}}">
+            <i class="fa fa-file-text"></i>
+            <span class="nav-text">Sertifikat Tanah</span>
           </a>
         </li>
         @endif
@@ -235,10 +251,25 @@
           </a>
         </li>
         <li class="has-sub ">
-          <a class="sidenav-item-link" href="{{Route('peneliti.permohonan_peneliti.index')}}">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pemohonan"
+            aria-expanded="false" aria-controls="dashboard">
             <i class="fa fa-file-text"></i>
-            <span class="nav-text">Permohonan</span>
+            <span class="nav-text">Permohonan</span> <span class="fa fa-sort-down">
           </a>
+          <ul class="collapse " id="pemohonan" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('peneliti.permohonan_peneliti.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Bangunan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('peneliti.permohonan_tanah_peneliti.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Tanah</span>
+                </a>
+              </li>
+            </div>
+          </ul>
         </li>
         @endif
         @if(Auth::user()->role == 3)
@@ -254,10 +285,25 @@
           </a>
         </li>
         <li class="has-sub ">
-          <a class="sidenav-item-link" href="{{Route('ketua_peneliti.permohonan_ketua_peneliti.index')}}">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pemohonan"
+            aria-expanded="false" aria-controls="dashboard">
             <i class="fa fa-file-text"></i>
-            <span class="nav-text">Permohonan</span>
+            <span class="nav-text">Permohonan</span> <span class="fa fa-sort-down">
           </a>
+          <ul class="collapse " id="pemohonan" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('ketua_peneliti.permohonan_ketua_peneliti.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Bangunan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('ketua_peneliti.permohonan_tanah_ketua_peneliti.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Tanah</span>
+                </a>
+              </li>
+            </div>
+          </ul>
         </li>
         @endif
         @if(Auth::user()->role == 4)
@@ -273,10 +319,25 @@
           </a>
         </li>
         <li class="has-sub ">
-          <a class="sidenav-item-link" href="{{Route('kasi.permohonan_kasi.index')}}">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pemohonan"
+            aria-expanded="false" aria-controls="dashboard">
             <i class="fa fa-file-text"></i>
-            <span class="nav-text">Permohonan</span>
+            <span class="nav-text">Permohonan</span> <span class="fa fa-sort-down">
           </a>
+          <ul class="collapse " id="pemohonan" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('kasi.permohonan_kasi.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Bangunan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('kasi.permohonan_tanah_kasi.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Tanah</span>
+                </a>
+              </li>
+            </div>
+          </ul>
         </li>
         @endif
         @if(Auth::user()->role == 5)
@@ -292,10 +353,25 @@
           </a>
         </li>
         <li class="has-sub ">
-          <a class="sidenav-item-link" href="{{Route('kadis.permohonan_kadis.index')}}">
+          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pemohonan"
+            aria-expanded="false" aria-controls="dashboard">
             <i class="fa fa-file-text"></i>
-            <span class="nav-text">Permohonan</span>
+            <span class="nav-text">Permohonan</span> <span class="fa fa-sort-down">
           </a>
+          <ul class="collapse " id="pemohonan" data-parent="#sidebar-menu">
+            <div class="sub-menu">
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('kadis.permohonan_kadis.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Bangunan</span>
+                </a>
+              </li>
+              <li class="">
+                <a class="sidenav-item-link" href="{{Route('kadis.permohonan_tanah_kadis.index')}}">
+                  <span class="nav-text">Permohonan Sertifikat Tanah</span>
+                </a>
+              </li>
+            </div>
+          </ul>
         </li>
         @endif
         @if(Auth::user()->role == 6)

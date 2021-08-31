@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\PermohonanController;
+use App\Http\Controllers\PermohonanTanahController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,8 +34,10 @@ Route::group(['middleware' => ['admin']], function () {
         Route::resource('user', '\App\Http\Controllers\UserController');
         Route::resource('pemohon', '\App\Http\Controllers\PemohonController');
         Route::resource('permohonan', '\App\Http\Controllers\PermohonanController');
+        Route::resource('permohonan_tanah', '\App\Http\Controllers\PermohonanTanahController');
         Route::resource('peminjaman', '\App\Http\Controllers\PeminjamanController');
         Route::get('/riwayat/permohonan', [PermohonanController::class, 'riwayat'])->name('permohonan.riwayat'); 
+        Route::get('/riwayat/permohonan_tanah', [PermohonanTanahController::class, 'riwayat'])->name('permohonan_tanah.riwayat'); 
     });
 
 });
@@ -45,6 +48,7 @@ Route::group(['middleware' => ['pemohon']], function () {
         Route::get('/profil', [MainController::class, 'pemohon_profil'])->name('profil');
         Route::put('/profil/update/{id}', [MainController::class, 'pemohon_profil_update'])->name('profil.update');
         Route::resource('permohonan_pemohon', '\App\Http\Controllers\PermohonanPemohonController');
+        Route::resource('permohonan_tanah_pemohon', '\App\Http\Controllers\PermohonanTanahPemohonController');
     });
 });
 
@@ -53,6 +57,7 @@ Route::prefix('/peneliti')->name('peneliti.')->group(function () {
     Route::get('/profil', [MainController::class, 'peneliti_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'peneliti_profil_update'])->name('profil.update');
     Route::resource('permohonan_peneliti', '\App\Http\Controllers\PermohonanPenelitiController');
+    Route::resource('permohonan_tanah_peneliti', '\App\Http\Controllers\PermohonanTanahPenelitiController');
 });
 
 Route::prefix('/ketua_peneliti')->name('ketua_peneliti.')->group(function () {
@@ -60,6 +65,7 @@ Route::prefix('/ketua_peneliti')->name('ketua_peneliti.')->group(function () {
     Route::get('/profil', [MainController::class, 'ketua_peneliti_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'ketua_peneliti_profil_update'])->name('profil.update');
     Route::resource('permohonan_ketua_peneliti', '\App\Http\Controllers\PermohonanKetuaPenelitiController');
+    Route::resource('permohonan_tanah_ketua_peneliti', '\App\Http\Controllers\PermohonanTanahKetuaPenelitiController');
 });
 
 Route::prefix('/kasi')->name('kasi.')->group(function () {
@@ -67,6 +73,7 @@ Route::prefix('/kasi')->name('kasi.')->group(function () {
     Route::get('/profil', [MainController::class, 'kasi_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'kasi_profil_update'])->name('profil.update');
     Route::resource('permohonan_kasi', '\App\Http\Controllers\PermohonanKasiController');
+    Route::resource('permohonan_tanah_kasi', '\App\Http\Controllers\PermohonanTanahKasiController');
 });
 
 Route::prefix('/kadis')->name('kadis.')->group(function () {
@@ -74,6 +81,7 @@ Route::prefix('/kadis')->name('kadis.')->group(function () {
     Route::get('/profil', [MainController::class, 'kadis_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'kadis_profil_update'])->name('profil.update');
     Route::resource('permohonan_kadis', '\App\Http\Controllers\PermohonanKadisController');
+    Route::resource('permohonan_tanah_kadis', '\App\Http\Controllers\PermohonanTanahKadisController');
 });
 
 Route::prefix('/arsip')->name('arsip.')->group(function () {

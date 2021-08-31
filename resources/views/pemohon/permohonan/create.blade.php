@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Tambah Permohonan </h1>
+                <h1>Tambah Permohonan Sertifikat Bangunan</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Permohonan
+                            Permohonan Sertifikat Bangunan
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Tambah</li>
                     </ol>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">KTP</label>
+                                        <label for="firstName">KTP</label> 
                                         <input type="file" name="ktp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
@@ -144,22 +144,6 @@
                                     <div class="form-group">
                                         <label for="firstName">Keterangan Tanah (Camat)</label>
                                         <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
-                                            placeholder="Nama Jabatan" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="firstName">SPPT PBB</label>
-                                        <input type="file" name="sppt" class="form-control form-control-sm"
-                                            placeholder="Nama Jabatan" required>
-                                    </div>
-                                </div>
-                                <div class="col-md">
-                                    <div class="form-group">
-                                        <label for="firstName">NPWP</label>
-                                        <input type="file" name="npwp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>

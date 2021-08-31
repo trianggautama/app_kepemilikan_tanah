@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Permohonan</h1>
+                <h1>Permohonan Sertifikat Bangunan</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Permohonan
+                            Permohonan Sertifikat Bangunan
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Data</li>
                     </ol>

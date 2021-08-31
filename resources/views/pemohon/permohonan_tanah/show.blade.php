@@ -4,7 +4,7 @@
     <div class="content p-4">
         <div class="breadcrumb-wrapper d-flex justify-content-between align-items-center mb-0">
             <div>
-                <h1>Permohonan Sertifikat Bangunan</h1>
+                <h1>Permohonan</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb p-0">
                         <li class="breadcrumb-item">
@@ -13,13 +13,23 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item">
-                            Permohonan Sertifikat Bangunan
+                            Permohonan
                         </li>
                         <li class="breadcrumb-item" aria-current="page">Detail</li>
                     </ol>
                 </nav>
             </div>
             <div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="alert alert-success">
+                    <h5 class="mb-1">Informasi Pengambilan</h5>
+                    <p>Pengambilan sertifikat dapat langsung di ambil di kantor BPN Banjarbaru dengan membwa fotocoy
+                        lampiran fisik, jam pelayanan kantor buka setiap hari Senin - Jum'at
+                        Jam 09.00 - 13.00 , khusus hari jum'at pelayanan buka 08.00 - 10.00</p>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -32,13 +42,8 @@
                             aria-controls="nav-profile" aria-selected="false">Data Permohonan</a>
                         <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
                             aria-controls="nav-contact" aria-selected="false">Data Survei</a>
-                        @if($permohonan->status == 5)
-                        <a href="{{Route('admin.permohonan.riwayat')}}" class="nav-link"><i
+                        <a href="{{Route('pemohon.permohonan_tanah_pemohon.index')}}" class="nav-link"><i
                                 class="fa fa-arrow-left"></i> Kembali</a>
-                        @else
-                        <a href="{{Route('admin.permohonan.index')}}" class="nav-link"><i class="fa fa-arrow-left"></i>
-                            Kembali</a>
-                        @endif
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -46,23 +51,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        Data Pemohon
-                                    </div>
-                                    <div class="col-md text-right">
-                                        <a href="{{route('report.biodata_pemohon',$permohonan->user->id)}}"
-                                            class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
-                                            Biodata Pemohon</a>
-                                        @if($permohonan->status == 5)
-                                        <a href="{{route('report.riwayat_berkas',$permohonan->id)}}"
-                                            class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
-                                            Riwayat Perjalan Dokumen</a>
-                                        <a href="{{route('report.ba',$permohonan->id)}}" class="btn btn-sm btn-primary"
-                                            target="_blank"><i class="fa fa-print"></i> Serah Terima</a>
-                                        <a href="{{Route('report.sertifikat',$permohonan->id)}}"
-                                            class="btn btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
-                                            Sertifikat Kepemilikan Tanah</a>
-                                        @endif
+                                    <div class="col-md">
+                                        Data Permohonan
                                     </div>
                                 </div>
                             </div>
@@ -71,60 +61,69 @@
                                     <tr>
                                         <td width="20%">Nama</td>
                                         <td width="2%">:</td>
-                                        <td>{{$permohonan->user->nama}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Tempat, Tanggal lahir</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->user->tempat_lahir}},
-                                            {{carbon\carbon::parse($permohonan->user->tanggal_lahir)->translatedFormat('d F Y')}}
-
+                                        <td>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>KTP</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->ktp)}}" target="_blank"
-                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                        <td><a href=""
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
                                                 KTP</a></td>
                                     </tr>
                                     <tr>
-                                        <td>Surat Kuasa</td>
+                                        <td>KK</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->surat_kuasa)}}"
+                                        <td><a href=""
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
-                                                Surat Kuasa</a></td>
+                                                Kartu Keluarga</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKT / SPORADIK Asli</td>
+                                        <td>:</td>
+                                        <td><a href=""
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                    SKT / SPORADIK Asli</a></td>
                                     </tr>
                                     <tr>
                                         <td>Segel Tanah / Sporadik ASM (Lurah)</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->segel_tanah)}}"
+                                        <td><a href=""
                                                 target="_blank" class="btn btn-sm btn-success"><i
                                                     class="fa fa-paperclip"></i>
-                                                Segel Tanah / Sporadik ASM (Lurah)</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Keterangan Tanah (Camat)</td>
-                                        <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->keterangan_tanah)}}"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                Keterangan Tanah (Camat)</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>SPPT PBB</td>
-                                        <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->sppt)}}" target="_blank"
-                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
-                                                SPPT PBB</a></td>
+                                                    Segel Tanah / Sporadik ASM (Lurah)</a></td>
                                     </tr>
                                     <tr>
                                         <td>NPWP</td>
                                         <td>:</td>
-                                        <td><a href="{{url('lampiran/permohonan/'.$permohonan->npwp)}}" target="_blank"
-                                                class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
-                                                NPWP</a></td>
+                                        <td><a href=""
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                    NPWP</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Riwayat Perolehan Tanah</td>
+                                        <td>:</td>
+                                        <td><a href="s"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                Riwayat Perolehan Tanah</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SPPT PBB</td>
+                                        <td>:</td>
+                                        <td><a href="s"
+                                                target="_blank" class="btn btn-sm btn-success"><i
+                                                    class="fa fa-paperclip"></i>
+                                                SPPT PBB</a></td>
                                     </tr>
                                 </table>
                             </div>
@@ -133,121 +132,107 @@
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                         <div class="card">
                             <div class="card-header">
-                                <div class="row">
-                                    <div class="col-md">Data Permohonan Izin</div>
-                                    <div class="col-md text-right">
-                                        @if ($permohonan->status == 0)
-                                        <form action="{{route('admin.permohonan.update',$permohonan->id)}}"
-                                            method="POST">
-                                            @csrf
-                                            @method('put')
-                                            <input type="hidden" name="status" value="1" id="" required>
-                                            <button type="submit" class="btn btn-primary"><i
-                                                    class="fa fa-check"></i>Verifikasi
-                                                permohonan</button>
-                                        </form>
-                                        @endif
-                                    </div>
-                                </div>
+                                Data Permohonan Izin
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Jenis Bangunan</td>
                                         <td width="2%">:</td>
-                                        <td>{{$permohonan->jenis_bangunan->nama_jenis}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Kelurahan</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->kelurahan->nama_kelurahan}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>No fisik</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->no_fisik}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>No Yuridis</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->no_yuridis}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>NIB</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->nib}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Letak Tanah</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->letak_tanah}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Dikuasai Awal</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->dikuasai_awal}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Tahun</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->tahun}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Dikuasai Pemohon</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->dikuasai_awal}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Dengan Dasar</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->dengan_dasar}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Dasar</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->dengan_dasar}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>No Register</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->no_register}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal</td>
                                         <td>:</td>
-                                        <td>{{carbon\carbon::parse($permohonan->tanggal_register)->translatedFormat('d F Y')}}
+                                        <td>-
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Luas</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->luas_tanah}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            @switch($permohonan->status)
+                                            @switch(1)
                                             @case(0)
-                                            <div class="badge badge-warning">Verifikasi Admin</div>
+                                            <div class="badge badge-warning">Verifikasi ( Admin )</div>
                                             @break
                                             @case(1)
                                             <div class="badge badge-warning">Pelaksanaan Pengukuran dan Pemetaan
-                                                Kadastral</div>
+                                                Kadastral (Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(2)
                                             <div class="badge badge-warning">Verifikasi Kepala Survey, Seksi dan
-                                                Pemetaan</div>
+                                                Pemetaan (Ketua Peneliti / Petugas Lapangan)</div>
                                             @break
                                             @case(3)
                                             <div class="badge badge-warning">Verifikasi Sub Seksi Pemetaan Hak Tanah dan
-                                                Pemberdayaan Masyarakat</div>
+                                                Pemberdayaan Masyarakat (Kepala Seksi)</div>
                                             @break
                                             @case(4)
-                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan</div>
+                                            <div class="badge badge-warning">Verifikasi Kepala Kantor Pertanahan (Kepala
+                                                Kantor Pertanahan)</div>
                                             @break
                                             @default
-                                            <div class="badge badge-primary">Selesai Pengarsipan</div>
+                                            <div class="badge badge-primary">Pengarsipan</div>
                                             @endswitch
                                         </td>
                                     </tr>
@@ -263,27 +248,21 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                        @if($permohonan->survei)
-                                        <a href="{{Route('report.laporan_survei',$permohonan->survei->id)}}"
-                                            class="btn btn-sm btn-primary" target="__blank"><i class="fa fa-print"></i>
-                                            Laporan Hasil Survey</a>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                @if($permohonan->survei)
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>
-                                        <td>{{carbon\carbon::parse($permohonan->tanggal_survei)->translatedFormat('d F Y')}}
+                                        <td>-
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Petugas Survei</td>
                                         <td>:</td>
-                                        <td>{{$permohonan->survei->nama_petugas}}</td>
+                                        <td>-</td>
                                     </tr>
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
@@ -324,7 +303,7 @@
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>
-                                            <a href="{{asset('lampiran/'.$permohonan->survei->surat_ukur)}}"
+                                            <a href="#"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Surat Ukur</a>
                                         </td>
@@ -332,7 +311,7 @@
                                     <tr>
                                         <td>Gambar Denah</td>
                                         <td>:</td>
-                                        <td><a href="{{asset('lampiran/'.$permohonan->survei->gambar_denah)}}"
+                                        <td><a href="#"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Gambar Denah</a></td>
                                     </tr>
@@ -340,7 +319,7 @@
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            @switch($permohonan->status)
+                                            @switch(0)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi Admin</div>
                                             @break
@@ -362,13 +341,12 @@
                                             @break
                                             @default
                                             <div class="badge badge-primary">Pengarsipan</div>
+
                                             @endswitch
                                         </td>
                                     </tr>
                                 </table>
-                                @else
-                                <p>belum di input</p>
-                                @endif
+                               
                             </div>
                         </div>
                     </div>
