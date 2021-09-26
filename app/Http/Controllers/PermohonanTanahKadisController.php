@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermohonanTanah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PermohonanTanahKadisController extends Controller
@@ -13,7 +15,9 @@ class PermohonanTanahKadisController extends Controller
      */
     public function index()
     {
-        return view('kadis.permohonan_tanah.index');
+        $data = PermohonanTanah::whereStatus(4)->get();
+
+        return view('kadis.permohonan_tanah.index', compact('data'));
     }
 
     /**
@@ -45,7 +49,9 @@ class PermohonanTanahKadisController extends Controller
      */
     public function show($id)
     {
-        return view('kadis.permohonan_tanah.show');
+        $data = PermohonanTanah::findOrFail($id);
+
+        return view('kadis.permohonan_tanah.show', compact('data'));
     }
 
     /**
@@ -68,7 +74,15 @@ class PermohonanTanahKadisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = PermohonanTanah::findOrFail($id);
+        $input = $request->all();
+
+        $now = Carbon::now();
+        $input['verif_kadis'] = $now;
+        $permohonan->update($input);
+
+        return back()->withSuccess('Data berhasil diverifikasi');
+
     }
 
     /**

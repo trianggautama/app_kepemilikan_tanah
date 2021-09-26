@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermohonanTanah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PermohonanTanahController extends Controller
 {
@@ -13,8 +16,8 @@ class PermohonanTanahController extends Controller
      */
     public function index()
     {
-        $data = collect([]);
-        return view('admin.permohonan_tanah.index',compact('data'));
+        $data = PermohonanTanah::latest()->get();
+        return view('admin.permohonan_tanah.index', compact('data'));
     }
 
     /**
@@ -46,8 +49,8 @@ class PermohonanTanahController extends Controller
      */
     public function show($id)
     {
-        $data = collect([]);
-        return view('admin.permohonan_tanah.show',compact('data'));
+        $data = PermohonanTanah::findOrFail($id);
+        return view('admin.permohonan_tanah.show', compact('data'));
     }
 
     /**
@@ -70,7 +73,23 @@ class PermohonanTanahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = PermohonanTanah::findOrFail($id);
+        $role = Auth::user()->role;
+        switch ($role) {
+            case 1:
+                $input = $request->all();
+                $now = Carbon::now();
+                $input['verif_admin'] = $now;
+                $permohonan->update($input);
+
+                return back()->withSuccess('Data berhasil diverifikasi');
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
     }
 
     /**

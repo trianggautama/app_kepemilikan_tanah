@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-md">Tabel Data</div>
                             <div class="col-md">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <thead>
                                     <tr>
                                         <td>No</td>
-                                        <td>Jenis Bangunan</td>
+                                        {{-- <td>Jenis Bangunan</td> --}}
                                         <td>No Fisik</td>
                                         <td>No Yuridis</td>
                                         <td>Letak Tanah</td>
@@ -48,12 +48,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $d)
                                     <tr>
-                                        <td>1</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        {{-- <td>{{$d->jenis_bangunan->nama_jenis}}</td> --}}
+                                        <td>{{$d->no_fisik}}</td>
+                                        <td>{{$d->no_yuridis}}</td>
+                                        <td>{{$d->letak_tanah}}</td>
                                         <td>
                                             @switch(1)
                                             @case(0)
@@ -81,11 +82,12 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                                <a href="{{Route('peneliti.permohonan_tanah_peneliti.show',1)}}"
-                                                    class="btn btn-sm btn-info">
-                                                    <i class="fa fa-info-circle"></i> Detail</a>
+                                            <a href="{{Route('peneliti.permohonan_tanah_peneliti.show',$d->id)}}"
+                                                class="btn btn-sm btn-info">
+                                                <i class="fa fa-info-circle"></i> Detail</a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

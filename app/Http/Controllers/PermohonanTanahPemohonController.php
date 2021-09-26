@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kecamatan;
 use App\Models\Kelurahan;
+use App\Models\PermohonanTanah;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PermohonanTanahPemohonController extends Controller
 {
@@ -20,8 +22,8 @@ class PermohonanTanahPemohonController extends Controller
     }
     public function index()
     {
-        $data = collect([]);
-        return view('pemohon.permohonan_tanah.index',compact('data'));
+        $data = PermohonanTanah::whereUserId(Auth::id())->latest()->get();
+        return view('pemohon.permohonan_tanah.index', compact('data'));
     }
 
     /**
@@ -32,7 +34,7 @@ class PermohonanTanahPemohonController extends Controller
     public function create()
     {
         $kelurahan = $this->kelurahan;
-        return view('pemohon.permohonan_tanah.create',compact('kelurahan'));
+        return view('pemohon.permohonan_tanah.create', compact('kelurahan'));
     }
 
     /**
@@ -43,7 +45,85 @@ class PermohonanTanahPemohonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $req = $request->all();
+            $req['user_id'] = Auth::id();
+            $data = PermohonanTanah::create($req);
+
+            if ($request->file('kk') != null) {
+
+                $file = $request->file('kk');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->kk = $file_name;
+            }
+
+            if ($request->file('ktp') != null) {
+
+                $file = $request->file('ktp');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->ktp = $file_name;
+            }
+
+            if ($request->file('segel_tanah') != null) {
+
+                $file = $request->file('segel_tanah');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->segel_tanah = $file_name;
+            }
+            if ($request->file('skt') != null) {
+
+                $file = $request->file('skt');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->skt = $file_name;
+            }
+
+            if ($request->file('npwp') != null) {
+
+                $file = $request->file('npwp');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->npwp = $file_name;
+            }
+
+            if ($request->file('riwayat_peroleh_tanah') != null) {
+
+                $file = $request->file('riwayat_peroleh_tanah');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->riwayat_peroleh_tanah = $file_name;
+            }
+
+            if ($request->file('sppt') != null) {
+
+                $file = $request->file('sppt');
+
+                $file_name = $file->getClientOriginalName();
+
+                $file->move('lampiran/permohonan-tanah', $file_name);
+                $data->sppt = $file_name;
+            }
+
+            $data->update();
+
+            return redirect()->route('pemohon.permohonan_tanah_pemohon.index')->withSuccess('Permohonan berhasil disimpan');
+        }
+
     }
 
     /**
@@ -54,8 +134,8 @@ class PermohonanTanahPemohonController extends Controller
      */
     public function show($id)
     {
-        $data = collect([]);
-        return view('pemohon.permohonan_tanah.show',compact('data'));
+        $data = PermohonanTanah::findOrFail($id);
+        return view('pemohon.permohonan_tanah.show', compact('data'));
     }
 
     /**
@@ -67,7 +147,8 @@ class PermohonanTanahPemohonController extends Controller
     public function edit($id)
     {
         $kelurahan = $this->kelurahan;
-        return view('pemohon.permohonan_tanah.edit',compact('kelurahan'));
+        $data = PermohonanTanah::findOrFail($id);
+        return view('pemohon.permohonan_tanah.edit', compact('kelurahan', 'data'));
     }
 
     /**
@@ -79,7 +160,82 @@ class PermohonanTanahPemohonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = PermohonanTanah::findOrFail($id);
+        $data->update($request->all());
+
+        if ($request->file('kk') != null) {
+
+            $file = $request->file('kk');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->kk = $file_name;
+        }
+
+        if ($request->file('ktp') != null) {
+
+            $file = $request->file('ktp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->ktp = $file_name;
+        }
+
+        if ($request->file('segel_tanah') != null) {
+
+            $file = $request->file('segel_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->segel_tanah = $file_name;
+        }
+        if ($request->file('skt') != null) {
+
+            $file = $request->file('skt');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->skt = $file_name;
+        }
+
+        if ($request->file('npwp') != null) {
+
+            $file = $request->file('npwp');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->npwp = $file_name;
+        }
+
+        if ($request->file('riwayat_peroleh_tanah') != null) {
+
+            $file = $request->file('riwayat_peroleh_tanah');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->riwayat_peroleh_tanah = $file_name;
+        }
+
+        if ($request->file('sppt') != null) {
+
+            $file = $request->file('sppt');
+
+            $file_name = $file->getClientOriginalName();
+
+            $file->move('lampiran/permohonan-tanah', $file_name);
+            $data->sppt = $file_name;
+        }
+
+        $data->update();
+
+        return redirect()->route('pemohon.permohonan_tanah_pemohon.index')->withSuccess('Data berhasil diubah');
+
     }
 
     /**
@@ -90,6 +246,16 @@ class PermohonanTanahPemohonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = PermohonanTanah::FindOrFail($id);
+        try {
+            $permohonan_pemohon->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (QueryException $e) {
+
+            if ($e->getCode() == "23000") {
+                return back()->with('warning', 'Data gagal dihapus karna ada yang berelasi');
+            }
+        }
+
     }
 }

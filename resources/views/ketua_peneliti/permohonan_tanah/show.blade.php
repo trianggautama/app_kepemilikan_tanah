@@ -1,4 +1,4 @@
-@extends('layouts.main') 
+@extends('layouts.main')
 @section('content')
 <div class="content-wrapper">
     <div class="content p-4">
@@ -46,77 +46,70 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <table class="table table-striped">
-                                    <tr>
-                                        <td width="20%">Nama</td>
-                                        <td width="2%">:</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tempat, Tanggal lahir</td>
-                                        <td>:</td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>KTP</td>
-                                        <td>:</td>
-                                        <td><a href=""
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                KTP</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>KK</td>
-                                        <td>:</td>
-                                        <td><a href=""
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                Kartu Keluarga</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKT / SPORADIK Asli</td>
-                                        <td>:</td>
-                                        <td><a href=""
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                    SKT / SPORADIK Asli</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Segel Tanah / Sporadik ASM (Lurah)</td>
-                                        <td>:</td>
-                                        <td><a href=""
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                    Segel Tanah / Sporadik ASM (Lurah)</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>NPWP</td>
-                                        <td>:</td>
-                                        <td><a href=""
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                    NPWP</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Riwayat Perolehan Tanah</td>
-                                        <td>:</td>
-                                        <td><a href="s"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                Riwayat Perolehan Tanah</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>SPPT PBB</td>
-                                        <td>:</td>
-                                        <td><a href="s"
-                                                target="_blank" class="btn btn-sm btn-success"><i
-                                                    class="fa fa-paperclip"></i>
-                                                SPPT PBB</a></td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <table class="table table-striped">
+                                <tr>
+                                    <td width="20%">Nama</td>
+                                    <td width="2%">:</td>
+                                    <td>{{$data->user->nama}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tempat, Tanggal lahir</td>
+                                    <td>:</td>
+                                    <td>{{$data->user->tempat_lahir}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>KTP</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->ktp)}}" target="_blank"
+                                            class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                            KTP</a></td>
+                                </tr>
+                                <tr>
+                                    <td>KK</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->kk)}}" target="_blank"
+                                            class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                            Kartu Keluarga</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SKT / SPORADIK Asli</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->skt)}}" target="_blank"
+                                            class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                            SKT / SPORADIK Asli</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Segel Tanah / Sporadik ASM (Lurah)</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->segel_tanah)}}"
+                                            target="_blank" class="btn btn-sm btn-success"><i
+                                                class="fa fa-paperclip"></i>
+                                            Segel Tanah / Sporadik ASM (Lurah)</a></td>
+                                </tr>
+                                <tr>
+                                    <td>NPWP</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->npwp)}}" target="_blank"
+                                            class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                            NPWP</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Riwayat Perolehan Tanah</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->riwayat_peroleh_tanah)}}"
+                                            target="_blank" class="btn btn-sm btn-success"><i
+                                                class="fa fa-paperclip"></i>
+                                            Riwayat Perolehan Tanah</a></td>
+                                </tr>
+                                <tr>
+                                    <td>SPPT PBB</td>
+                                    <td>:</td>
+                                    <td><a href="{{asset('lampiran/permohonan-tanah/'.$data->sppt)}}" target="_blank"
+                                            class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
+                                            SPPT PBB</a></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -129,81 +122,76 @@
                             <div class="card-body">
                                 <table class="table table-striped">
                                     <tr>
-                                        <td width="20%">Jenis Bangunan</td>
-                                        <td width="2%">:</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
                                         <td>Kelurahan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->kelurahan->nama_kelurahan}}</td>
                                     </tr>
                                     <tr>
                                         <td>No fisik</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->no_fisik}}</td>
                                     </tr>
                                     <tr>
                                         <td>No Yuridis</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->no_yuridis}}</td>
                                     </tr>
                                     <tr>
                                         <td>NIB</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->nib}}</td>
                                     </tr>
                                     <tr>
                                         <td>Letak Tanah</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->letak_tanah}}</td>
                                     </tr>
                                     <tr>
                                         <td>Dikuasai Awal</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->dikuasai_awal}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tahun</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->tahun}}</td>
                                     </tr>
                                     <tr>
                                         <td>Dikuasai Pemohon</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->dikuasai_awal}}</td>
                                     </tr>
                                     <tr>
                                         <td>Dengan Dasar</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->dengan_dasar}}</td>
                                     </tr>
                                     <tr>
                                         <td>Dasar</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->dengan_dasar}}</td>
                                     </tr>
                                     <tr>
                                         <td>No Register</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->no_register}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tanggal</td>
                                         <td>:</td>
-                                        <td>-
+                                        <td>{{carbon\carbon::parse($data->tanggal_register)->translatedFormat('d F Y')}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Luas</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->luas_tanah}}</td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            @switch(1)
+                                            @switch($data->status)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi ( Admin )</div>
                                             @break
@@ -240,66 +228,77 @@
                                         Data Survei Lapangan
                                     </div>
                                     <div class="col-md text-right">
-                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
-                                            data-target="#modal-add-event">
-                                            <i class="fa fa-check-circle mr-1"></i> Verifikasi Data Survei
-                                        </button>
+                                        <div class="col-md text-right">
+                                            @if ($data->status == 2)
+                                            <form
+                                                action="{{route('ketua_peneliti.permohonan_tanah_ketua_peneliti.update',$data->id)}}"
+                                                method="POST">
+                                                @csrf
+                                                @method('put')
+                                                <input type="hidden" name="status" value="3" id="" required>
+                                                <button type="submit" class="btn btn-primary"><i
+                                                        class="fa fa-check-circle mr-1"></i> Verifikasi Data
+                                                    Survei</button>
+                                            </form>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
+                                @if($data->survei_tanah)
                                 <table class="table table-striped">
                                     <tr>
                                         <td width="20%">Tanggal Survei</td>
                                         <td width="2%">:</td>
-                                        <td>-
+                                        <td>{{carbon\carbon::parse($data->tanggal_survei)->translatedFormat('d F Y')}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Petugas Survei</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->nama_petugas}}</td>
                                     </tr>
                                     <tr>
                                         <td>Luas Bidang (m <sup>2</sup> )</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->luas_bidang}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kepekaan Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->kepekaan_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Tingkat Erosi</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->tingkat_erosi}}</td>
                                     </tr>
                                     <tr>
                                         <td>Drainase</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->drainase}}</td>
                                     </tr>
                                     <tr>
                                         <td>Kerikil / bebatuan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->kerikil}}</td>
                                     </tr>
                                     <tr>
                                         <td>Ancaman Banjir</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->ancaman_banjir}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Surat ukur</td>
+                                        <td>Lereng Permukaan</td>
                                         <td>:</td>
-                                        <td>-</td>
+                                        <td>{{$data->survei_tanah->lereng_permukaan}}</td>
                                     </tr>
                                     <tr>
                                         <td>Surat Ukur</td>
                                         <td>:</td>
                                         <td>
-                                            <a href="#"
+                                            <a href="{{asset('lampiran/'.$data->survei_tanah->surat_ukur)}}"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Surat Ukur</a>
                                         </td>
@@ -307,7 +306,7 @@
                                     <tr>
                                         <td>Gambar Denah</td>
                                         <td>:</td>
-                                        <td><a href="#"
+                                        <td><a href="{{asset('lampiran/'.$data->survei_tanah->gambar_denah)}}"
                                                 class="btn btn-sm btn-success"><i class="fa fa-paperclip"></i>
                                                 Gambar Denah</a></td>
                                     </tr>
@@ -315,7 +314,7 @@
                                         <td>Status</td>
                                         <td>:</td>
                                         <td>
-                                            @switch(0)
+                                            @switch($data->status)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi Admin</div>
                                             @break
@@ -342,7 +341,9 @@
                                         </td>
                                     </tr>
                                 </table>
-                               
+                                @else
+                                <p>belum di input</p>
+                                @endif
                             </div>
                         </div>
                     </div>

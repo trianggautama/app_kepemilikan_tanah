@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermohonanTanah;
+use App\Models\SurveiTanah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PermohonanTanahPenelitiController extends Controller
@@ -13,8 +16,9 @@ class PermohonanTanahPenelitiController extends Controller
      */
     public function index()
     {
-        $data = Collect([]);
-        return view('tim_peneliti.permohonan_tanah.index',compact('data'));
+        $data = PermohonanTanah::where('status', '>', '0')->get();
+
+        return view('tim_peneliti.permohonan_tanah.index', compact('data'));
     }
 
     /**
@@ -35,7 +39,51 @@ class PermohonanTanahPenelitiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $data = new SurveiTanah;
+            $data->permohonan_tanah_id = $request->permohonan_tanah_id;
+            $data->nama_petugas = $request->nama_petugas;
+            $data->tanggal_survei = $request->tanggal_survei;
+            $data->luas_bidang = $request->luas_bidang;
+            $data->lereng_permukaan = $request->lereng_permukaan;
+            $data->kepekaan_erosi = $request->kepekaan_erosi;
+            $data->tingkat_erosi = $request->tingkat_erosi;
+            $data->drainase = $request->drainase;
+            $data->kerikil = $request->kerikil;
+            $data->ancaman_banjir = $request->ancaman_banjir;
+
+            if (isset($request->surat_ukur)) {
+                $file = $request->file('surat_ukur');
+
+                $file_name = rand(100, 1000) . "_" . $file->getClientOriginalName();
+
+                $file->move('lampiran', $file_name);
+                $data->surat_ukur = $file_name;
+            }
+
+            if (isset($request->gambar_denah)) {
+                $file = $request->file('gambar_denah');
+
+                $file_name = rand(100, 1000) . "_" . $file->getClientOriginalName();
+
+                $file->move('lampiran', $file_name);
+                $data->gambar_denah = $file_name;
+            }
+
+            $data->save();
+
+            $permohonan = PermohonanTanah::findOrFail($request->permohonan_tanah_id);
+
+            $permohonan->status = 2;
+            $now = Carbon::now();
+            $permohonan->verif_tim = $now;
+
+            $permohonan->update();
+
+            return back()->withSuccess('Data berhasil disimpan');
+
+        }
+
     }
 
     /**
@@ -46,7 +94,8 @@ class PermohonanTanahPenelitiController extends Controller
      */
     public function show($id)
     {
-        return view('tim_peneliti.permohonan_tanah.show');
+        $data = PermohonanTanah::findOrFail($id);
+        return view('tim_peneliti.permohonan_tanah.show', compact('data'));
     }
 
     /**

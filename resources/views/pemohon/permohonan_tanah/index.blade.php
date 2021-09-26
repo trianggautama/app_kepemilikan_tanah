@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
                                         <td>No</td>
-                                        <td>Jenis Bangunan</td>
+                                        {{-- <td>Jenis Bangunan</td> --}}
                                         <td>No Fisik</td>
                                         <td>No Yuridis</td>
                                         <td>Letak Tanah</td>
@@ -49,14 +49,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $d)
                                     <tr>
-                                        <td>1</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        {{-- <td>{{$d->jenis_bangunan->nama_jenis}}</td> --}}
+                                        <td>{{$d->no_fisik}}</td>
+                                        <td>{{$d->no_yuridis}}</td>
+                                        <td>{{$d->letak_tanah}}</td>
                                         <td>
-                                            @switch(1)
+                                            @switch($d->status)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi Admin</div>
                                             @break
@@ -82,14 +83,14 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                            <form action="{{Route('pemohon.permohonan_tanah_pemohon.destroy',1)}}"
+                                            <form action="{{Route('pemohon.permohonan_tanah_pemohon.destroy',$d->id)}}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{Route('pemohon.permohonan_tanah_pemohon.show',1)}}"
+                                                <a href="{{Route('pemohon.permohonan_tanah_pemohon.show',$d->id)}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
-                                                <a href="{{Route('pemohon.permohonan_tanah_pemohon.edit',1)}}"
+                                                <a href="{{Route('pemohon.permohonan_tanah_pemohon.edit',$d->id)}}"
                                                     class="btn btn-sm btn-primary">
                                                     <i class="fa fa-edit"></i> Edit</a>
                                                 <button type="submit" class="btn btn-sm btn-danger"><i
@@ -97,6 +98,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

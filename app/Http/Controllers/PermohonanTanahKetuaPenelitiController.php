@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermohonanTanah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PermohonanTanahKetuaPenelitiController extends Controller
@@ -13,8 +15,9 @@ class PermohonanTanahKetuaPenelitiController extends Controller
      */
     public function index()
     {
-        $data = collect([]);
-        return view('ketua_peneliti.permohonan_tanah.index',compact('data'));
+        $data = PermohonanTanah::whereIn('status', [2, 3, 4])->get();
+
+        return view('ketua_peneliti.permohonan_tanah.index', compact('data'));
     }
 
     /**
@@ -46,8 +49,9 @@ class PermohonanTanahKetuaPenelitiController extends Controller
      */
     public function show($id)
     {
-        $data = collect([]);
-        return view('ketua_peneliti.permohonan_tanah.show',compact('data'));
+        $data = PermohonanTanah::findOrFail($id);
+
+        return view('ketua_peneliti.permohonan_tanah.show', compact('data'));
     }
 
     /**
@@ -70,7 +74,16 @@ class PermohonanTanahKetuaPenelitiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permohonan = PermohonanTanah::findOrFail($id);
+
+        $input = $request->all();
+
+        $now = Carbon::now();
+        $input['verif_ketua'] = $now;
+        $permohonan->update($input);
+
+        return back()->withSuccess('Data berhasil diverifikasi');
+
     }
 
     /**

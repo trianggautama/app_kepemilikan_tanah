@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="card">
-                    <form action="{{Route('pemohon.permohonan_pemohon.store')}}" enctype="multipart/form-data"
+                    <form action="{{Route('pemohon.permohonan_tanah_pemohon.store')}}" enctype="multipart/form-data"
                         method="POST">
                         @csrf
                         <div class="card-body">
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
-                                        <label for="firstName">KTP</label> 
+                                        <label for="firstName">KTP</label>
                                         <input type="file" name="ktp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
@@ -141,15 +141,15 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">NPWP</label>
-                                        <input type="file" name="segel_tanah" class="form-control form-control-sm"
+                                        <input type="file" name="npwp" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">Riwayat Perolehan Tanah</label>
-                                        <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
-                                            placeholder="Nama Jabatan" required>
+                                        <input type="file" name="riwayat_peroleh_tanah"
+                                            class="form-control form-control-sm" placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                                 <div class="col-md">
                                     <div class="form-group">
                                         <label for="firstName">SPPT PBB</label>
-                                        <input type="file" name="keterangan_tanah" class="form-control form-control-sm"
+                                        <input type="file" name="sppt" class="form-control form-control-sm"
                                             placeholder="Nama Jabatan" required>
                                     </div>
                                 </div>
