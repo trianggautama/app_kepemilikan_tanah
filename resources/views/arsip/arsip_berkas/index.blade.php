@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-header text-right">
                         <div class="row">
-                            <div class="col-md">Tabel Data</div>
+                            <div class="col-md">Tabel Data Permohonan Sertifikat Bangunan</div>
                             <div class="col-md">
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                 <div class="card">
                     <div class="card-header text-right">
                         <div class="row">
-                            <div class="col-md">Tabel Data</div>
+                            <div class="col-md">Tabel Data Permohonana Sertifikat Tanah</div>
                             <div class="col-md">
                             </div>
                         </div>
