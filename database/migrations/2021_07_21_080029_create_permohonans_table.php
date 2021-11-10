@@ -41,7 +41,6 @@ class CreatePermohonansTable extends Migration
             $table->date('verif_admin')->nullable();
             $table->date('verif_tim')->nullable();
             $table->date('verif_ketua')->nullable();
-            $table->date('verif_ketua')->nullable();
             $table->date('verif_kasi')->nullable();
             $table->date('verif_kadis')->nullable();
             $table->timestamps();

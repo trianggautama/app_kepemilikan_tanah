@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArsipBerkas;
 use App\Models\Permohonan;
+use App\Models\PermohonanTanah;
 use App\Models\Rak;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -17,10 +18,11 @@ class ArsipBerkasController extends Controller
      */
     public function index()
     {
-        $permohonan = Permohonan::where('status', 5)->latest()->get();
 
+        $permohonan         = Permohonan::where('status', 5)->latest()->get();
+        $permohonan_tanah   = PermohonanTanah::where('status', 5)->latest()->get();
         $rak = Rak::all();
-        return view('arsip.arsip_berkas.index', compact('permohonan', 'rak'));
+        return view('arsip.arsip_berkas.index', compact('permohonan_tanah','permohonan', 'rak'));
     }
 
     /**

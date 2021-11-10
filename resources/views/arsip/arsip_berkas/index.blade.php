@@ -91,6 +91,71 @@
                         </table>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-header text-right">
+                        <div class="row">
+                            <div class="col-md">Tabel Data</div>
+                            <div class="col-md">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="basic-data-table" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>No</td>
+                                    <td>Nama Pemohon / NIK</td>
+                                    <td>No Fisik</td>
+                                    <td>No Yuridis</td>
+                                    <td>Letak Tanah</td>
+                                    <td>Status Arsip</td>
+                                    <td>Tanggal Pengarsipan</td>
+                                    <td class="text-center">Aksi</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($permohonan_tanah as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->user->nama}} / {{$d->user->nip}}</td>
+                                    <td>{{$d->no_fisik}}</td>
+                                    <td>{{$d->no_yuridis}}</td>
+                                    <td>{{$d->letak_tanah}}</td>
+                                    <td> 
+                                        @isset($d->arsip_berkas)
+                                        <div class="badge badge-primary">Selesai Pengarsipan
+                                            ({{$d->arsip_berkas->rak->nama_rak}})</div>
+                                        @else
+                                        <div class="badge badge-warning">Data Arsip Belum di input</div>
+                                        @endisset
+                                    </td>
+                                    <td>@if($d->arsip_berkas)
+                                            {{Carbon\carbon::parse($d->arsip_berkas->created_at)->translatedFormat('d F Y')}}
+                                        @else
+                                        Belum di arsipkan
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <a href="{{Route('arsip.arsip_berkas.show',$d->id)}}"
+                                            class="btn btn-sm btn-info">
+                                            <i class="fa fa-info-circle"></i> Detail</a> -->
+                                        @isset($d->arsip_berkas)
+                                        -
+                                        @else
+
+                                        <button id="tambah" data-id="{{$d->id}}" data-nama="{{$d->user->nama}}"
+                                            data-fisik="{{$d->no_fisik}}" type="button" class="btn btn-sm btn-primary"
+                                            data-toggle="modal" data-target="#modal-add-event">
+                                            <i class="mdi mdi-plus mr-1"></i>Data Arsip
+                                        </button>
+                                        @endisset
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
