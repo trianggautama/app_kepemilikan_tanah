@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ArsipSertifikat;
 use App\Models\JenisBangunan;
 use App\Models\Kelurahan;
 use App\Models\PermohonanTanah;
@@ -43,5 +44,10 @@ class PermohonanTanah extends Model
     public function survei_tanah(): HasOne
     {
         return $this->hasOne(SurveiTanah::class);
+    }
+
+    public function arsip_sertifikat(): HasOne
+    {
+        return $this->hasOne(ArsipSertifikat::class);
     }
 }
