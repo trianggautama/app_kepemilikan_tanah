@@ -102,4 +102,10 @@ class PermohonanTanahController extends Controller
     {
         //
     }
+
+    public function riwayat()
+    {
+        $data = PermohonanTanah::where('status', 5)->latest()->get();
+        return view('admin.permohonan_tanah.riwayat', compact('data'));
+    }
 }
