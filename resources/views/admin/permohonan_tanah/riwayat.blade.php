@@ -46,12 +46,12 @@
                                     @foreach ($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$d->jenis_bangunan->nama_jenis}}</td>
+                                        {{-- <td>{{$d->jenis_bangunan->nama_jenis}}</td> --}}
                                         <td>{{$d->no_fisik}}</td>
                                         <td>{{$d->no_yuridis}}</td>
                                         <td>{{$d->letak_tanah}}</td>
                                         <td>
-                                            @switch($d->status)
+                                            @switch(1)
                                             @case(0)
                                             <div class="badge badge-warning">Verifikasi Admin</div>
                                             @break
@@ -77,9 +77,19 @@
                                             @endswitch
                                         </td>
                                         <td class="text-center">
-                                                <a href="{{Route('admin.permohonan.show',$d->id)}}"
+                                            <form action="{{Route('admin.permohonan_tanah.destroy',$d->id)}}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{Route('admin.permohonan_tanah.show',$d->id)}}"
                                                     class="btn btn-sm btn-info">
                                                     <i class="fa fa-info-circle"></i> Detail</a>
+                                                <a href="{{Route('admin.permohonan_tanah.edit',$d->id)}}"
+                                                    class="btn btn-sm btn-primary">
+                                                    <i class="fa fa-edit"></i> Edit</a>
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="fa fa-trash"></i> Hapus</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
