@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRegisterController;
+use App\Http\Requests\PostRegisterRequest;
 use App\Models\Jabatan;
 use App\Models\Pangkat;
 use App\Models\User;
@@ -42,7 +44,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRegisterRequest $request)
     {
         $req = $request->all();
         $req['password'] = Hash::make($request->password);
