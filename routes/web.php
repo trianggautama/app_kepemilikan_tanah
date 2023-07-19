@@ -81,7 +81,7 @@ Route::prefix('/kadis')->name('kadis.')->group(function () {
     Route::get('/profil', [MainController::class, 'kadis_profil'])->name('profil');
     Route::put('/profil/update/{id}', [MainController::class, 'kadis_profil_update'])->name('profil.update');
     Route::resource('permohonan_kadis', '\App\Http\Controllers\PermohonanKadisController');
-    Route::resource('permohonan_tanah_kadis', '\App\Http\Controllers\PermohonanTanahAKadisController');
+    Route::resource('permohonan_tanah_kadis', '\App\Http\Controllers\PermohonanTanahKadisController');
 });
 
 Route::prefix('/arsip')->name('arsip.')->group(function () {
