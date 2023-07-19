@@ -32,7 +32,7 @@
                             aria-controls="nav-profile" aria-selected="false">Data Permohonan</a>
                         <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
                             aria-controls="nav-contact" aria-selected="false">Data Survei</a>
-                        <a href="{{Route('pemohon.permohonan_tanah_pemohon.index')}}" class="nav-link"><i
+                        <a href="{{Route('peneliti.permohonan_tanah_pemohon.index')}}" class="nav-link"><i
                                 class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                 </nav>
